@@ -1,6 +1,6 @@
 # Proposals — Global-File Change Suggestions
 
-Agents (CEO + 3 Sub-Agents in `07_Claude_Code_Pulse_Orchestra`) write proposals here when they observe patterns that would benefit GLOBAL files. They MUST NOT directly edit these files:
+Agents (CEO + 3 Sub-Agents in `07_Morning_Brief_Orchestra`) write proposals here when they observe patterns that would benefit GLOBAL files. They MUST NOT directly edit these files:
 
 - `~/.claude/CLAUDE.md` — Global User-CLAUDE.md
 - `/Users/Claude/Documents/CLAUDE.md` — Project-wide CLAUDE.md
@@ -34,7 +34,7 @@ YYYY-MM-DD_<slug>.rejected.md        (User-rejected, archived state)
 title: <short title>
 target_file: ~/.claude/CLAUDE.md | Documents/CLAUDE.md | memory/<file>.md
 proposed_at: YYYY-MM-DD
-proposed_by: Claude_Code_Pulse_Orchestra (CEO | github_scraper | news_monitor | community_validator)
+proposed_by: Morning_Brief_Orchestra (CEO | github_scraper | news_monitor | community_validator)
 status: pending_user_review
 confidence: low | medium | high
 ---

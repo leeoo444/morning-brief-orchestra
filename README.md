@@ -1,6 +1,6 @@
-# Claude Code Pulse Orchestra — Cloud-Sync Repo
+# Morning Brief Orchestra — Cloud-Sync Repo
 
-Single-Source-of-Truth for [07_Claude_Code_Pulse_Orchestra](https://github.com/leeoo444/claude-code-pulse-orchestra). Both the Anthropic Cloud-Routine and local Manual-Triggers read+write here, so Self-Improvement-Layer accumulates across both.
+Single-Source-of-Truth for [07_Morning_Brief_Orchestra](https://github.com/leeoo444/morning-brief-orchestra). Both the Anthropic Cloud-Routine and local Manual-Triggers read+write here, so Self-Improvement-Layer accumulates across both.
 
 ## Why this repo exists
 
@@ -13,7 +13,7 @@ agents/              # Sub-Agent definitions (mirrored to ~/.claude/agents/<name
 learnings/           # ACE-style learnings (mirrored to ~/.claude/agents/learnings/<name>_learnings.md)
 ceo/CLAUDE.md        # CEO briefing (canonical SHARED rules — mirrored to 05_Orchestra/.../CLAUDE.md)
 ceo/learnings.md     # CEO cross-cutting observations
-briefs/              # Daily Morning-Briefs (mirrored to Vault/System/Claude_Code_Pulse/runs/)
+briefs/              # Daily Morning-Briefs (mirrored to Vault/System/Morning_Brief/runs/)
 ```
 
 ## Workflow
@@ -30,7 +30,7 @@ briefs/              # Daily Morning-Briefs (mirrored to Vault/System/Claude_Cod
 ### Local Manual-Trigger
 
 ```bash
-cd /Users/Claude/Documents/00_Claude/cloud-sync/pulse-orchestra
+cd /Users/Claude/Documents/00_Claude/cloud-sync/morning-brief-orchestra
 git pull --rebase origin main           # always-pull-first
 claude "execute claude code pulse daily run"   # uses files via symlinks
 git add -A && git commit -m "Local manual run YYYY-MM-DD" && git push
@@ -40,7 +40,7 @@ git add -A && git commit -m "Local manual run YYYY-MM-DD" && git push
 
 ```bash
 # Just keeps the repo-clone fresh with cloud-pushed updates
-cd /Users/Claude/Documents/00_Claude/cloud-sync/pulse-orchestra && git pull origin main
+cd /Users/Claude/Documents/00_Claude/cloud-sync/morning-brief-orchestra && git pull origin main
 ```
 
 ## Symlinks (1× setup)
@@ -48,15 +48,15 @@ cd /Users/Claude/Documents/00_Claude/cloud-sync/pulse-orchestra && git pull orig
 Local file-locations point HERE via symlink. Setup script:
 
 ```bash
-REPO=/Users/Claude/Documents/00_Claude/cloud-sync/pulse-orchestra
+REPO=/Users/Claude/Documents/00_Claude/cloud-sync/morning-brief-orchestra
 ln -sf $REPO/agents/github_pulse_scraper.md ~/.claude/agents/github_pulse_scraper.md
 ln -sf $REPO/agents/news_pulse_monitor.md ~/.claude/agents/news_pulse_monitor.md
 ln -sf $REPO/agents/community_validator.md ~/.claude/agents/community_validator.md
 ln -sf $REPO/learnings/github_pulse_scraper_learnings.md ~/.claude/agents/learnings/github_pulse_scraper_learnings.md
 ln -sf $REPO/learnings/news_pulse_monitor_learnings.md ~/.claude/agents/learnings/news_pulse_monitor_learnings.md
 ln -sf $REPO/learnings/community_validator_learnings.md ~/.claude/agents/learnings/community_validator_learnings.md
-ln -sf $REPO/ceo/CLAUDE.md /Users/Claude/Documents/05_Orchestra/07_Claude_Code_Pulse_Orchestra/CLAUDE.md
-ln -sf $REPO/ceo/learnings.md /Users/Claude/Documents/05_Orchestra/07_Claude_Code_Pulse_Orchestra/learnings.md
+ln -sf $REPO/ceo/CLAUDE.md /Users/Claude/Documents/05_Orchestra/07_Morning_Brief_Orchestra/CLAUDE.md
+ln -sf $REPO/ceo/learnings.md /Users/Claude/Documents/05_Orchestra/07_Morning_Brief_Orchestra/learnings.md
 # Vault briefs: per-day symlinks created at write-time, NOT folder-symlink (Vault rules)
 ```
 

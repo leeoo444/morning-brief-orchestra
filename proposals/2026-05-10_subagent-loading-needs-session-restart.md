@@ -2,7 +2,7 @@
 title: New subagent_type files in ~/.claude/agents/ need Claude session-restart to load
 target_file: ~/.claude/CLAUDE.md
 proposed_at: 2026-05-10
-proposed_by: Claude_Code_Pulse_Orchestra (CEO from Phase B github_scraper live-test)
+proposed_by: Morning_Brief_Orchestra (CEO from Phase B github_scraper live-test)
 status: pending_user_review
 confidence: low (1× observation, 2 more needed for 3× threshold)
 ---

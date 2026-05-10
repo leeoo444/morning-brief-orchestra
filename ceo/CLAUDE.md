@@ -1,4 +1,4 @@
-# CLAUDE.md — 07_Claude_Code_Pulse_Orchestra
+# CLAUDE.md — 07_Morning_Brief_Orchestra
 
 ## What
 
@@ -6,10 +6,10 @@
 - **Trigger:** /schedule cron `0 7 * * *` (daily 07:00 local) → fires CEO-Prompt = "execute claude code pulse daily run"
 - **Pipeline:** parallel dispatch (github_pulse_scraper + news_pulse_monitor) → trust-tier classification → community-validation for TIER-2 → cross-source dedup → write Vault Morning-Brief + Dashboard-feed
 - **Output Targets:**
-  - `Vault/System/Claude_Code_Pulse/runs/YYYY-MM-DD.md` (rendered Morning-Brief, TIER-1-only + community-upgraded TIER-2)
-  - `Vault/System/Claude_Code_Pulse/Claude_Code_Pulse_history.md` (1-line lifetime log entry)
-  - `Vault/System/Claude_Code_Pulse/Claude_Code_Pulse_index.md` (latest 7 days navigation, regenerated)
-  - `Vault/System/Claude_Code_Pulse/filtered_audit_YYYY-MM.md` (hidden audit, monthly rolling)
+  - `Vault/System/Morning_Brief/runs/YYYY-MM-DD.md` (rendered Morning-Brief, TIER-1-only + community-upgraded TIER-2)
+  - `Vault/System/Morning_Brief/Morning_Brief_history.md` (1-line lifetime log entry)
+  - `Vault/System/Morning_Brief/Morning_Brief_index.md` (latest 7 days navigation, regenerated)
+  - `Vault/System/Morning_Brief/filtered_audit_YYYY-MM.md` (hidden audit, monthly rolling)
   - `runs/YYYY-MM-DD/{github_raw.json, news_raw.json, tier_decisions.json, community_validations.json, final_brief.md}` (technical artifacts)
 - **Mode V1:** DRY-NO-CLONE — Agent NEVER clones any repo, NEVER downloads code; outputs reading-recommendations only. User decides manually whether to clone.
 - **Mode V2 (deferred):** Telegram-push for high-signal finds (Anthropic same-day releases)
@@ -33,7 +33,7 @@
 
 ### HARD RULE — TIER-1-Only in Output
 
-- Only TIER-1 SAFE (incl. community-validated TIER-2-upgrades) appears in `Vault/System/Claude_Code_Pulse/runs/YYYY-MM-DD.md` + Dashboard
+- Only TIER-1 SAFE (incl. community-validated TIER-2-upgrades) appears in `Vault/System/Morning_Brief/runs/YYYY-MM-DD.md` + Dashboard
 - TIER-2 (no community-data) + TIER-3 SKIP go to `filtered_audit_YYYY-MM.md` only — NEVER in Brief, NEVER in Dashboard
 - **Warum:** User-decision Q8 — eliminates Wurstkäscher-risk completely; everything in Brief is trust-vetted; user can clone any of them without nochmal-prüfen
 
@@ -74,7 +74,7 @@ CEO + Sub-Agents are **STRICTLY FORBIDDEN** from editing:
 
 When any learning would benefit a global file:
 
-1. Write a Proposal-Doc to `/Users/Claude/Documents/Vault/System/Claude_Code_Pulse/proposals/YYYY-MM-DD_<slug>.md`
+1. Write a Proposal-Doc to `/Users/Claude/Documents/Vault/System/Morning_Brief/proposals/YYYY-MM-DD_<slug>.md`
 2. Use this template:
 
 ```markdown
@@ -82,7 +82,7 @@ When any learning would benefit a global file:
 title: <short title>
 target_file: ~/.claude/CLAUDE.md | Documents/CLAUDE.md | memory/<file>.md
 proposed_at: YYYY-MM-DD
-proposed_by: Claude_Code_Pulse_Orchestra (CEO | github_scraper | news_monitor | community_validator)
+proposed_by: Morning_Brief_Orchestra (CEO | github_scraper | news_monitor | community_validator)
 status: pending_user_review
 confidence: low | medium | high (based on # of confirmations)
 ---
@@ -118,7 +118,7 @@ confidence: low | medium | high (based on # of confirmations)
 ## Daily-Run Workflow (CEO-Prompt executes this)
 
 0. **READ-LEARNINGS-FIRST (HARD-STEP):** Read all 4 learnings.md files BEFORE anything else:
-   - `/Users/Claude/Documents/05_Orchestra/07_Claude_Code_Pulse_Orchestra/learnings.md` (CEO learnings — own past observations)
+   - `/Users/Claude/Documents/05_Orchestra/07_Morning_Brief_Orchestra/learnings.md` (CEO learnings — own past observations)
    - `/Users/Claude/.claude/agents/learnings/github_pulse_scraper_learnings.md` (sub-agent prior runs, ACE-structured)
    - `/Users/Claude/.claude/agents/learnings/news_pulse_monitor_learnings.md` (ACE-structured)
    - `/Users/Claude/.claude/agents/learnings/community_validator_learnings.md` (ACE-structured)
@@ -138,14 +138,14 @@ confidence: low | medium | high (based on # of confirmations)
 7. **Cross-source dedup** (CEO scans github+news for same Event) → consolidate
 8. **Render final_brief.md** — Markdown per format spec below
 9. **Write Vault outputs:**
-   - `Vault/System/Claude_Code_Pulse/runs/YYYY-MM-DD.md` ← copy of final_brief.md
-   - Append 1-line to `Vault/System/Claude_Code_Pulse/Claude_Code_Pulse_history.md`: `- YYYY-MM-DD — Repos TIER-1: <n> · TIER-2-upgraded: <m> · News: <k> · See [run](runs/YYYY-MM-DD.md)`
-   - Append TIER-2/3 to `Vault/System/Claude_Code_Pulse/filtered_audit_YYYY-MM.md` (create file if new month)
-   - Regenerate `Vault/System/Claude_Code_Pulse/Claude_Code_Pulse_index.md` (latest 7 days bullets)
+   - `Vault/System/Morning_Brief/runs/YYYY-MM-DD.md` ← copy of final_brief.md
+   - Append 1-line to `Vault/System/Morning_Brief/Morning_Brief_history.md`: `- YYYY-MM-DD — Repos TIER-1: <n> · TIER-2-upgraded: <m> · News: <k> · See [run](runs/YYYY-MM-DD.md)`
+   - Append TIER-2/3 to `Vault/System/Morning_Brief/filtered_audit_YYYY-MM.md` (create file if new month)
+   - Regenerate `Vault/System/Morning_Brief/Morning_Brief_index.md` (latest 7 days bullets)
 10. **Dashboard polls** 60s, picks up automatically — no CEO-action needed
 11. **SELF-REFLECT-LAST (HARD-STEP):** Append to `learnings.md` (this folder) following the format-template — sections: Cross-Sub-Agent Patterns / Trust-Tier Distribution / Cross-Source Dedup Stats / Heuristic-Performance / Self-Reflection (CEO behavior) / Suggested Local-CLAUDE.md Improvements / Suggested Global-File Proposals / What Next-Run Should Do Differently
 12. **Self-Edit Trigger Check (HARD-STEP):** Review YOUR-OWN learnings.md for "Suggested Local-CLAUDE.md Improvements" entries with ≥3× confirmation across past runs. If qualify → edit THIS CLAUDE.md (own scope). Same check for sub-agent learnings.md → CEO may edit those sub-agent CLAUDE.md when stable. **NEVER touch global files — use Proposal-Doc pattern instead.**
-13. **Proposal-Doc Trigger Check (HARD-STEP):** Review learnings.md for "Suggested Global-File Proposals" entries with ≥2× confirmation. If qualify → write Proposal-Doc to `Vault/System/Claude_Code_Pulse/proposals/YYYY-MM-DD_<slug>.md` per template. Dashboard 7th Section will surface these for User-review.
+13. **Proposal-Doc Trigger Check (HARD-STEP):** Review learnings.md for "Suggested Global-File Proposals" entries with ≥2× confirmation. If qualify → write Proposal-Doc to `Vault/System/Morning_Brief/proposals/YYYY-MM-DD_<slug>.md` per template. Dashboard 7th Section will surface these for User-review.
 14. **Done** — log completion timestamp in `runs/YYYY-MM-DD/run_complete.txt`
 
 ## Trust-Tier Heuristic (deterministic)
@@ -182,7 +182,7 @@ def classify(repo):
 ## Final Brief Format
 
 ```markdown
-# Claude Code Pulse — YYYY-MM-DD
+# Morning Brief — YYYY-MM-DD
 
 ## Anthropic / Claude Code Releases
 - **<release-name>** (v<version>) — <one-line summary> · [Blog](<rss-link>) · [GitHub](<repo-link>) · [Tweet](<x-link>)

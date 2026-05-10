@@ -1,4 +1,4 @@
-# learnings.md — Claude Code Pulse CEO
+# learnings.md — Morning Brief CEO
 
 > Append-only. Every daily run appends CEO-level cross-cutting observations. Read at START of next run BEFORE dispatching sub-agents. When pattern stabilizes (≥3× confirmed) → propose CEO-CLAUDE.md update OR cross-orchestra observation goes into `~/.claude/projects/-Users-Claude-Documents/memory/` as a new memory-entry.
 
