@@ -106,7 +106,7 @@ last_curated: 2026-05-10
 
 ---
 
-## (no runs yet — first scheduled for 2026-05-11 07:00 OR manual via Phase B test)
+## (run-1 was 2026-05-10 Phase-B-test; run-2 is 2026-05-12 cloud daily run)
 
 ---
 
@@ -198,3 +198,43 @@ None significant — relevance-filter works (HN already filtered by query keywor
 9. Time-window: keep 24h cutoff at 2026-05-09T00:00:00Z (UTC) — confirmed correct for "today is 2026-05-10" mental model.
 10. For X-accounts: include latest tweet even if outside 24h window when `most_recent_tweet > 7 days old` would otherwise leave Tier-0 source empty.
 
+---
+
+## 2026-05-12 (run-2, cloud daily run)
+
+### Findings
+
+**Sources attempted and results:**
+- Anthropic News page → 403 Forbidden (WebFetch blocked in cloud run environment)
+- Claude Code Releases Atom → Reached via WebFetch: **1 entry** in 24h window (v2.1.139, May 11 18:43Z)
+- Anthropic Status `status.claude.com/history.atom` → 403 Forbidden
+- HN Algolia `search_by_date` → 403 Forbidden
+- Reddit → Not attempted (scrapling/stealthy_fetch not available in cloud run context)
+- WebSearch used as primary fallback: recovered all major news items successfully
+
+**Notable news captured:**
+- Claude Code v2.1.139: Agent View, /goal command, Hook improvements, MCP CLAUDE_PROJECT_DIR
+- Code with Claude 2026 SF conference (May 6): Multiagent Orchestration, Outcomes, Dreaming, Claude Finance
+- Higher usage limits (May 6): 2× Claude Code limits, SpaceX Colossus 1 deal (300MW, 220k GPUs)
+- Akamai $1.8B compute deal (May 8)
+- Claude for Microsoft 365
+- Cursor 3.3 (May 7): Parallel agents, PR review
+- Zed 1.0: Parallel agents, DeepSeek-V4 support
+
+**Total kept:** 9 items (after relevance filter from ~15 raw)
+
+### Edge-Cases Encountered
+
+1. **WebFetch 403 on multiple sources** — Anthropic /news, status.claude.com/history.atom, HN Algolia all blocked in cloud run. WebSearch is reliable fallback for major news.
+2. **Aider/Continue/Cline still dormant** — 2nd confirmation (run-1 + run-2). One more → retirement recommendation.
+
+### Suggested CLAUDE.md Improvements
+
+- **[2× obs — hold]** Aider/Continue/Cline dormant: second confirmation. Need 1 more run.
+- **[1× obs]** WebFetch 403 in cloud environment for several key sources. Cloud runs should default to WebSearch-first for news.
+
+### What Next-Run Should Do Differently
+
+1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
+2. Check scrapling tool availability at run start — document if absent
+3. Aider/Continue/Cline: 3rd confirmation → propose retirement

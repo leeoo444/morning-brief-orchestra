@@ -333,3 +333,62 @@ last_curated: 2026-05-10
 - Query-count: 4 (all run; ≥2 distinct community-domains threshold WAS met (5 domains) but 0-POSITIVE-keyword blocked upgrade)
 - Cumulative day: **4 TIER-2 validations, 0 upgrades** — pattern fully confirmed: all 4 repos were age<14d and failed for same cluster (zero independent third-party testimonials regardless of star-traction, ecosystem-amplification, or owner content-empire). Default-deny pattern strongly validated.
 - **Three CLAUDE.md improvements have now reached ≥3× confirmation today and are READY for next-run formal proposal:** (1) Q4 promotion to Q2-position (4×), (2) Q2 hackernews deprioritization for young repos (4×), (3) Q3 formal swap to owner-prefix form (4×). Plus aggregator-domain auto-exclusion at 3× confirmation also ready. CEO should review for application during reflect-step.
+
+---
+
+## 2026-05-12 (CEO-batch summary — run-2, cloud daily run)
+
+- Total TIER-2 repos validated: 5 (strukto-ai/mirage, NirDiamant/Agent_Memory_Techniques, alchaincyf/huashu-md-html, darkrishabh/agent-skills-eval, louisedesadeleer/clipify)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 5
+- Query-count: 1 per repo (single WebSearch call; Tavily not available in cloud run context)
+- **Pattern confirmed ×5:** All 5 repos age<14d → zero independent community testimonials. Default-deny correctly engaged for all.
+
+## 2026-05-12 repo=alchaincyf/huashu-md-html
+
+### Search-Results
+- Queries-run: 1 — `"alchaincyf/huashu-md-html" review reddit hackernews 2026`
+- Results: All returned results were for SIBLING REPO `alchaincyf/huashu-design` (different repo, same author)
+- Distinct non-owner domains for huashu-md-html: 0
+
+### Sentiment Distribution
+- positive: 0 · neutral: 0 · negative: 0 · no-data: 3 (all about huashu-design, not huashu-md-html)
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: Sibling-repo confound: search for huashu-md-html returned community data for alchaincyf/huashu-design (662 stars, positive reviews). Cannot use sibling-repo community data for a different repo. 0 distinct domains for the target repo itself. Default-deny.
+
+### New Edge-Case Observed
+- **Sibling-repo confound (NEW PATTERN):** When an owner maintains multiple related repos with similar names (huashu-design, huashu-md-html, huashu-*), searches for repo-B return results for repo-A. Prior occurrence: alvinunreal/openpets ↔ alvinunreal/claude-pets (2026-05-10, 1st obs). **Confirmation count: 2.** Hold for ≥3×. Mitigation: use full `"owner/exact-repo-name"` in ALL queries (no bare-name searches).
+
+### Suggested CLAUDE.md Improvements
+- **[2× obs]** Sibling-repo-confound pattern: require `"owner/repo-name"` exact form in ALL queries to prevent cross-contamination. Already implied by Q3-refinement but should be made explicit. Confirmation count: 2 (openpets + huashu-md-html). Hold for ≥3×.
+
+## 2026-05-12 repo=darkrishabh/agent-skills-eval
+
+### Search-Results
+- Queries-run: 1 — `"darkrishabh/agent-skills-eval" OR "agentskills.io" review reddit hackernews works`
+- Distinct non-owner domains: 0 (all results were GitHub pages + agentskills.io owner platform + Anthropic docs)
+
+### Sentiment Distribution
+- positive: 0 · neutral: 0 · negative: 0 · no-data: 3
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 distinct third-party community domains. Only owner-controlled results (GitHub + owner platform) + Anthropic official docs. Anthropic docs reference Agent Skills standard but are not community testimonials. Default-deny.
+
+### Edge-Case Noted
+- **Official-platform-as-community confound:** `platform.claude.com/docs/en/agents-and-tools/agent-skills/overview` appeared in results. Anthropic's own docs mention the Agent Skills standard but this is NOT community validation — it's the platform whose standard the tool implements. Filter: Anthropic official docs ≠ independent community endorsement.
+
+## 2026-05-12 repo=louisedesadeleer/clipify
+
+### Search-Results
+- Queries-run: 1 — `"louisedesadeleer/clipify" OR "clipify claude code skill" reddit hackernews 2026`
+- Distinct non-owner domains: 0
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: Only GitHub repo page found. Too new (7 days) for any community indexing. Default-deny.
+
+### Cross-run Note
+- mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.

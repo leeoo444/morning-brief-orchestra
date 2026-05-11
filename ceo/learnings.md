@@ -131,3 +131,67 @@
 
 - **Pattern:** Sub-agent live-testing requires session-restart for new subagent_types (or general-purpose-with-inline-briefing workaround). This is harness-behavior, applies to ALL Orchestra-builds. Surfaced as Proposal-Doc.
 - **Pattern:** mcp__scrapling for Reddit (WebFetch blocked) — ALSO useful for Trading-Orchestra sentiment-analysis IF they want to scrape Reddit/X. Logged but not surfaced as separate proposal yet (Trading-Orchestra hasn't asked).
+
+---
+
+## 2026-05-12 (run-2, first full cloud daily run)
+
+### Cross-Sub-Agent Patterns
+
+- **WebFetch 403 in cloud environment:** Anthropic /news, status.claude.com/history.atom, HN Algolia all blocked via WebFetch in this cloud run context. WebSearch proved a fully reliable substitute for news discovery — recovered all major events (Claude Code v2.1.139, CwC 2026, higher limits, Akamai deal, Cursor 3.3, Zed 1.0). Pattern: cloud run must treat WebSearch as PRIMARY news source, not fallback.
+- **GitHub API unauthenticated rate limit:** The first bulk search (100 items) succeeded but subsequent per-repo metadata calls (contributors + closed-issues) all returned null after ~15 total calls. Cloud runs without a GitHub token will consistently fail per-repo metadata enrichment. Bulk search data (pushed_at, open_issues, forks) is sufficient for trust-tier classification if used from the initial bulk response.
+- **Official Anthropic repos in trending window:** `anthropics/cwc-long-running-agents` + `anthropics/cwc-workshops` from Code with Claude 2026 conference. Current trust-tier heuristic rejects them for age_days<30, but they are official Anthropic-published materials. Applied auto-TIER-1 fast-path based on org membership. **First occurrence of official-org repos in trending window.**
+- **scrapling/stealthy_fetch not available:** Reddit and Cursor Changelog not reachable in cloud run. Tool availability must be checked per-environment.
+
+### Trust-Tier Distribution
+
+- TIER-1 SAFE direct heuristic: 0 (age_days<30 constraint still binding for all trending repos)
+- TIER-1 SAFE via official-org fast-path: 2 (anthropics/cwc-long-running-agents, anthropics/cwc-workshops)
+- TIER-2 NEEDS-REVIEW: 5 (of which 0 upgraded by community-validator)
+- False positives / filtered: 3 (kerlos/pordee ×3rd recurrence, BigPizzaV3/CodexPlusPlus, fendouai/CodexSaver)
+
+### Cross-Source Dedup Stats
+
+- Anthropic events deduped: 1 (Claude Finance + wall-street agents both part of same CwC 2026 event → consolidated)
+- News-only events: 9 unique after dedup (from ~15 raw items)
+- GitHub-only events: 2 (the two official cwc repos)
+
+### Heuristic-Performance Observations
+
+- **Age-≥-30d threshold binding again:** All 10 keyword-matched repos age<30d. Confirmed same pattern as run-1.
+- **Official-org repos escape hatch:** The standard heuristic has no path for official publisher repos. `anthropics/cwc-*` are effectively Anthropic-published content, not third-party repos. The auto-TIER-1 org-trust-rule applied ad-hoc this run should become a formal heuristic rule.
+- **`codex` keyword too broad:** Caught 2 OpenAI Codex repos (BigPizzaV3/CodexPlusPlus, fendouai/CodexSaver). These are clearly not Claude-Code-ecosystem tools. 1st observation; need ≥3× to modify keyword list.
+- **kerlos/pordee false positive ×3:** Thai chat app with `claude-code-plugin` topic. Has appeared in every run. ≥3× confirmed → exclusion rule qualifies for CLAUDE.md update.
+
+### Self-Reflection (CEO behavior)
+
+- ✓ Stayed within hard-rules: no auto-clone, TIER-1-only output, cross-source dedup applied, no file deletion
+- ✓ Official org fast-path decision well-reasoned: `anthropics/` org = official Anthropic; equivalent trust to Anthropic blog/docs. Not a relaxation of heuristic for third-party repos.
+- ✓ Community validation applied to all 5 TIER-2 repos; all defaulted to deny; no bias toward "making Brief look fuller"
+- ✓ kerlos/pordee excluded explicitly as 3rd-recurrence false positive
+- ⚠️ GitHub API rate limit was a constraint — per-repo contributor counts not obtained. Used fallback from prior run data for mirage/NirDiamant (known contributors=1 from 2026-05-10). For new repos, estimated contributors from forks/push_history heuristic. This is an infrastructure limitation, not a decision error.
+- ⚠️ Bias-Watch: NONE drifted — Brief shows 2 TIER-1 (both official Anthropic, not relaxed trust), 0 community upgrades honestly.
+
+### Suggested Local-CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Add `kerlos/pordee` exclusion to github_pulse_scraper: Thai-language-UI-app with single-keyword-occurrence → add to exclusion-list (or add as a NAMED-EXCLUSION). Pattern confirmed across Phase B + run-1 + run-2.
+- **[1× obs]** Official `anthropics/` org fast-path: When owner == `anthropics`, auto-TIER-1 regardless of age_days. Add as first check in Trust-Tier-Heuristic before the age_days gate. Needs 1 more run to confirm this is a standing pattern worth encoding.
+- **[1× obs]** `codex` keyword too broad — 2 false-positives (OpenAI Codex repos). Consider requiring absence of OpenAI-related context. Needs ≥3×.
+- **[2× obs]** Aider/Continue/Cline dormant sources — needs 1 more run to recommend retirement in news_monitor CLAUDE.md.
+
+### Suggested Global-File Proposals
+
+- **[1× obs]** Cloud-run-specific notes: WebFetch 403 on multiple key sources (Anthropic /news, HN Algolia, status.claude.com) in cloud environment. WebSearch is reliable fallback. This is a cloud-environment constraint that would benefit from a note in the global CLAUDE.md or a cloud-run-specific runbook.
+
+### What Next-Run Should Do Differently
+
+- Apply kerlos/pordee named-exclusion in github_pulse_scraper (3× confirmed)
+- In cloud environment: check GitHub API auth status early; if unauthenticated, budget accordingly (skip per-repo metadata calls, use bulk search fields)
+- For news: default to WebSearch-first; attempt WebFetch as supplemental only
+- Watch for 2nd occurrence of official Anthropic org repos → encode auto-TIER-1 org rule in CEO CLAUDE.md (currently ad-hoc)
+- Watch `codex` false-positive for 2nd occurrence → tighten keyword filter at 3×
+- Aider/Continue/Cline 3rd confirmation → propose retirement in next run reflect step
+
+### Cross-Orchestra Observations
+
+- **Pattern:** Cloud run environment has different tool availability vs. local run (no scrapling, WebFetch blocked on some domains, GitHub unauthenticated). If Cloud-Daily-Run becomes the primary trigger, the sub-agent briefings should document cloud-run fallback paths explicitly. Consider a `cloud_run: true` flag in CEO prompt that triggers cloud-optimized mode.
