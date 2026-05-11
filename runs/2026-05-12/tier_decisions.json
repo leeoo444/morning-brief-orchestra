@@ -1,0 +1,61 @@
+{
+  "run_date": "2026-05-12",
+  "classification_rule_version": "v1.0 + anthropics-org-fast-path",
+  "decisions": [
+    {
+      "repo": "anthropics/cwc-long-running-agents",
+      "tier": "TIER-1",
+      "reason": "Official anthropics/ org — auto-TIER-1. Stars>=100, license Apache-2.0, last_commit_days=6.",
+      "fast_path": "official_org"
+    },
+    {
+      "repo": "anthropics/cwc-workshops",
+      "tier": "TIER-1",
+      "reason": "Official anthropics/ org — auto-TIER-1. Stars=173, license Apache-2.0.",
+      "fast_path": "official_org"
+    },
+    {
+      "repo": "strukto-ai/mirage",
+      "tier": "TIER-2",
+      "reason": "stars=1922, age_days=6 <30, contributors=1 <2, closed_issues_ratio=0.25 <0.4. Previously validated 2026-05-10: 0 upgrades.",
+      "community_validation_needed": true,
+      "prior_validation": "2026-05-10"
+    },
+    {
+      "repo": "NirDiamant/Agent_Memory_Techniques",
+      "tier": "TIER-2",
+      "reason": "stars=278, age_days=7 <30, contributors=1 <2. Previously validated 2026-05-10: 0 upgrades.",
+      "community_validation_needed": true,
+      "prior_validation": "2026-05-10"
+    },
+    {
+      "repo": "alchaincyf/huashu-md-html",
+      "tier": "TIER-2",
+      "reason": "stars=430, age_days=3 <30. Community search returned sibling-repo data (huashu-design) not this repo. Default-deny.",
+      "community_validation_needed": true
+    },
+    {
+      "repo": "darkrishabh/agent-skills-eval",
+      "tier": "TIER-2",
+      "reason": "stars=413, age_days=6 <30. Only owner-controlled domains found. Default-deny.",
+      "community_validation_needed": true
+    },
+    {
+      "repo": "louisedesadeleer/clipify",
+      "tier": "TIER-2",
+      "reason": "stars=316, age_days=7 <30. Only GitHub repo page found. Default-deny.",
+      "community_validation_needed": true
+    },
+    {"repo": "kerlos/pordee", "tier": "FALSE-POSITIVE", "reason": "Thai UI app, 3rd recurrence."},
+    {"repo": "BigPizzaV3/CodexPlusPlus", "tier": "FALSE-POSITIVE", "reason": "OpenAI Codex tool."},
+    {"repo": "fendouai/CodexSaver", "tier": "FALSE-POSITIVE", "reason": "OpenAI Codex + DeepSeek."}
+  ],
+  "summary": {
+    "tier1_direct_heuristic": 0,
+    "tier1_official_org": 2,
+    "tier2_upgraded_community": 0,
+    "tier2_filtered": 5,
+    "false_positives": 3,
+    "total_keyword_matched": 10
+  }
+}

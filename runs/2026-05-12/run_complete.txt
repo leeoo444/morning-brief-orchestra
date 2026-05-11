@@ -1,0 +1,5 @@
+Run completed at 2026-05-11T22:15:10Z UTC
+JST date: 2026-05-12
+Brief: briefs/2026-05-12.md
+TIER-1 repos: 2 (official anthropics/ org)
+News items: 9

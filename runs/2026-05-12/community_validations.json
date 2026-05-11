@@ -1,0 +1,59 @@
+[
+  {
+    "repo": "strukto-ai/mirage",
+    "queries_run": ["reused 2026-05-10 validation"],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 6, "negative_count": 0, "no_data_count": 0, "distinct_domains": 6},
+    "upgrade_decision": false,
+    "reasoning": "Reused 2026-05-10 validation. Viral-young-repo: all mentions NEUTRAL. No new testimonials in 48h.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "NirDiamant/Agent_Memory_Techniques",
+    "queries_run": ["reused 2026-05-10 validation"],
+    "results_found": [],
+    "owner_self_excluded": ["diamantai.substack.com", "diamant-ai.com"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 2, "negative_count": 0, "no_data_count": 0, "distinct_domains": 1},
+    "upgrade_decision": false,
+    "reasoning": "Reused 2026-05-10 validation. Owner content-empire pattern. 0 POSITIVE keywords.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "alchaincyf/huashu-md-html",
+    "queries_run": ["\"alchaincyf/huashu-md-html\" review reddit hackernews works"],
+    "results_found": [
+      {"url": "https://github.com/alchaincyf/huashu-design/", "domain": "github.com", "title": "Huashu Design (SIBLING REPO)", "snippet": "Different repo by same author", "sentiment": "NO_DATA"},
+      {"url": "https://pasqualepillitteri.it/en/news/1161/huashu-design-claude-code-skill-chinese", "domain": "pasqualepillitteri.it", "title": "About huashu-design not huashu-md-html", "snippet": "Sibling repo", "sentiment": "NO_DATA"}
+    ],
+    "owner_self_excluded": ["github.com/alchaincyf/huashu-md-html"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 2, "distinct_domains": 0},
+    "upgrade_decision": false,
+    "reasoning": "Sibling-repo confound: all results about huashu-design, not huashu-md-html. 0 domains for target repo. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "darkrishabh/agent-skills-eval",
+    "queries_run": ["\"darkrishabh/agent-skills-eval\" OR \"agentskills.io\" review reddit hackernews works"],
+    "results_found": [
+      {"url": "https://github.com/darkrishabh/agent-skills-eval", "domain": "github.com", "title": "GitHub repo", "snippet": "Owner page", "sentiment": "NO_DATA"}
+    ],
+    "owner_self_excluded": ["github.com/darkrishabh", "agentskills.io"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 1, "distinct_domains": 0},
+    "upgrade_decision": false,
+    "reasoning": "0 distinct non-owner community domains. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "louisedesadeleer/clipify",
+    "queries_run": ["\"louisedesadeleer/clipify\" OR \"clipify claude code skill\" reddit hackernews 2026"],
+    "results_found": [
+      {"url": "https://github.com/louisedesadeleer/clipify", "domain": "github.com", "title": "GitHub repo", "snippet": "Owner page", "sentiment": "NO_DATA"}
+    ],
+    "owner_self_excluded": ["github.com/louisedesadeleer/clipify"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 1, "distinct_domains": 0},
+    "upgrade_decision": false,
+    "reasoning": "0 distinct non-owner community domains. Too new (7d) for indexing. Default-deny.",
+    "promotion_blurb_for_brief": null
+  }
+]

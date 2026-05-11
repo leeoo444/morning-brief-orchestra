@@ -1,0 +1,101 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.139",
+    "title": "Claude Code v2.1.139",
+    "summary": "Agent View (Research Preview): run 'claude agents' to see all sessions. /goal command: set completion conditions. /scroll-speed command. Hook: args[] field + continueOnBlock. MCP: CLAUDE_PROJECT_DIR env var. VS Code Cmd+Shift+T. 50+ bug fixes.",
+    "published_at": "2026-05-11T18:43:42Z",
+    "tags_or_keywords": ["claude-code", "release", "agent-view", "mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Events",
+    "source_url": "https://claude.com/code-with-claude",
+    "item_url": "https://claude.com/code-with-claude/san-francisco",
+    "title": "Code with Claude 2026 — Anthropic Developer Conference (San Francisco)",
+    "summary": "Announced: Multiagent Orchestration, Outcomes, Dreaming. Claude Finance: 10 pre-built agents for financial services.",
+    "published_at": "2026-05-06T00:00:00Z",
+    "tags_or_keywords": ["code-with-claude", "multiagent", "outcomes", "dreaming", "claude-finance"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Blog",
+    "source_url": "https://www.anthropic.com/news/higher-limits-spacex",
+    "item_url": "https://www.anthropic.com/news/higher-limits-spacex",
+    "title": "Higher Claude Code + API Usage Limits — SpaceX Colossus 1 Compute Deal",
+    "summary": "2x Claude Code 5-hour limits for Pro/Max/Team/Enterprise. Opus API Tier 1: +1500% input tokens/min. SpaceX Colossus 1: 300MW, 220k NVIDIA GPUs.",
+    "published_at": "2026-05-06T00:00:00Z",
+    "tags_or_keywords": ["rate-limits", "spacex", "compute", "claude-code"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Bloomberg",
+    "source_url": "https://www.bloomberg.com/news/articles/2026-05-08/anthropic-inks-1-8-billion-computing-deal-with-akamai",
+    "item_url": "https://www.bloomberg.com/news/articles/2026-05-08/anthropic-inks-1-8-billion-computing-deal-with-akamai",
+    "title": "Anthropic $1.8B Compute Deal with Akamai",
+    "summary": "Anthropic signed a $1.8 billion computing deal with Akamai Technologies.",
+    "published_at": "2026-05-08T00:00:00Z",
+    "tags_or_keywords": ["compute", "akamai", "infrastructure"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Fortune",
+    "source_url": "https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/",
+    "item_url": "https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/",
+    "title": "Anthropic Deepens Push into Wall Street — Financial Services Agents",
+    "summary": "10 ready-to-run agent templates for banks. Claude for Microsoft 365 (Excel, PowerPoint, Word, Outlook).",
+    "published_at": "2026-05-05T00:00:00Z",
+    "tags_or_keywords": ["claude-finance", "financial-services", "microsoft-365"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Cursor Changelog",
+    "source_url": "https://cursor.com/changelog",
+    "item_url": "https://cursor.com/changelog",
+    "title": "Cursor 3.3 — Parallel Agents + PR Review",
+    "summary": "'Build in Parallel': async subagents for independent plan parts. PR-split quick action. Pinnable skill quick-action pills. May 7, 2026.",
+    "published_at": "2026-05-07T00:00:00Z",
+    "tags_or_keywords": ["cursor", "parallel-agents", "pr-review"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Zed Release Notes",
+    "source_url": "https://zed.dev/releases/stable",
+    "item_url": "https://zed.dev/releases/stable",
+    "title": "Zed 1.0 Stable — Parallel Agents in Same Window",
+    "summary": "Multiple concurrent agents in same window. DeepSeek-V4-Pro/Flash support. Bookmarks, git:view commit, GIF in Markdown preview.",
+    "published_at": "2026-05-06T00:00:00Z",
+    "tags_or_keywords": ["zed", "parallel-agents", "deepseek"],
+    "engagement": {}
+  },
+  {
+    "source_type": "hn",
+    "source_name": "Hacker News",
+    "source_url": "https://news.ycombinator.com",
+    "item_url": "https://news.ycombinator.com/item?id=44312363",
+    "title": "Remote MCP Support in Claude Code",
+    "summary": "HN discussion on remote MCP server support in Claude Code.",
+    "published_at": "2026-05-11T00:00:00Z",
+    "tags_or_keywords": ["mcp", "claude-code", "remote-mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "hn",
+    "source_name": "Hacker News",
+    "source_url": "https://news.ycombinator.com",
+    "item_url": "https://news.ycombinator.com/item?id=47418076",
+    "title": "Show HN: Wombat — Unix-style rwxd permissions for MCP tool calls",
+    "summary": "Wombat applies Unix-style permissions to MCP tool calls in Claude Code.",
+    "published_at": "2026-05-10T00:00:00Z",
+    "tags_or_keywords": ["mcp", "claude-code", "permissions"],
+    "engagement": {}
+  }
+]
