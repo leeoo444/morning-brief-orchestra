@@ -1,0 +1,147 @@
+[
+  {
+    "repo": "alchaincyf/huashu-md-html",
+    "url": "https://github.com/alchaincyf/huashu-md-html",
+    "description": "md/html \u53cc\u5411\u6d41\u6c34\u7ebf \u00b7 \u4e09\u4e2a\u80fd\u529b\u4e00\u7ad9\u5f0f\uff1a\u4e07\u7269\u2192md / md\u2192\u7cbe\u7f8ehtml / html\u2192md\u3002\u5c01\u88c5 markitdown + Pandoc + html-to-markdown + trafilatura\u30024 \u5957\u53cd AI slop \u4e3b\u9898\u3002Claude Code skill.",
+    "language": "CSS",
+    "stars": 479,
+    "forks": 54,
+    "created_at": "2026-05-09T15:34:26Z",
+    "pushed_at": "2026-05-11T07:40:01Z",
+    "license": "MIT",
+    "topics": [],
+    "default_branch": "main",
+    "open_issues": 2,
+    "age_days": 4,
+    "last_commit_days": 2,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "claude"
+    ]
+  },
+  {
+    "repo": "HermannBjorgvin/Clawdmeter",
+    "url": "https://github.com/HermannBjorgvin/Clawdmeter",
+    "description": "ESP32 desk dashboard that shows Claude Code usage",
+    "language": "C",
+    "stars": 263,
+    "forks": 11,
+    "created_at": "2026-05-11T03:07:49Z",
+    "pushed_at": "2026-05-12T01:53:20Z",
+    "license": null,
+    "topics": [],
+    "default_branch": "main",
+    "open_issues": 0,
+    "age_days": 2,
+    "last_commit_days": 1,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "claude"
+    ]
+  },
+  {
+    "repo": "bidah/skill-set",
+    "url": "https://github.com/bidah/skill-set",
+    "description": "Collection of Claude Code skills",
+    "language": null,
+    "stars": 179,
+    "forks": 18,
+    "created_at": "2026-05-09T10:23:55Z",
+    "pushed_at": "2026-05-09T10:23:58Z",
+    "license": null,
+    "topics": [],
+    "default_branch": "main",
+    "open_issues": 0,
+    "age_days": 4,
+    "last_commit_days": 4,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "claude"
+    ]
+  },
+  {
+    "repo": "DenAB-NVS/submarine",
+    "url": "https://github.com/DenAB-NVS/submarine",
+    "description": "Sovereign, depth-adaptive AI memory. Open source. Local-first. Model-agnostic.",
+    "language": "JavaScript",
+    "stars": 166,
+    "forks": 13,
+    "created_at": "2026-05-07T23:25:46Z",
+    "pushed_at": "2026-05-07T23:25:55Z",
+    "license": "AGPL-3.0",
+    "topics": [
+      "ai-depth-module",
+      "ai-memory",
+      "autonomous-ai-memory",
+      "competitive-adaptive-ai",
+      "deep-ai-memory",
+      "local-first",
+      "model-agnostic",
+      "native-memory",
+      "personalized-ai-layer",
+      "personalized-ai-memory",
+      "self-hosted",
+      "sovereign-memory"
+    ],
+    "default_branch": "main",
+    "open_issues": 0,
+    "age_days": 6,
+    "last_commit_days": 6,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "zed"
+    ]
+  },
+  {
+    "repo": "ckpxgfnksd-max/uap-release-analyzer",
+    "url": "https://github.com/ckpxgfnksd-max/uap-release-analyzer",
+    "description": "A Claude skill for analyzing tranches of declassified UAP/UFO documents (war.gov PURSUE, FBI Vault, NARA, AARO). Inventory + text extraction + entity surfacing + standardized 11-section REPORT.md.",
+    "language": "Python",
+    "stars": 145,
+    "forks": 22,
+    "created_at": "2026-05-08T14:32:37Z",
+    "pushed_at": "2026-05-09T19:45:19Z",
+    "license": "MIT",
+    "topics": [],
+    "default_branch": "main",
+    "open_issues": 0,
+    "age_days": 5,
+    "last_commit_days": 4,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "claude"
+    ]
+  },
+  {
+    "repo": "nai0om/buddhist-method",
+    "url": "https://github.com/nai0om/buddhist-method",
+    "description": "Buddhist epistemic principles as Claude Code skill \u2014 anti-hallucination, root-cause debugging, steadiness under pressure",
+    "language": null,
+    "stars": 145,
+    "forks": 11,
+    "created_at": "2026-05-08T05:37:53Z",
+    "pushed_at": "2026-05-08T05:43:25Z",
+    "license": "MIT",
+    "topics": [],
+    "default_branch": "main",
+    "open_issues": 0,
+    "age_days": 5,
+    "last_commit_days": 5,
+    "closed_issues": null,
+    "closed_issues_ratio": 0.0,
+    "contributors": null,
+    "matched_keywords": [
+      "claude"
+    ]
+  }
+]

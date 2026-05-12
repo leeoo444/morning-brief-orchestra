@@ -1,0 +1,118 @@
+[
+  {
+    "repo": "alchaincyf/huashu-md-html",
+    "queries_run": [
+      "\"alchaincyf/huashu-md-html\" reddit hackernews 2026"
+    ],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 1,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "Second run-occurrence of this repo (first in run-2 2026-05-12). No community data found then or now (4d old). Default-deny confirmed.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "HermannBjorgvin/Clawdmeter",
+    "queries_run": [
+      "\"Clawdmeter\" claude works useful",
+      "\"HermannBjorgvin/Clawdmeter\" review reddit"
+    ],
+    "results_found": [
+      {
+        "url": "https://blog.adafruit.com/2026/05/12/making-a-claude-usage-display-with-clawdmeter/",
+        "domain": "blog.adafruit.com",
+        "title": "Making a Claude usage display with Clawdmeter",
+        "snippet": "ESP32-S3 AMOLED desk dashboard that monitors Claude Code token usage via BLE. Very neat.",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "url": "https://osrtos.com/projects/clawdmeter/",
+        "domain": "osrtos.com",
+        "title": "Clawdmeter - Open Source Embedded Project",
+        "snippet": "Open source ESP32 project listing on OSRTOS.",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [
+      "github.com/HermannBjorgvin/Clawdmeter"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 2,
+      "negative_count": 0,
+      "no_data_count": 0,
+      "distinct_domains": 2
+    },
+    "upgrade_decision": false,
+    "reasoning": "2 distinct third-party domains (blog.adafruit.com, osrtos.com) \u2014 meets \u22652 domain threshold but 0 POSITIVE keyword-matches (no 'works well'/'I tried this'/'useful'/'recommend'). Both are feature/listing coverage, not user-testimonials. Per upgrade rule: must be \u22652 domains AND all POSITIVE AND 0 NEGATIVE. NEUTRAL doesn't count. Default-deny. Notable: Adafruit coverage is strong signal for a 2d-old repo \u2014 worth flagging for re-validation at +14d.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "bidah/skill-set",
+    "queries_run": [
+      "\"bidah/skill-set\" OR \"claude code skills collection\" reddit hackernews"
+    ],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 1,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "No third-party community data found. 4d old, no license. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "ckpxgfnksd-max/uap-release-analyzer",
+    "queries_run": [
+      "\"ckpxgfnksd-max/uap-release-analyzer\" review reddit hackernews"
+    ],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 1,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "No community data found. Niche skill (UAP document analysis), 5d old. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "nai0om/buddhist-method",
+    "queries_run": [
+      "\"nai0om/buddhist-method\" OR \"buddhist method claude code skill\" reddit"
+    ],
+    "results_found": [
+      {
+        "url": "https://www.facebook.com/vibecodingthailand/posts/122112919593268442/",
+        "domain": "facebook.com",
+        "title": "Thai Facebook post about Buddhist Claude Code skill",
+        "snippet": "Thai Facebook page discussing the Buddhist epistemic principles Claude Code skill from nai0om. Informational post.",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 1,
+      "negative_count": 0,
+      "no_data_count": 0,
+      "distinct_domains": 1
+    },
+    "upgrade_decision": false,
+    "reasoning": "1 distinct third-party domain (facebook.com, Thai community page) \u2014 fails \u22652 distinct domains gate. Also 0 POSITIVE keyword-matches (announcement post only). Default-deny.",
+    "promotion_blurb_for_brief": null
+  }
+]

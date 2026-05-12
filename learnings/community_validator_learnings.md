@@ -392,3 +392,48 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-13 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 5
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 5
+- Query-count: 1-2 per repo (cloud run; limited tool availability)
+- **Pattern confirmed ×5 again:** All repos age≤5d → zero independent community testimonials. Default-deny correct for all.
+
+## 2026-05-13 repo=HermannBjorgvin/Clawdmeter (NOTABLE NEAR-MISS)
+
+### Search-Results
+- Queries-run: 2 — `"Clawdmeter" claude works useful review` + `"HermannBjorgvin/Clawdmeter" review reddit`
+- Distinct non-owner domains: 2 — blog.adafruit.com (feature post May 12 2026), osrtos.com (embedded project listing)
+
+### Sentiment Distribution
+- positive: 0 · neutral: 2 · negative: 0 · no-data: 0
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 2 distinct non-owner domains (meets ≥2 gate) BUT 0 POSITIVE keyword-matches. blog.adafruit.com featured the project with enthusiasm but text was descriptive/feature-announcement-style, not containing "works well" / "I tried this" / "useful" / "recommend" / "love this" / "great tool" / "I'm using this". osrtos.com is an embedded-project aggregator (NEUTRAL). Per upgrade-rule: must be ≥2 POSITIVE AND 0 NEGATIVE → NEUTRAL doesn't count. Default-deny.
+
+### New Edge-Cases
+
+- **Maker/hardware-community coverage pattern (NEW 1st obs):** Adafruit featured a 2d-old Claude Code hardware project. This is genuine third-party editorial coverage from a respected maker community site — but Adafruit blog posts are descriptive ("here's what it does") not testimonial ("I built this and it works great"). No POSITIVE keywords in Adafruit's standard feature-post language. **Candidate POSITIVE-keyword extension:** "features", "neat project", "check out" (Adafruit-style endorsement). Confirmation count: 1. Hold for ≥3×.
+- **Age-gate still binding even with Adafruit coverage:** 2d-old repo + Adafruit coverage = same result as 6d-old repo + 0 coverage. Time-gate wins.
+
+### Suggested CLAUDE.md Improvements
+- **[1× obs]** Adafruit blog posts use announcement language, not testimonial language. Current POSITIVE keyword list doesn't capture maker-community-endorsement style ("neat", "cool project", "features it on the blog"). Consider adding to watchlist. Hold for ≥3×.
+- **[1× obs]** Re-validation-at-14d concept: Clawdmeter at +14 days from creation (May 25) may have testimonials. CEO could maintain a TIER-2-watchlist of promising near-misses for auto-re-validation. Confirmation count: 1. Hold.
+
+## 2026-05-13 repo=alchaincyf/huashu-md-html (2nd validation, same repo as run-2)
+
+### Upgrade-Decision: false
+- reasoning: Second validation of same repo (first in run-2 2026-05-12, 1d ago). Still age=4d. No new community data. Pattern: re-validating the same repo 1 day apart is wasteful. Future runs should skip re-validation of repos validated within last 7 days.
+
+## 2026-05-13 repos=bidah/skill-set, ckpxgfnksd-max/uap-release-analyzer, nai0om/buddhist-method
+
+### Upgrade-Decision: false (all 3)
+- reasoning: All age≤5d, zero third-party community data found. nai0om/buddhist-method had 1 Thai Facebook post (NEUTRAL, 1 domain). Default-deny confirmed for all.
+
+### Cross-run Pattern (batch)
+- Cumulative 2026-05-13: **5 TIER-2 validations, 0 upgrades**. Now 14 consecutive TIER-2 validations across runs 1-3 (Phase-B + run-1: 4, run-2: 5, run-3: 5), 0 total upgrades. Default-deny pattern fully stable.

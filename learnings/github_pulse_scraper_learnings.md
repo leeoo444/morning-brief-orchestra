@@ -19,15 +19,29 @@ last_curated: 2026-05-12
   why: "2 of 7 repos in 2026-05-10 first-run had last_commit_days=-1 due to UTC midnight-anchor boundary"
 
 - insight_id: ins_002
-  insight: "Non-English-description repo with single keyword-occurrence is high-risk false-positive (Thai chat-app pattern)"
-  helpful_count: 0
+  insight: "kerlos/pordee exclusion applied (4× confirmed). Broader: non-English-description repo with single keyword-occurrence + exclusion-list = effective filter."
+  helpful_count: 3
   harmful_count: 0
-  last_applied: 2026-05-10
+  last_applied: 2026-05-13
   sources:
     - dispatch_2026-05-10_phase_b_first_run
+    - run_2026-05-10_run1
+    - run_2026-05-12_run2
+    - run_2026-05-13_run3
   ace_status: active
   added: 2026-05-10
-  why: "kerlos/pordee Thai-language chat-app keyword-matched 'claude-code' but is Claude-Code-USER not Claude-Code-TOOL — needs ≥3× confirmation before becoming exclusion-rule"
+  why: "kerlos/pordee appeared 4× and was correctly excluded via exclusion-list. Exclusion-list mechanism working as designed."
+
+- insight_id: ins_004
+  insight: "Keyword substring-collision: bare `kw in text` fails for keywords that are common English substrings (e.g. 'zed' in 'personalized'). Use word-boundary regex."
+  helpful_count: 0
+  harmful_count: 1
+  last_applied: null
+  sources:
+    - run_2026-05-13_run3
+  ace_status: active
+  added: 2026-05-13
+  why: "DenAB-NVS/submarine matched 'zed' keyword via 'personalized-ai-layer' topic substring. Fix: use re.search(r'\\bzed\\b', text, re.IGNORECASE) same as MCP word-boundary rule. Hold for ≥3× before CLAUDE.md edit."
 
 - insight_id: ins_003
   insight: "Strict TIER-1 heuristic + 7-day-trending-window are mutually exclusive — all young repos go TIER-2 by design"
@@ -156,3 +170,47 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-13 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** GitHub unauthenticated API returned 542 total matching repos (stars>20, created>2026-05-06), 100 fetched.
+- **Keyword-match Yield:** 7 matches (6 kept after exclusions). 6% signal rate.
+- **kerlos/pordee exclusion applied:** Repo appeared again (4th occurrence). Exclusion-list successfully blocked it — no manual review needed.
+- **New false-positive class: keyword-substring-collision:** `DenAB-NVS/submarine` matched keyword `zed` via substring in topic `personalized-ai-layer` ("personali**zed**"). This is a keyword-filter bug. `zed` as bare substring match on topics/names catches any word containing "zed" (e.g., "personalized", "customized"). **Fix needed:** use word-boundary check `\bzed\b` for the `zed` keyword, same as MCP rule.
+- **No official anthropics/ org repos in trending window** — unlike run-2 (cwc-long-running-agents, cwc-workshops). Zero new anthropics repos created this week.
+- **Notable repos found (all TIER-2):** HermannBjorgvin/Clawdmeter (ESP32 Claude Code usage dashboard — Adafruit-featured); bidah/skill-set (Claude Code skills collection); nai0om/buddhist-method (Buddhist epistemic principles as Claude Code skill).
+
+### Edge-Cases Encountered
+
+- **`zed` keyword substring-collision:** "personalized" contains "zed" → DenAB-NVS/submarine matched. Fix: word-boundary `\bzed\b`. **Confirmation count: 1.** Hold for ≥3×.
+- **GitHub API unauthenticated rate limit (3rd run confirmation):** Per-repo metadata calls not attempted (learned from run-2). Used bulk search fields only. Pattern fully confirmed.
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`kerlos/pordee`** ⭐(age unknown, same Thai chat-app) — 4th occurrence (Phase B + run-1 + run-2 + run-3). Exclusion-list applied correctly. No manual review.
+- **`DenAB-NVS/submarine`** — `zed` keyword-filter-bug (substring "personalized"). Excluded as FALSE_POSITIVE. **1st occurrence of this specific pattern.** Different from OpenAI-Codex false-positive class (run-2).
+
+### Tool-Call Issues
+
+- GitHub API unauthenticated — per-repo metadata (contributors, closed_issues) unavailable. Third confirmation; fully accounted for in pipeline.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** `kerlos/pordee` exclusion already in list since run-2 learning; working correctly.
+- **[1× obs]** `zed` keyword needs word-boundary: use `\bzed\b` regex instead of bare substring. Prevents "personalized", "customized" etc. matching. **Confirmation count: 1.** Hold for ≥3×.
+- **[2× obs]** `anthropics/` org fast-path not triggered this run (no new org repos). Still not ≥3× — hold.
+- **[3× obs — CARRY]** Unauthenticated GitHub rate-limit pattern confirmed ×3. This is a cloud-environment infrastructure fact; no heuristic change needed, but briefing could note "skip per-repo metadata in cloud runs."
+
+### What Next-Run Should Do Differently
+
+- Word-boundary `\bzed\b` for zed keyword (avoid substring false-positives).
+- Continue watching anthropics/ fast-path for 3rd occurrence.
+- Watch `codex` keyword false-positive (was 1st obs in run-2) — if another Codex-CLI/OpenAI repo appears, that's ×2.
+
+### Meta-Learning for Future Self
+
+- **Keyword substring-collision is a new false-positive class** (distinct from run-2's OpenAI-Codex false-positive class). The `zed` match bug hit "personalized" — an obvious fix. Always check word-boundary when keywords are common English substrings.

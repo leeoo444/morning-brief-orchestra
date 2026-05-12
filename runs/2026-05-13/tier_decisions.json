@@ -1,0 +1,86 @@
+[
+  {
+    "repo": "alchaincyf/huashu-md-html",
+    "url": "https://github.com/alchaincyf/huashu-md-html",
+    "stars": 479,
+    "age_days": 4,
+    "last_commit_days": 2,
+    "license": "MIT",
+    "tier": "NEEDS_REVIEW",
+    "reason": "stars=479, age=4d, last_commit=2d, license=MIT, contributors=None, closed_ratio=0.00",
+    "matched_keywords": [
+      "claude"
+    ],
+    "description": "md/html \u53cc\u5411\u6d41\u6c34\u7ebf \u00b7 \u4e09\u4e2a\u80fd\u529b\u4e00\u7ad9\u5f0f\uff1a\u4e07\u7269\u2192md / md\u2192\u7cbe\u7f8ehtml / html\u2192md\u3002\u5c01\u88c5 markitdown + Pandoc + html-to-markdown + trafilatura\u30024 \u5957\u53cd AI slop \u4e3b\u9898\u3002Claude Code skill."
+  },
+  {
+    "repo": "HermannBjorgvin/Clawdmeter",
+    "url": "https://github.com/HermannBjorgvin/Clawdmeter",
+    "stars": 263,
+    "age_days": 2,
+    "last_commit_days": 1,
+    "license": null,
+    "tier": "NEEDS_REVIEW",
+    "reason": "no-license + age=2d (<14d) \u2014 contributors unknown (rate-limit); potential SKIP if single-author confirmed",
+    "matched_keywords": [
+      "claude"
+    ],
+    "description": "ESP32 desk dashboard that shows Claude Code usage"
+  },
+  {
+    "repo": "bidah/skill-set",
+    "url": "https://github.com/bidah/skill-set",
+    "stars": 179,
+    "age_days": 4,
+    "last_commit_days": 4,
+    "license": null,
+    "tier": "NEEDS_REVIEW",
+    "reason": "no-license + age=4d (<14d) \u2014 contributors unknown (rate-limit); potential SKIP if single-author confirmed",
+    "matched_keywords": [
+      "claude"
+    ],
+    "description": "Collection of Claude Code skills"
+  },
+  {
+    "repo": "DenAB-NVS/submarine",
+    "url": "https://github.com/DenAB-NVS/submarine",
+    "stars": 166,
+    "age_days": 6,
+    "last_commit_days": 6,
+    "license": "AGPL-3.0",
+    "tier": "SKIP",
+    "reason": "FALSE_POSITIVE: keyword-filter-bug: 'zed' matched substring in 'personalized' topic",
+    "matched_keywords": [
+      "zed"
+    ],
+    "description": "Sovereign, depth-adaptive AI memory. Open source. Local-first. Model-agnostic."
+  },
+  {
+    "repo": "ckpxgfnksd-max/uap-release-analyzer",
+    "url": "https://github.com/ckpxgfnksd-max/uap-release-analyzer",
+    "stars": 145,
+    "age_days": 5,
+    "last_commit_days": 4,
+    "license": "MIT",
+    "tier": "NEEDS_REVIEW",
+    "reason": "stars=145, age=5d, last_commit=4d, license=MIT, contributors=None, closed_ratio=0.00",
+    "matched_keywords": [
+      "claude"
+    ],
+    "description": "A Claude skill for analyzing tranches of declassified UAP/UFO documents (war.gov PURSUE, FBI Vault, NARA, AARO). Inventory + text extraction + entity surfacing + standardized 11-section REPORT.md."
+  },
+  {
+    "repo": "nai0om/buddhist-method",
+    "url": "https://github.com/nai0om/buddhist-method",
+    "stars": 145,
+    "age_days": 5,
+    "last_commit_days": 5,
+    "license": "MIT",
+    "tier": "NEEDS_REVIEW",
+    "reason": "stars=145, age=5d, last_commit=5d, license=MIT, contributors=None, closed_ratio=0.00",
+    "matched_keywords": [
+      "claude"
+    ],
+    "description": "Buddhist epistemic principles as Claude Code skill \u2014 anti-hallucination, root-cause debugging, steadiness under pressure"
+  }
+]

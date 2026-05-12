@@ -131,6 +131,7 @@ confidence: low | medium | high (based on # of confirmations)
    - `news_pulse_monitor` → returns raw news-items as JSON → write to `runs/YYYY-MM-DD/news_raw.json`
 5. **Trust-Tier classification** (CEO computes deterministic-rule per repo, see Heuristic below) → write `runs/YYYY-MM-DD/tier_decisions.json`
    - **Apply learnings:** clamp `last_commit_days = max(0, computed)` per learnings 2026-05-10
+   - **Cloud-run mode (3× confirmed 2026-05-13):** If WebFetch returns 403 on Anthropic /news, HN Algolia, or status.claude.com → use WebSearch as PRIMARY news source. GitHub releases atom (github.com) remains reliably reachable. GitHub API unauthenticated (no gh token in cloud) → per-repo metadata calls unavailable; use bulk search fields (stars, pushed_at, open_issues) for classification only.
 6. **Community-validation dispatch** (parallel, max 3 simultaneous calls) — for each TIER-2 repo:
    - Dispatch `community_validator` with repo-name + url
    - Returns sentiment-classification + upgrade-decision

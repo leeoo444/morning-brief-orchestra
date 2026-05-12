@@ -1,0 +1,63 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases (GitHub Atom)",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.140",
+    "title": "Claude Code v2.1.140",
+    "summary": "Agent tool subagent_type matching is now case/separator-insensitive; /goal hang fixed when hooks disabled; settings hot-reload symlink regression fixed; background service startup improved for enterprise endpoint security.",
+    "published_at": "2026-05-12T21:09:45Z",
+    "tags_or_keywords": [
+      "claude-code",
+      "release",
+      "agent"
+    ],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Bloomberg",
+    "source_url": "https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation",
+    "item_url": "https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation",
+    "title": "Anthropic In Talks to Raise $30 Billion at $900 Billion Valuation",
+    "summary": "Anthropic is in early talks to raise at least $30B at a $900B+ valuation \u2014 its largest round yet. Round expected to close by end of May. No term sheet signed yet.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": [
+      "anthropic",
+      "funding",
+      "valuation"
+    ],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "TechCrunch",
+    "source_url": "https://techcrunch.com/2026/05/12/anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares/",
+    "item_url": "https://techcrunch.com/2026/05/12/anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares/",
+    "title": "Anthropic warns investors against secondary platforms offering access to its shares",
+    "summary": "Anthropic updated website to warn investors: Open Doors Partners, Unicorns Exchange, Forge Global (new), Hiive (new) and others are NOT authorized to provide access to buy/sell Anthropic shares.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": [
+      "anthropic",
+      "investors",
+      "shares"
+    ],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Adafruit Blog",
+    "source_url": "https://blog.adafruit.com/2026/05/12/making-a-claude-usage-display-with-clawdmeter/",
+    "item_url": "https://blog.adafruit.com/2026/05/12/making-a-claude-usage-display-with-clawdmeter/",
+    "title": "Making a Claude usage display with Clawdmeter (HermannBjorgvin/Clawdmeter featured)",
+    "summary": "Adafruit featured Clawdmeter: ESP32-S3 desk dashboard monitoring Claude Code token usage on AMOLED screen. BLE to host daemon; left button = voice push-to-talk; right button = mode toggle.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": [
+      "claude-code",
+      "hardware",
+      "esp32",
+      "maker"
+    ],
+    "engagement": {}
+  }
+]
