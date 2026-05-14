@@ -66,9 +66,9 @@ Per-source-error format: `{"source_name": "...", "error": "...", "items": []}` (
    - Anthropic Status Atom: `WebFetch https://status.claude.com/history.atom` (NOT status.anthropic.com — 302→canonical)
    - @AnthropicAI X via nitter: `mcp__scrapling__stealthy_fetch https://nitter.net/AnthropicAI`
 6. **Tier-1 fetch (Coding-AI competitors):**
-   - Cline: `WebFetch https://github.com/cline/cline/releases.atom`
-   - Aider: `WebFetch https://github.com/Aider-AI/aider/releases.atom`
-   - Continue: `WebFetch https://github.com/continuedev/continue/releases.atom`
+   - Cline: `WebFetch https://github.com/cline/cline/releases.atom` + Cline Blog `WebSearch cline sdk release 2026` (active — shipped Cline SDK May 2026)
+   - ~~Aider: `WebFetch https://github.com/Aider-AI/aider/releases.atom`~~ **[RETIRED 2026-05-15: dormant since Feb 2026, 3× confirmed across run-1/run-2/run-3]**
+   - ~~Continue: `WebFetch https://github.com/continuedev/continue/releases.atom`~~ **[RETIRED 2026-05-15: dormant since Mar 2026, 3× confirmed across run-1/run-2/run-3]**
    - Cody (Sourcegraph): `WebFetch https://sourcegraph.com/blog/rss.xml`
    - Codex CLI: `WebFetch https://github.com/openai/codex/releases.atom`
    - Zed: `WebFetch https://zed.dev/blog/feed.xml`

@@ -238,3 +238,43 @@ None significant — relevance-filter works (HN already filtered by query keywor
 1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
 2. Check scrapling tool availability at run start — document if absent
 3. Aider/Continue/Cline: 3rd confirmation → propose retirement
+
+---
+
+## 2026-05-15 (run-3, cloud daily run)
+
+### Findings
+
+**Sources and results:**
+- Claude Code Releases Atom → WebFetch: **3 entries** (v2.1.139 May 11, v2.1.140 May 12, v2.1.141 May 13)
+- Anthropic Blog → WebSearch (primary): **2 entries** (Claude for Small Business May 14, Amazon 5GW deal May 13)
+- Bloomberg → WebSearch: **1 entry** ($30B fundraise at $900B valuation, May 12)
+- Cline Blog → WebSearch: **1 entry** (Cline SDK release ~May 13)
+- Cursor security → WebSearch: **1 entry** (Cursor 2.5 security patch)
+- Zed: no new releases since v1.0 (Apr 29) — outside 24h window
+- Aider: still dormant (no May 2026 releases found)
+- Continue: still dormant (no May 2026 releases found)
+- Reddit + HN: not attempted (scrapling not available; WebSearch did not surface specific 24h-window Reddit/HN threads about Claude Code or MCP)
+
+**Total kept in news_raw.json:** 8 items (3 Claude Code releases, 5 news items)
+
+**Notable:**
+- Cline SDK announced: breaks 2-run dormancy pattern for Cline. Cline was in major SDK rebuild, not dormant.
+- Claude for Small Business launched May 14 — significant product launch for Claude commercial expansion.
+- Anthropic $30B fundraise — massive business news.
+
+### Edge-Cases Encountered
+
+1. **Cline dormancy BROKEN:** Cline shipped `@cline/sdk` in this period. Previous "dormancy" (run-1: v3.82.0 May 1 only; run-2: no entries) was pre-SDK-launch quiet. Lesson: check project blog/social for "rebuilding" signals before declaring source retirement. Retirement proposal for Cline should NOT proceed.
+2. **WebFetch 403 confirmed again:** Anthropic /news and status.claude.com blocked. Pattern: 3rd confirmation for cloud environment → WebSearch-first rule firmly established.
+
+### Suggested CLAUDE.md Improvements
+
+- **[3× obs — READY]** Aider + Continue dormant: 3rd confirmation. Both have had zero releases across run-1 (May 10), run-2 (May 12), run-3 (May 15) windows. Retirement from daily Tier-1 news sources is now justified. Cline STAYS (active — SDK release).
+- **[2× obs — hold]** WebFetch 403 in cloud environment: 2nd confirmation (run-2 + run-3). Cloud-run fallback to WebSearch-first for news sources is now the established pattern. CLAUDE.md update candidate for cloud-run note.
+
+### What Next-Run Should Do Differently
+
+1. Apply Aider + Continue retirement (3× confirmed). Keep Cline as active source.
+2. Cloud environment: WebSearch-first remains the working pattern.
+3. Watch for Cline SDK community reception in news — may generate HN/Reddit threads.

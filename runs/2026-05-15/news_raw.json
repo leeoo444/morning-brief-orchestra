@@ -1,0 +1,90 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.141",
+    "title": "Claude Code v2.1.141",
+    "summary": "terminalSequence field in hook JSON for desktop notifications/window titles; CLAUDE_CODE_PLUGIN_PREFER_HTTPS for HTTPS plugin cloning; ANTHROPIC_WORKSPACE_ID env var; claude agents --cwd; amber spinner after 10s; 40+ bug fixes",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "hooks", "plugins"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.140",
+    "title": "Claude Code v2.1.140",
+    "summary": "Improved Agent tool subagent_type matching (case- and separator-insensitive); updated agent color palette; fixed /goal hanging when disableAllHooks set; fixed background service startup on enterprise endpoint security machines",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "agents", "subagent"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.139",
+    "title": "Claude Code v2.1.139",
+    "summary": "Agent View (Research Preview): claude agents command for unified session list; /goal command for completion conditions; /scroll-speed; claude plugin details; transcript navigation (?, {} shortcuts); hook args field; continueOnBlock for PostToolUse; 50+ fixes",
+    "published_at": "2026-05-11T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "agent-view", "goal", "hooks"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Blog",
+    "source_url": "https://www.anthropic.com/news/claude-for-small-business",
+    "item_url": "https://www.anthropic.com/news/claude-for-small-business",
+    "title": "Introducing Claude for Small Business",
+    "summary": "15 ready-made agentic workflows; connectors for QuickBooks, PayPal, HubSpot, Canva, DocuSign, Google Workspace, Microsoft 365. Road tour starting May 14 Chicago — free half-day AI fluency workshop for 100 SMB leaders per stop",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "claude", "small-business", "smb"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Blog",
+    "source_url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+    "item_url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+    "title": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+    "summary": "Anthropic and Amazon expand compute partnership to secure up to 5 gigawatts of capacity for training and deploying Claude models. Largest compute deal in Anthropic history.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "amazon", "aws", "compute", "infrastructure"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Bloomberg",
+    "source_url": "https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation",
+    "item_url": "https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation",
+    "title": "Anthropic in Talks to Raise $30 Billion at $900 Billion Valuation",
+    "summary": "Anthropic is in early talks with investors to raise at least $30 billion in fresh financing at a valuation of more than $900 billion. Company's run-rate revenue has surpassed $30 billion.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "funding", "valuation"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Cline Blog",
+    "source_url": "https://cline.bot/blog/introducing-cline-sdk-the-upgraded-agent-runtime",
+    "item_url": "https://cline.bot/blog/introducing-cline-sdk-the-upgraded-agent-runtime",
+    "title": "Introducing Cline SDK: the upgraded agent runtime",
+    "summary": "@cline/sdk open-source agent runtime rebuilt from scratch, powers all Cline surfaces; available for teams to build on. 7M+ developer install base migrating to SDK. CLI and Kanban already on SDK; VS Code and JetBrains in migration.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["cline", "sdk", "agent-runtime", "open-source"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Security Community",
+    "source_url": "https://www.promptzone.com/marcus_webb_87b5a26c/cursor-vs-windsurf-vs-zed-may-2026-verified-pricing-features-and-what-cognition-did-with-1d48",
+    "item_url": "https://www.promptzone.com/marcus_webb_87b5a26c/cursor-vs-windsurf-vs-zed-may-2026-verified-pricing-features-and-what-cognition-did-with-1d48",
+    "title": "Cursor 2.5 security vulnerability patched — arbitrary code execution via Git repos",
+    "summary": "A flaw in Cursor has been fixed in version 2.5. The vulnerability allowed arbitrary code execution through maliciously crafted Git repositories. No public signs of in-the-wild exploitation.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["cursor", "security", "vulnerability", "patch"],
+    "engagement": {}
+  }
+]

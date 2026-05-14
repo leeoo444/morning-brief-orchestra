@@ -195,3 +195,70 @@
 ### Cross-Orchestra Observations
 
 - **Pattern:** Cloud run environment has different tool availability vs. local run (no scrapling, WebFetch blocked on some domains, GitHub unauthenticated). If Cloud-Daily-Run becomes the primary trigger, the sub-agent briefings should document cloud-run fallback paths explicitly. Consider a `cloud_run: true` flag in CEO prompt that triggers cloud-optimized mode.
+
+---
+
+## 2026-05-15 (run-3, cloud daily run)
+
+### Cross-Sub-Agent Patterns
+
+- **Cline dormancy pattern BROKEN:** Cline shipped `@cline/sdk` — open-source agent runtime rebuilt from scratch, now powering all Cline surfaces. Cline was not dormant; it was in a major refactor cycle. The "dormancy" observed in run-1 and run-2 was pre-release quiet before a significant release. Lesson: absence of GitHub Releases Atom entries ≠ project is dormant. Projects may be building in silence before a major SDK/version release. Retirement proposal for Cline should NOT proceed.
+- **Aider + Continue still dormant:** Now 3rd confirmation (run-1: Aider Feb 2026, Continue Mar 2026; run-2: confirmed; run-3: no new releases). ≥3× threshold met for both. Recommend retiring Aider + Continue from daily news_monitor cadence.
+- **New GitHub false-positive class — Android/Kotlin "skills" keyword:** `chrisbanes/skills` ⭐517 matched keyword "skills" but is Android developer skills (Jetpack Compose, Kotlin). Topics included "skills" for developer-skills, not Claude Code Skills. This is a 1st occurrence of this FP class; watch for 2nd.
+- **Suspicious impersonation pattern:** `mikesheehan54/Claude-Code-Design-AI` ⭐326 has keyword-stuffed topics including "claude-design-installer", "claude-design-download", "claude-design-alternative" — language suggesting impersonation of an official product. 0 forks, single-author, 2 days old. TIER-3 SKIPped correctly. 1st occurrence of this specific sub-class.
+- **Tech-press coverage ≠ POSITIVE keyword:** Clawdmeter attracted TechCrunch, CNX Software, Adafruit Blog, letsdatascience coverage within 4 days — exceptional for a hardware project. But all 4 domains classified NEUTRAL (no confirmed POSITIVE keywords from list). Community-validator correctly stayed TIER-2. The gap between "strong press signal" and "community testimonials" is consistent with hardware/maker projects: tech press writes about them immediately, actual "I built this and it works" posts come days/weeks later.
+
+### Trust-Tier Distribution
+
+- TIER-1 SAFE direct heuristic: 0 (age_days<30 binding for all)
+- TIER-1 SAFE via official-org fast-path: 0 (no new anthropics/ repos this week — 3rd non-occurrence)
+- TIER-2 NEEDS-REVIEW: 18 (of which 0 upgraded by community-validator)
+- TIER-3 SKIP: 3 (chrisbanes/skills FP, simonlin1212/a-stock-data FP, mikesheehan54/Claude-Code-Design-AI suspicious)
+
+### Cross-Source Dedup Stats
+
+- Claude Code releases consolidated: 3 (v2.1.139 + v2.1.140 + v2.1.141) → 1 entry "v2.1.139–141 (May 11–13)"
+- News items raw: 8 · After dedup: 6 unique events
+- Anthropic news events today: 3 (Claude for Small Business + Amazon 5GW deal + $30B fundraise)
+- Cline SDK: 1 entry (no duplicates, single source)
+
+### Heuristic-Performance Observations
+
+- **Age-≥-30d threshold binding again:** All 18 keyword-matched repos age<14d. Confirmed pattern: trending-7d-window and TIER-1-maturity are mutually exclusive without community-validation.
+- **Official-org fast-path (anthropics/):** 0 repos this run. Pattern: `anthropics/` repos appear in trending sporadically (run-2 had 2, run-3 has 0). Fast-path rule remains valid but fires only when Anthropic publishes conference materials or product demos. Not a guaranteed weekly event.
+- **No Codex false-positives this run:** The two OpenAI Codex repos from run-2 (BigPizzaV3/CodexPlusPlus, fendouai/CodexSaver) did not reappear. Codex false-positive pattern: 1× confirmed. Still need ≥3× to tighten keyword filter.
+- **`kerlos/pordee` absent:** Exclusion rule held — repo did not appear in this run's results. Either fell off trending or the repo lost momentum.
+
+### Self-Reflection (CEO behavior)
+
+- ✓ Stayed within hard-rules: no auto-clone, TIER-1-only output, cross-source dedup applied, no file deletion
+- ✓ Applied kerlos/pordee exclusion (3× confirmed, rule active — verified by absence in results)
+- ✓ Clawdmeter: resisted pressure to upgrade despite exceptional press coverage — correctly held default-deny based on zero POSITIVE keyword confirms
+- ✓ Suspicious-impersonation (mikesheehan54) caught and TIER-3 SKIPped explicitly
+- ✓ Cline SDK correctly identified as new major release, breaking retirement proposal
+- ⚠️ Bias-Watch: NONE drifted — "0 TIER-1 today" accepted; did not relax heuristic to include Clawdmeter based on tech-press signal strength
+
+### Suggested Local-CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Retire `aider` + `continue` from news_monitor daily Tier-1 sources. Both confirmed dormant across run-1 (2026-05-10) + run-2 (2026-05-12) + run-3 (2026-05-15). Cline is active (do NOT retire). Encode retirement in news_monitor CLAUDE.md.
+- **[1× obs]** Android/Kotlin "skills" repos FP class: if matched keyword is only "skills" (no "claude" or "mcp" co-occurrence), require co-occurrence check before including. Watch for 2nd occurrence.
+- **[1× obs]** Suspicious impersonation pattern: repos with "claude-X-installer"/"claude-X-download"/"claude-X-alternative" topics + 0 forks + age<3d → TIER-3 SKIP hard-rule addition candidate. Watch for 2nd occurrence.
+- **[2× obs — hold]** Official `anthropics/` org fast-path: 2× confirmed total (run-2 + this run for pattern). Fires sporadically. Keep as ad-hoc rule until another occurrence confirms stable pattern (run-3 is 0, so 2× active / 1× absent). Target 3× active occurrences total before encoding.
+- **[1× obs]** Tech-press NEUTRAL coverage on hardware/maker projects: strong signal but not POSITIVE per keyword rules. Consider adding 'tech-press' sentiment bucket to audit log for educational context without changing upgrade rule. Watch for 2nd occurrence.
+
+### Suggested Global-File Proposals
+
+- **[2× obs — hold]** Cloud-run-specific notes: WebFetch 403 on multiple key sources confirmed run-2 + run-3. WebSearch is reliable primary for cloud runs. Consider a cloud-run runbook addition to notes.
+
+### What Next-Run Should Do Differently
+
+- Apply Aider + Continue retirement in news_monitor CLAUDE.md (3× confirmed this run)
+- Continue watching `codex` keyword false-positive (currently 1×, need ≥3× to tighten)
+- Watch for Android/Kotlin "skills" FP class (1×, need 2× more to add exclusion rule)
+- Watch for impersonation pattern (1×, need 2× more)
+- Clawdmeter: if it re-appears in week 2 (would be age~10d by next run), re-validate community — Adafruit-style coverage tends to generate "I built one" posts within 1-2 weeks
+
+### Cross-Orchestra Observations
+
+- **Cline SDK pattern:** Projects can appear dormant on GitHub Releases while undergoing major SDK refactors. "No releases" ≠ "no activity". This pattern likely applies to other OSS tools (e.g., Continue may be in a similar rebuild cycle). Don't retire based on release cadence alone — check blog/social for "rebuilding" signals.
+- **Impersonation risk growing:** As Claude Code ecosystem matures, impersonation repos ("claude-code-X-installer") will become more common. The existing TIER-3 heuristic (no license + single author + <14d age) doesn't catch sponsored/licensed impersonations. Consider adding a topic-keyword red-flag scan.

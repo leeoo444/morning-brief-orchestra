@@ -392,3 +392,65 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-15 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 4 (HermannBjorgvin/Clawdmeter, nexu-io/html-anything, bidah/skill-set, alchaincyf/huashu-md-html — last one as carry-forward skip)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 4
+- Query-count: 2 per repo (WebSearch primary only; Tavily not available in cloud run)
+- Pattern: age<14d repos consistently produce 0 upgrades — 4th batch confirmation
+
+## 2026-05-15 repo=HermannBjorgvin/Clawdmeter
+
+### Search-Results
+- Queries-run: 2 — `"HermannBjorgvin/Clawdmeter" reddit review`, `"Clawdmeter" works useful review 2026`
+- Distinct non-owner domains: 4 — techcrunch.com, cnx-software.com, blog.adafruit.com, letsdatascience.com
+
+### Sentiment Distribution
+- positive: 0 · neutral: 4 · negative: 0 · no_data: 0
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 4 distinct non-owner tech-press domains (≥2 threshold MET). All 4 classified NEUTRAL — descriptive reporting without confirmed POSITIVE keyword ("works well", "I tried this", "useful", "recommend", "love this", "great tool", "I'm using this") from actual article text. Per strict rule: NEUTRAL doesn't count toward POSITIVE requirement. 0 POSITIVE → default-deny.
+
+### New Edge-Case Observed: Tech-Press NEUTRAL Pattern (hardware/maker projects)
+- **Hardware-launch press coverage profile:** Clawdmeter attracted TechCrunch + CNX Software + Adafruit Blog + letsdatascience within 4 days — unusually strong for a hardware project. This is a distinct coverage profile from "viral-young-SaaS" (which gets aggregator + newsletter + LinkedIn coverage). Hardware/maker projects get tech-press coverage quickly but user testimonials ("I built one and it works") come days/weeks later. The 4-day window is too short for testimonials.
+- **Tech-press-as-NEUTRAL confirmed:** TechCrunch and CNX Software articles about hardware gadgets are inherently descriptive ("here is what this does") not testimonial ("I use this and it's great"). This is structural, not about the specific project.
+- **Observation (1st for this sub-class):** Consider adding a "press-tier" classification: articles from recognized tech publications (TechCrunch, CNX Software, Adafruit Blog, Hackaday) as a positive signal below POSITIVE but above pure aggregator-NEUTRAL. Would not change upgrade rule but would improve audit log informativeness. Confirmation count: 1. Hold.
+
+### Query-Efficacy Observations
+- Q1 ("reddit review"): returned only owner GitHub page + trendshift.io aggregator. No Reddit threads.
+- Q2 ("works useful review"): surfaced TechCrunch, CNX Software, Adafruit Blog, letsdatascience — all press coverage. Also surfaced OSRTOS (aggregator) and Let's Data Science. Q2 more productive than Q1 for press discovery.
+- Pattern: for hardware projects, query 2 with "works" surfaces tech press coverage effectively.
+
+## 2026-05-15 repo=nexu-io/html-anything
+
+### Search-Results
+- Queries-run: 1 — `"nexu-io/html-anything" review reddit hackernews 2026`
+- Distinct non-owner domains: 0 (all results were nexu-io org pages + related repos)
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 distinct non-owner domains. All search results were nexu-io organization pages. Owner is a multi-repo organization with html-anything, open-design, and nexu repos — owner-self-exclusion filtered all results. Default-deny.
+
+### Edge-Case: Organization-account owner-self-exclusion
+- nexu-io is a GitHub organization, not a single person. All repos under nexu-io/ are owner-controlled. Exclusion applied correctly across all nexu-io/* domains.
+
+## 2026-05-15 repo=bidah/skill-set
+
+### Search-Results
+- Queries-run: 1 — `"bidah/skill-set" OR "skill-set claude skills" reddit hackernews 2026`
+- Distinct non-owner domains: 0 (search found Claude Skills ecosystem discussion but no specific bidah/skill-set mentions)
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 distinct non-owner domains for this specific repo. General Claude Skills ecosystem articles appeared but do not reference bidah/skill-set specifically. Default-deny.
+
+## 2026-05-15 repo=alchaincyf/huashu-md-html
+
+### Upgrade-Decision + Reasoning
+- decision: false (carry-forward from run-2 validation — skip re-validation per learnings: age<14d repos accumulate no new community data within 7 days)
+- reasoning: Previously validated 2026-05-12 (3 days ago). Still age<14d. Carry-forward rule applied correctly.

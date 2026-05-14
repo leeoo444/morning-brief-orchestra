@@ -156,3 +156,52 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-15 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** 526 total repos matching stars>20 in last 7 days. Fetched top 100 via bulk search + 5 targeted keyword searches.
+- **Keyword-match Yield:** 18 kept after keyword filter + exclusions (out of ~200+ reviewed candidates).
+- **Official Anthropic repos in trending window:** 0 (anthropics/ org search returned 0 results for created:>2026-05-08). Org fast-path did not fire this run.
+- **False-positives filtered:**
+  - `chrisbanes/skills` ⭐517 — Android/Kotlin developer skills, keyword "skills" matched but not Claude Code Skills. **NEW FP CLASS (1st obs).**
+  - `simonlin1212/a-stock-data` ⭐675 — Chinese A-share stock data tool. Likely matched via "AI Skill" in description but is not a Claude Code ecosystem tool.
+  - `mikesheehan54/Claude-Code-Design-AI` ⭐326 — suspicious impersonation: 0 forks, keyword-stuffed topics ("claude-design-installer", "claude-design-download"), description reads as SEO spam. **SUSPICIOUS IMPERSONATION PATTERN (1st obs).**
+- **kerlos/pordee absent this run** — exclusion rule held or repo fell off trending. No action needed.
+- **codex false-positive:** 0 this run (BigPizzaV3/CodexPlusPlus and fendouai/CodexSaver from run-2 did not reappear). Pattern: 1× total, need ≥3× to tighten filter.
+
+### Edge-Cases Encountered
+
+- **No GitHub auth token (cloud run):** Consistent with run-2. Used bulk search API fields for all metadata. Per-repo contributor/issues detail calls not attempted (would hit rate-limit). Worked fine.
+- **`simonlin1212/a-stock-data` FP:** Description contains English phrase "AI Skill for China A-Share Market Data" — keyword "skill" matched. If the topic list is empty AND description contains "skill" as a product-category noun (not as a Claude Code Skill reference), it's a FP. Mitigation: require "claude" co-occurrence with "skill" when matching standalone "skill" keyword.
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`chrisbanes/skills` ⭐517** — Android/Kotlin skills collection. Keyword "skills" alone is too broad. Co-occurrence rule needed: `skills` keyword should require `claude` or `mcp` or `anthropic` co-occurrence to be valid. **1st observation.**
+- **`mikesheehan54/Claude-Code-Design-AI` ⭐326** — Impersonation/spam repo. Description is keyword-stuffed with "claude-design-installer", "claude-design-download", "claude-design-alternative" — impersonation red flags. 0 forks, 2 days old. **1st observation of impersonation sub-class.**
+
+### Tool-Call Issues
+
+- GitHub unauthenticated API: no rate-limit issues this run (bulk search only, no per-repo metadata). Consistent with run-2 approach.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** `kerlos/pordee` named exclusion — confirmed in run-3 by its absence (exclusion working or repo fell off). Rule already applied. Can now formally encode in CLAUDE.md exclusion-list.
+- **[1× obs]** `skills` keyword alone without `claude`/`mcp`/`anthropic` co-occurrence → false positive risk. Add co-occurrence gate. Needs ≥3×.
+- **[1× obs]** Impersonation red-flag topics: `claude-X-installer`, `claude-X-download`, `claude-X-alternative` → TIER-3 candidate. Needs ≥3×.
+- **[2× obs]** Official `anthropics/` org fast-path: 1 run active (run-2), 1 run absent (run-3). Pattern is sporadic. Still valid; don't remove.
+- **[2× obs — hold]** `codex` keyword too broad: 1× FP in run-2 (2 repos), 0× FP in run-3. Inconclusive. Wait for 2nd FP occurrence.
+
+### What Next-Run Should Do Differently
+
+- Continue unauthenticated-API budget strategy (bulk only, no per-repo calls).
+- Watch for 2nd occurrence of Android/Kotlin "skills" FP.
+- Watch for 2nd impersonation-pattern repo.
+- If kerlos/pordee re-appears, drop it immediately.
+
+### Meta-Learning for Future Self
+
+- **Impersonation repos will grow:** As Claude Code brand matures, expect more repos faking to be official products. Look for: 0 forks + keyword-stuffed install/download topics + SEO-style descriptions. Add these to TIER-3 fast-reject before even running community validator.

@@ -1,0 +1,32 @@
+{
+  "run_date": "2026-05-15",
+  "classification_rules_version": "heuristic-v1.0",
+  "notes": "All trending-window repos are age<14d, none meet age>=30d TIER-1 threshold. Official anthropics/ org: 0 repos in window (3rd non-occurrence of org fast-path pattern — fast-path still ad-hoc). No kerlos/pordee this run (exclusion rule held).",
+  "tier_1_direct": [],
+  "tier_1_org_fastpath": [],
+  "tier_2": [
+    {"repo": "HermannBjorgvin/Clawdmeter", "stars": 849, "reason": "no license (fails TIER-1); age_days=4 (<30)"},
+    {"repo": "nexu-io/html-anything", "stars": 676, "reason": "age_days=4 (<30)"},
+    {"repo": "alchaincyf/huashu-md-html", "stars": 531, "reason": "age_days=6 (<30); carry-forward from run-2 validation"},
+    {"repo": "bidah/skill-set", "stars": 202, "reason": "no license; age_days=6 (<30)"},
+    {"repo": "sno-ai/llmix", "stars": 127, "reason": "age_days=6 (<30); anthropic is one of many providers"},
+    {"repo": "phucnt-bazone-vietnam/ba-zone-user-story-ac-writer", "stars": 86, "reason": "NOASSERTION license; age_days=6 (<30); Vietnamese-language tool"},
+    {"repo": "ndcorder/outputguard", "stars": 79, "reason": "age_days=6 (<30); general LLM tool, anthropic as one target"},
+    {"repo": "dakshaymehta/cardputer-claude-os", "stars": 72, "reason": "age_days=6 (<30)"},
+    {"repo": "johunsang/semble_rs", "stars": 70, "reason": "no license; age_days=3 (<30)"},
+    {"repo": "Callous-0923/agent-study", "stars": 61, "reason": "age_days=1 (<30); Chinese-language educational material"},
+    {"repo": "wanghuan9/skill-manager", "stars": 55, "reason": "no license; age_days=2 (<30)"},
+    {"repo": "ayghri/i-have-adhd", "stars": 48, "reason": "no license; age_days=2 (<30)"},
+    {"repo": "MyuriKanao/src-hunter-skill", "stars": 38, "reason": "age_days=6 (<30); security/offensive tool — elevated caution"},
+    {"repo": "icloudza/algokiller-plugin", "stars": 37, "reason": "age_days=4 (<30); binary analysis / cryptanalysis"},
+    {"repo": "fosterushka/skillsmith-for-claude", "stars": 32, "reason": "NOASSERTION license; age_days=4 (<30)"},
+    {"repo": "mlennie/claude-hermes-mcp", "stars": 25, "reason": "age_days=6 (<30); contributors=1"},
+    {"repo": "prof-little-bear/cc-equity-research", "stars": 24, "reason": "age_days=2 (<30)"},
+    {"repo": "Pinperepette/agd-memory", "stars": 22, "reason": "age_days=6 (<30); contributors=1"}
+  ],
+  "tier_3_skip": [
+    {"repo": "chrisbanes/skills", "stars": 517, "reason": "false_positive: Android/Kotlin developer skills, not Claude Code Skills — same 'skills' keyword but different domain"},
+    {"repo": "simonlin1212/a-stock-data", "stars": 675, "reason": "false_positive: Chinese A-share stock data tool — not Claude Code ecosystem tool"},
+    {"repo": "mikesheehan54/Claude-Code-Design-AI", "stars": 326, "reason": "suspicious: 0 forks, keyword-stuffed topics including 'claude-design-installer'/'claude-design-download' suggesting impersonation; description reads as SEO spam; no substantive code commits"}
+  ]
+}

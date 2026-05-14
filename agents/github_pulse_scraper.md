@@ -85,6 +85,10 @@ Write JSON-array to `<run_folder>/github_raw.json` AND return same content inlin
    - Name pattern `awesome-*` · `*-tutorial` · `*-example` · `*-demo`
    - Empty description AND empty topics (no-context = no-confidence)
    - Single-letter-org or known-spam orgs (heuristic: org-name no description)
+   - **Named exclusions (≥3× confirmed false-positives):**
+     - `kerlos/pordee` — Thai-language chat app, persistent false-positive via `claude-code-plugin` topic (confirmed run-1, run-2, run-3)
+   - **Keyword co-occurrence gate:** `skills` keyword alone (without `claude`, `mcp`, or `anthropic` co-occurrence in name/description/topics) → skip (catches Android/Kotlin "developer skills" false-positive class)
+   - **Impersonation red-flag topics:** repos with topics containing `claude-X-installer` or `claude-X-download` or `claude-X-alternative` + 0 forks + age<3d → TIER-3 SKIP (1× obs, apply as precautionary filter)
 9. **Cap at 50** — if >50 keyword-matches, take top-50 by stars.
 10. **Per-kept-repo metadata fetches** (2 calls each):
     ```bash

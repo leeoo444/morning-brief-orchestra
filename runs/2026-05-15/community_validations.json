@@ -1,0 +1,56 @@
+{
+  "run_date": "2026-05-15",
+  "validated_repos": [
+    {
+      "repo": "HermannBjorgvin/Clawdmeter",
+      "queries_run": ["\"HermannBjorgvin/Clawdmeter\" reddit review", "\"Clawdmeter\" works useful review 2026"],
+      "results_found": [
+        {"url": "https://techcrunch.com/2026/05/14/clawdmeter-turns-your-claude-code-usage-stats-into-a-tiny-desktop-dashboard/", "domain": "techcrunch.com", "sentiment": "NEUTRAL"},
+        {"url": "https://www.cnx-software.com/2026/05/14/clawdmeter-a-diy-esp32-s3-desk-dashboard-for-claude-code-token-usage-monitoring/", "domain": "cnx-software.com", "sentiment": "NEUTRAL"},
+        {"url": "https://blog.adafruit.com/2026/05/12/making-a-claude-usage-display-with-clawdmeter/", "domain": "blog.adafruit.com", "sentiment": "NEUTRAL"},
+        {"url": "https://letsdatascience.com/news/clawdmeter-tracks-claude-code-token-usage-594b0701", "domain": "letsdatascience.com", "sentiment": "NEUTRAL"}
+      ],
+      "owner_self_excluded": ["github.com/HermannBjorgvin", "youtube.com (owner video)"],
+      "sentiment_summary": {"positive_count": 0, "neutral_count": 4, "negative_count": 0, "no_data_count": 0, "distinct_domains": 4},
+      "upgrade_decision": false,
+      "reasoning": "4 distinct non-owner tech-press domains (TechCrunch, CNX Software, Adafruit Blog, letsdatascience) confirm high-profile reception. However, zero POSITIVE keyword matches ('works well', 'I tried this', 'useful', 'recommend', 'love this', 'great tool', 'I'm using this') confirmed in actual article text — all are descriptive tech-press reporting. Upgrade rule requires all POSITIVE, 0 NEGATIVE. Default-deny. Note: tech-press coverage without user testimonials is stronger signal than typical 4-day-old repo; consider adding 'tech-press coverage' as elevated-NEUTRAL signal in future heuristic iteration.",
+      "promotion_blurb_for_brief": null
+    },
+    {
+      "repo": "nexu-io/html-anything",
+      "queries_run": ["\"nexu-io/html-anything\" review reddit hackernews 2026"],
+      "results_found": [],
+      "owner_self_excluded": ["github.com/nexu-io (all results were nexu-io org pages)"],
+      "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 3, "distinct_domains": 0},
+      "upgrade_decision": false,
+      "reasoning": "Search returned only owner-controlled GitHub pages (nexu-io org pages, related repos open-design, nexu). Zero independent third-party domains. Default-deny. Repo is 4 days old — consistent with age<14d no-community-data pattern.",
+      "promotion_blurb_for_brief": null
+    },
+    {
+      "repo": "bidah/skill-set",
+      "queries_run": ["\"bidah/skill-set\" OR \"skill-set claude skills\" reddit hackernews 2026"],
+      "results_found": [],
+      "owner_self_excluded": ["github.com/bidah"],
+      "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 2, "distinct_domains": 0},
+      "upgrade_decision": false,
+      "reasoning": "Search found general Claude Skills ecosystem discussion but no specific reviews or mentions of bidah/skill-set. 0 distinct third-party domains for this specific repo. Default-deny. Age 6 days, consistent with pattern.",
+      "promotion_blurb_for_brief": null
+    },
+    {
+      "repo": "alchaincyf/huashu-md-html",
+      "queries_run": ["(skip — carry-forward from run-2 validation per learnings: age<14d repos do not accumulate new community data within 7 days)"],
+      "results_found": [],
+      "owner_self_excluded": [],
+      "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 0, "distinct_domains": 0},
+      "upgrade_decision": false,
+      "reasoning": "Carry-forward from run-2 (2026-05-12) validation result: upgrade_decision=false. Per community_validator learnings: 'repos validated within last 7 days can safely skip re-validation — no new community data will have emerged for age<14d repos.' Repo now 6 days old.",
+      "promotion_blurb_for_brief": null
+    }
+  ],
+  "summary": {
+    "total_validated": 4,
+    "upgraded": 0,
+    "stayed_tier_2": 4,
+    "skipped_carry_forward": 1
+  }
+}

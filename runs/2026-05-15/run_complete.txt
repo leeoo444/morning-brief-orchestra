@@ -1,0 +1,7 @@
+completed_at: 2026-05-14T22:12:52Z
+run: 3
+jst_date: 2026-05-15
+tier1_direct: 0
+tier1_org: 0
+tier2_promoted: 0
+news_unique: 6
