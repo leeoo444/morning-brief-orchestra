@@ -1,0 +1,93 @@
+[
+  {
+    "repo": "nexu-io/html-anything",
+    "tier": "TIER-2-NEEDS-REVIEW",
+    "stars": 1936,
+    "age_days": 4,
+    "last_commit_days": 0,
+    "license": "Apache-2.0",
+    "forks": 216,
+    "contributors_estimated": 10,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "age=4d<30d; closed_ratio=0.0<0.4"
+  },
+  {
+    "repo": "HermannBjorgvin/Clawdmeter",
+    "tier": "TIER-2-NEEDS-REVIEW",
+    "stars": 991,
+    "age_days": 4,
+    "last_commit_days": 1,
+    "license": null,
+    "forks": 86,
+    "contributors_estimated": 10,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "age=4d<30d; no-license; closed_ratio=0.0<0.4"
+  },
+  {
+    "repo": "AnythingForTheTrustRank/Jenny-Mod-All-Versions",
+    "tier": "TIER-3-SKIP",
+    "stars": 380,
+    "age_days": 2,
+    "last_commit_days": 2,
+    "license": "MIT",
+    "forks": 1,
+    "contributors_estimated": 1,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "FALSE-POSITIVE: Minecraft Jenny Mod \u2014 'mcp' matches Minecraft Protocol, not Model Context Protocol. Suspicious org name."
+  },
+  {
+    "repo": "mikesheehan54/Claude-Code-Design-AI",
+    "tier": "TIER-3-SKIP",
+    "stars": 378,
+    "age_days": 2,
+    "last_commit_days": 2,
+    "license": "MIT",
+    "forks": 0,
+    "contributors_estimated": 1,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "SUSPICIOUS: 378 stars + 0 forks + SEO-stuffed topics ('download','install','installer') on 2d-old repo \u2014 star-farming pattern suspected"
+  },
+  {
+    "repo": "smithersai/claude-p",
+    "tier": "TIER-2-NEEDS-REVIEW",
+    "stars": 260,
+    "age_days": 2,
+    "last_commit_days": 0,
+    "license": null,
+    "forks": 23,
+    "contributors_estimated": 7,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "age=2d<30d; no-license; closed_ratio=0.0<0.4"
+  },
+  {
+    "repo": "Siigari/claude-heartbeat",
+    "tier": "TIER-2-NEEDS-REVIEW",
+    "stars": 151,
+    "age_days": 2,
+    "last_commit_days": 1,
+    "license": "MIT",
+    "forks": 20,
+    "contributors_estimated": 6,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "age=2d<30d; closed_ratio=0.0<0.4"
+  },
+  {
+    "repo": "Callous-0923/agent-study",
+    "tier": "TIER-2-NEEDS-REVIEW",
+    "stars": 139,
+    "age_days": 1,
+    "last_commit_days": 0,
+    "license": "MIT",
+    "forks": 8,
+    "contributors_estimated": 2,
+    "closed_issues_ratio": 0.0,
+    "is_official_anthropic": false,
+    "reason": "age=1d<30d; closed_ratio=0.0<0.4"
+  }
+]

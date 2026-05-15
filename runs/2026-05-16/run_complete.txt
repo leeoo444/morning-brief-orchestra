@@ -1,0 +1,7 @@
+Run completed at 2026-05-15T22:30:00Z UTC
+JST date: 2026-05-16
+Brief: briefs/2026-05-16.md
+TIER-1 repos: 0
+TIER-2 community-validated: 0 of 5
+TIER-3 skip: 2 (Minecraft MCP false-positive, SEO-star-farming suspected)
+News items: 9

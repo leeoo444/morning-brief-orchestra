@@ -74,10 +74,11 @@ Per-source-error format: `{"source_name": "...", "error": "...", "items": []}` (
    - Zed: `WebFetch https://zed.dev/blog/feed.xml`
    - Cursor changelog: `mcp__scrapling__stealthy_fetch https://www.cursor.com/changelog` (Cloudflare-protected)
 7. **Tier-2 fetch (Community):**
-   - HN Algolia "claude code": `WebFetch https://hn.algolia.com/api/v1/search_by_date?query=claude+code&tags=story&numericFilters=created_at_i>{ts_24h_ago}` — use **search_by_date** not search (search ignores time-filter)
-   - HN Algolia "MCP": same endpoint with query=MCP — apply word-boundary `\bMCP\b` post-filter (avoid "map" / "mcpu" false-positives)
-   - r/ClaudeAI: `mcp__scrapling__stealthy_fetch https://www.reddit.com/r/ClaudeAI/new/.json?limit=25` (WebFetch is blocked on reddit.com per Anthropic-ToS)
-   - r/LocalLLaMA: `mcp__scrapling__stealthy_fetch https://www.reddit.com/r/LocalLLaMA/hot/.json?limit=50`
+   - **CLOUD-RUN NOTE (3× confirmed, runs 1–3):** `WebFetch` on HN Algolia returns HTTP 403 in cloud environment. Use `WebSearch` as primary for HN stories in cloud runs. Similarly, `WebFetch` on `status.claude.com/history.atom` and `https://www.anthropic.com/news` are blocked in cloud. Default: WebSearch-first for all Tier-2 community sources when `mcp__scrapling__*` tools are unavailable.
+   - HN "claude code" stories: `WebSearch "claude code hackernews site:news.ycombinator.com"` (cloud-primary) OR `WebFetch https://hn.algolia.com/api/v1/search_by_date?query=claude+code&tags=story&numericFilters=created_at_i>{ts_24h_ago}` (local-primary, use **search_by_date** not search)
+   - HN "MCP" stories: `WebSearch "MCP model context protocol hackernews"` (cloud) OR same Algolia endpoint with query=MCP — apply word-boundary `\bMCP\b` post-filter
+   - r/ClaudeAI: `mcp__scrapling__stealthy_fetch https://www.reddit.com/r/ClaudeAI/new/.json?limit=25` (WebFetch is blocked on reddit.com per Anthropic-ToS; skip if scrapling unavailable in cloud)
+   - r/LocalLLaMA: `mcp__scrapling__stealthy_fetch https://www.reddit.com/r/LocalLLaMA/hot/.json?limit=50` (skip if scrapling unavailable)
 8. **Per-source failure-isolation** — if source fails, log `{"source_name": "...", "error": "...", "items": []}` and continue with rest. Never stop-on-first-failure.
 9. **Time-window filter** — `published_at >= now - 24h` (UTC).
 10. **Relevance filter** — keep ONLY items matching at least one:

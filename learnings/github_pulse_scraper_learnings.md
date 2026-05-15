@@ -156,3 +156,43 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-16 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** 100 fetched (537 total available). 7 keyword-matched before exclusions, 5 after removing false-positives.
+- **Keyword-match Yield:** 7% (7/100). Consistent with run-1 (8%) and run-2 (10%). Signal rate stable.
+- **False-positive rate:** 2/7 = 29% — highest yet. New false-positive classes observed.
+- **No official anthropics/ repos today:** First run without official Anthropic org repos in trending. Confirms these appear in event-driven windows.
+
+### Edge-Cases Encountered
+
+- **Minecraft MCP false-positive (NEW CLASS):** `AnythingForTheTrustRank/Jenny-Mod-All-Versions` — all topics are Minecraft-domain (`forge-mod`, `minecraft-jenny-mod`, `java-edition`). The `mcp` keyword matched Minecraft Protocol, not Model Context Protocol. Mitigation: require ≥1 AI/agent topic co-occurrence when matching `mcp` alone. **Confirmation count: 1.**
+- **Star-farming suspected (NEW CLASS):** `mikesheehan54/Claude-Code-Design-AI` — 378★, 0 forks, 2d old, SEO topics with 'download/install/installer'. Stars >> forks ratio is anomalous for genuine repos. **Confirmation count: 1.**
+- **Suspicious org name:** `AnythingForTheTrustRank` — org names suggesting trust-manipulation should be instant TIER-3. **Confirmation count: 1.**
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`AnythingForTheTrustRank/Jenny-Mod-All-Versions`** ⭐380 — Minecraft Jenny Mod. `mcp` = Minecraft Protocol. TIER-3-SKIP.
+- **`mikesheehan54/Claude-Code-Design-AI`** ⭐378 — suspected star-farming: 378★/0 forks/2d/SEO-download-topics. TIER-3-SKIP.
+
+### Tool-Call Issues
+
+- GitHub unauthenticated API: only 1 bulk search call used (9/10 rate limit available). Per-repo metadata calls still at risk — using bulk fields (pushed_at, open_issues, forks) as proxy.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[1× obs]** MCP keyword disambiguation: when ALL topics are non-AI-domain, `mcp` match is Minecraft Protocol false-positive. Require co-occurrence of ≥1 AI/agent/LLM topic to count as Model Context Protocol match. Hold for ≥3×.
+- **[1× obs]** Star-farming detection: stars/forks > 50 AND age<7d AND SEO-install/download topics → flag as TIER-3-SUSPICIOUS. Hold for ≥3×.
+- **[1× obs]** Suspicious org name heuristic: org names with trust/rank/boost/viral → TIER-3 regardless. Hold for ≥3×.
+- **[kerlos/pordee: 3× APPLIED]** Named exclusion active. Working correctly (was not in results today — possibly no longer trending).
+
+### What Next-Run Should Do Differently
+
+- Continue monitoring for star-farming patterns: if 378★/0-fork/2d pattern repeats → encode heuristic.
+- Check if Aider/Continue/Cline repos appear in trending this run (didn't check explicitly today).
+- If GitHub API budget allows, try 1 per-repo call for highest-starred TIER-2 candidate to get actual contributor count.
+

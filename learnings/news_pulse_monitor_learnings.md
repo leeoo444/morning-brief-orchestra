@@ -238,3 +238,49 @@ None significant — relevance-filter works (HN already filtered by query keywor
 1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
 2. Check scrapling tool availability at run start — document if absent
 3. Aider/Continue/Cline: 3rd confirmation → propose retirement
+
+---
+
+## 2026-05-16 (run-3, cloud daily run)
+
+### Findings
+
+**Sources attempted and results (cloud run):**
+- HN Algolia search_by_date → 403 Forbidden (3rd confirmation, expected in cloud)
+- GitHub claude-code releases.atom → Reached via WebFetch: 3 entries since last brief (v2.1.142, v2.1.141, v2.1.140)
+- Anthropic Blog → WebSearch used (WebFetch likely blocked); recovered Gates Foundation $200M + PwC deployment
+- Cline releases.atom → News via WebSearch: Cline SDK open-sourced (May 13)
+- Codex CLI releases → WebSearch: alpha.19 + alpha.21 (May 15)
+- AWS MCP Server GA → WebSearch: confirmed GA announcement (May 6)
+- CNBC/news → Claude Mythos holding pattern vs OpenAI EU cyber model
+- Reddit → Not attempted (scrapling unavailable in cloud)
+
+**Notable news captured:**
+- Claude Code v2.1.140-142: Opus 4.7 fast mode, plugin skills, hooks terminal sequences, agent subagent fixes
+- Anthropic × Gates Foundation $200M (May 14)
+- PwC enterprise Claude deployment (May 14)
+- Cline @cline/sdk open-sourced (May 13) — beats-Claude-Code-on-tbench claim
+- Codex CLI alpha.21 (May 15) — persisted /goal, Vim mode
+- AWS MCP Server GA (May 6, slightly stale but not covered in last brief)
+- Claude Mythos still in research preview
+
+**Total kept:** 9 items
+
+### Edge-Cases Encountered
+
+1. **HN Algolia 403 (3rd confirmation):** Consistent cloud-run block. WebSearch remains reliable substitute.
+2. **Aider/Continue/Cline releases:** Not explicitly checked via Atom feeds this run. Need to confirm dormancy observation for 3× threshold. Reminder for run-4.
+
+### Suggested CLAUDE.md Improvements
+
+- **[3× obs — READY]** Cloud environment: HN Algolia WebFetch → 403 always. Formalize: in cloud runs, skip HN Algolia WebFetch entirely and default to WebSearch for HN stories.
+- **[2× obs — hold]** Aider/Continue/Cline dormant: not confirmed 3rd time today (sources not checked). Need explicit check in run-4.
+- **[1× obs]** Add AWS MCP Server to Tier-1 sources (official AWS announcement). First official major enterprise cloud provider MCP GA — worth tracking going forward.
+
+### What Next-Run Should Do Differently
+
+1. Explicitly check Aider/Continue/Cline Atom feeds to confirm/deny 3rd dormancy observation
+2. Cloud: default to WebSearch-only for all community sources; skip WebFetch on HN/Reddit/Anthropic news
+3. Check if AWS MCP Server should be added as a permanent Tier-1 tracked source
+4. Add Claude Mythos red.anthropic.com as a Tier-0 tracked source (research preview → GA will be high-signal)
+

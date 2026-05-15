@@ -1,0 +1,146 @@
+[
+  {
+    "repo": "nexu-io/html-anything",
+    "queries_run": [
+      "\"nexu-io/html-anything\" works reddit review",
+      "\"nexu-io/html-anything\" hackernews"
+    ],
+    "results_found": [
+      {
+        "domain": "trendshift.io",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [
+      "github.com/nexu-io"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 1,
+      "negative_count": 0,
+      "distinct_domains": 1
+    },
+    "upgrade_decision": false,
+    "reasoning": "Only aggregator trendshift.io found as third-party domain. No Reddit/HN user testimonials. Zero POSITIVE keyword matches. Age=4d \u2014 too new for independent user-experience reports to surface. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "HermannBjorgvin/Clawdmeter",
+    "queries_run": [
+      "\"HermannBjorgvin/Clawdmeter\" works reddit review",
+      "\"HermannBjorgvin/Clawdmeter\" hackernews"
+    ],
+    "results_found": [
+      {
+        "domain": "techcrunch.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "tech.yahoo.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "mexc.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "x.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "letsdatascience.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "trendshift.io",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [
+      "github.com/HermannBjorgvin"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 6,
+      "negative_count": 0,
+      "distinct_domains": 6
+    },
+    "upgrade_decision": false,
+    "reasoning": "6 distinct third-party domains (techcrunch, yahoo tech, mexc news, x.com/real_klea, letsdatascience, trendshift) \u2014 all NEUTRAL press/announcement coverage. Reddit quotes (\"hardware Tamagotchi for context window\") are humorous, not POSITIVE keyword matches. No \"works well\", \"I tried\", \"recommend\", \"useful\", \"love this\", \"great tool\" found. Fails upgrade rule: \u22652 domains \u2713 but 0 POSITIVE \u2717. No license also bars TIER-1 directly. Default-deny per briefing rules.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "smithersai/claude-p",
+    "queries_run": [
+      "\"smithersai/claude-p\" works reddit review",
+      "\"smithersai/claude-p\" hackernews"
+    ],
+    "results_found": [
+      {
+        "domain": "smithery.ai",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [
+      "github.com/smithersai"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 1,
+      "negative_count": 0,
+      "distinct_domains": 1
+    },
+    "upgrade_decision": false,
+    "reasoning": "Only smithery.ai skill-listing aggregator found. No Reddit/HN discussions specific to smithersai/claude-p. Too new (2d) for community coverage. No license. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "Siigari/claude-heartbeat",
+    "queries_run": [
+      "\"Siigari/claude-heartbeat\" works reddit review",
+      "\"Siigari/claude-heartbeat\" hackernews"
+    ],
+    "results_found": [
+      {
+        "domain": "mcpmarket.com",
+        "sentiment": "NEUTRAL"
+      },
+      {
+        "domain": "dev.to",
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "owner_self_excluded": [
+      "github.com/Siigari"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 2,
+      "negative_count": 0,
+      "distinct_domains": 2
+    },
+    "upgrade_decision": false,
+    "reasoning": "mcpmarket.com skill-listing (NEUTRAL aggregator). dev.to article about heartbeat pattern in general \u2014 not specifically about Siigari/claude-heartbeat. HN discussion about heartbeat feature is general. 0 POSITIVE keyword matches for this specific repo. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "Callous-0923/agent-study",
+    "queries_run": [
+      "\"Callous-0923/agent-study\" works reddit review",
+      "\"Callous-0923/agent-study\" hackernews"
+    ],
+    "results_found": [],
+    "owner_self_excluded": [
+      "github.com/Callous-0923"
+    ],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "No distinct third-party domains found. Chinese-language educational course content about Claude Code (learner-of-Claude-Code, not a tool). Age=1d. Zero community coverage. Default-deny.",
+    "promotion_blurb_for_brief": null
+  }
+]

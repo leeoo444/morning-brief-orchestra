@@ -392,3 +392,41 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-16 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 5 (nexu-io/html-anything, HermannBjorgvin/Clawdmeter, smithersai/claude-p, Siigari/claude-heartbeat, Callous-0923/agent-study)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 5
+- Query-count: 2-3 per repo (WebSearch; Tavily not available in cloud run)
+
+### Notable Observations
+
+**Clawdmeter — high press coverage, zero POSITIVE:**
+- 6 distinct third-party domains found (TechCrunch, Yahoo Tech, MEXC, X/Klea, letsdatascience, trendshift)
+- ALL NEUTRAL (press/announcement coverage, humorous Reddit quotes)
+- Zero POSITIVE keyword matches per briefing list
+- Community-domain threshold met (≥2 distinct ✓) but POSITIVE requirement failed (0 ✓)
+- **Pattern reconfirmed:** press-coverage ≠ community testimonial. Upgrade rule correctly held.
+- **Clawdmeter distinctive factor:** It's a hardware project (ESP32) — physical hardware tools generate press coverage faster than user testimonials. This pattern may repeat for hardware-AI-hybrids.
+- Confirmation count for "press-coverage ≠ POSITIVE": 5+ across all runs.
+
+**Callous-0923/agent-study:**
+- Chinese-language educational course (learns FROM Claude Code, not a tool). Similar to kerlos/pordee non-English-USER pattern. 0 domains found. Correct default-deny.
+- **Confirmation count for "non-English educational course" false-positive class:** 2 (kerlos/pordee + this). Hold for ≥3×.
+
+### Cumulative Community Validation Statistics (all 3 runs)
+- Total repos validated: 14 (4 run-1 + 5 run-2 + 5 run-3)
+- Total upgrades: 0
+- All 14 were age <14d at time of validation
+- Pattern: **age<14d = reliable predictor of upgrade_decision:false** (100% accuracy across 14 cases)
+- Suggested heuristic for future runs: for repos age<7d, skip community validation entirely (save tool calls) and mark TIER-2-default-deny in tier_decisions.json with note "too-young-for-community-coverage". Community validation is meaningful for age 7-30d repos only.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY for proposal]** age<7d repos: skip community validation, apply default-deny directly. All 14 validations across runs confirm this: no repo younger than 7d has received any upgradeable community signal. Running 3-6 search queries per repo that will 100% return upgrade=false is wasted tool budget.
+- **[1× obs]** Hardware-AI-hybrid repos (ESP32/Arduino/physical): generate press coverage fast but user testimonials lag. Consider adding "hardware-project" tag to TIER-2 entries so audit reader knows Clawdmeter-style projects may be worth revisiting at age >30d.
+- **[2× obs]** Non-English educational course pattern (kerlos/pordee + Callous-0923/agent-study): educational course content IN non-English language that mentions Claude Code as a subject of study → likely false-positive for "Claude Code ecosystem tool". Need 1 more observation to confirm.
+

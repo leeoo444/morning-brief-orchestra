@@ -195,3 +195,68 @@
 ### Cross-Orchestra Observations
 
 - **Pattern:** Cloud run environment has different tool availability vs. local run (no scrapling, WebFetch blocked on some domains, GitHub unauthenticated). If Cloud-Daily-Run becomes the primary trigger, the sub-agent briefings should document cloud-run fallback paths explicitly. Consider a `cloud_run: true` flag in CEO prompt that triggers cloud-optimized mode.
+
+---
+
+## 2026-05-16 (run-3, cloud daily run)
+
+### Cross-Sub-Agent Patterns
+
+- **WebFetch 403 on HN Algolia (3rd confirmation):** HN Algolia search_by_date returned 403 again in cloud environment. WebSearch remains reliable primary for all news. Pattern: cloud runs must default WebSearch-first for ALL external news APIs. **3× confirmed across run-1/run-2/run-3.** Ready for CLAUDE.md note.
+- **GitHub API unauthenticated stays rate-constrained:** Search returned 100/537 results, but per-repo metadata calls still at risk. Search budget: 9/10 used for single bulk call. Continued use of bulk-search field inference (pushed_at, open_issues, forks) as metadata proxy works adequately.
+- **Star-farming pattern (new class):** mikesheehan54/Claude-Code-Design-AI: 378★, 0 forks, 2d old, SEO-stuffed topics with 'download/install/installer'. This ratio (stars >> forks on very young repo with install-SEO topics) is a new suspected false-positive class distinct from the kerlos/pordee non-English pattern or the official Minecraft-MCP false-positive. First observation.
+- **Minecraft MCP false-positive (new class, 1st occurrence):** AnythingForTheTrustRank/Jenny-Mod-All-Versions used `mcp` to mean Minecraft Protocol. Topic list was 100% Minecraft-domain keywords. Org name was also suspicious. TIER-3 correctly applied. Need to add topic-context check: if all topics are from one domain (e.g. minecraft-*), MCP keyword match is likely false-positive.
+
+### Trust-Tier Distribution
+
+- TIER-1 SAFE direct: 0 (age_days<30 binding — 4th run confirmation)
+- TIER-1 SAFE via official-org fast-path: 0 (no anthropics/ repos trending today)
+- TIER-2 NEEDS-REVIEW: 5 (of which 0 upgraded by community-validator)
+- TIER-3 SKIP: 2 (false-positive Minecraft mod + suspected star-farming)
+
+### Cross-Source Dedup Stats
+
+- Anthropic events deduped: 0 (all news items unique today)
+- Claude Code releases consolidated: 3 versions (v2.1.140/141/142) → 1 brief entry
+- News-only events: 9 unique after dedup from 9 raw
+
+### Heuristic-Performance Observations
+
+- **Age-≥-30d threshold: 4th consecutive run as binding constraint.** All 7 keyword-matched repos (before false-positive filtering) were age <5 days. GitHub trending 7-day window systematically produces repos too young for TIER-1. Pattern is stable — this is working-as-designed, not a flaw.
+- **No anthropics/ org repos today:** First run-3 without official Anthropic org repos in trending. run-2 had cwc-* repos. Pattern: official org repos appear around conference/event release windows.
+- **Community validation 0/5 upgraded (5th overall):** Cumulative: 0 upgrades across all 14 TIER-2 validations (4 in run-1, 5 in run-2, 5 today). All failures: same root cause (age<14d → zero user testimonials despite varying star counts). Pattern is now very strong.
+- **HermannBjorgvin/Clawdmeter notable:** 991 stars, 6 distinct third-party domains (TechCrunch, Yahoo Tech, MEXC, X, letsdatascience, trendshift), but ALL NEUTRAL (press/announcement). Zero POSITIVE keyword matches. The upgrade rule correctly held — Clawdmeter is popular but technically unvalidated by the deterministic keyword filter. This is a CORRECT outcome: press coverage ≠ community testimonial.
+
+### Self-Reflection (CEO behavior)
+
+- ✓ Stayed within hard-rules: no auto-clone, TIER-1-only output, cross-source dedup applied, no file deletion
+- ✓ kerlos/pordee exclusion correctly applied (3× confirmed, now in active exclusion list)
+- ✓ Bias-Watch: NONE drifted — Clawdmeter has 991 stars and TechCrunch coverage but correctly excluded (no license + 0 POSITIVE per upgrade rule). Did not relax heuristic to make Brief look fuller.
+- ✓ Noted Clawdmeter as interesting hardware project (add to audit note, not brief) — user can find via audit if interested
+- ⚠️ AnythingForTheTrustRank org name should have been an immediate TIER-3 signal even before checking Minecraft topics. Consider adding: "org-name containing trust-related gaming-the-system terms → TIER-3 regardless" as a new CLAUDE.md heuristic.
+- ⚠️ Star-farming suspected for mikesheehan54/Claude-Code-Design-AI but not proven — treated as TIER-3-SKIP-SUSPECTED. Should note this is heuristic, not deterministic proof.
+
+### Suggested Local-CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[1× obs]** Minecraft-MCP false-positive class: When all topics in a repo's topic-list are from a single non-AI domain (minecraft-*, forge-mod, java-edition, etc.), `mcp` keyword match is likely false-positive. Add topic-context disambiguation: require ≥1 AI/agent/LLM topic co-occurrence when matching `mcp` keyword.
+- **[1× obs]** Star-farming pattern: stars >> forks (ratio >50:1) + age<7d + SEO-install/download topics → TIER-3-SUSPICIOUS. First observation. Need ≥3× before encoding.
+- **[1× obs]** Suspicious org name pattern: org names containing "trust", "rank", "boost", "grow", "viral" combined with SEO-topic-stuffed repos → TIER-3 fast-path regardless of keyword match. First observation.
+- **[3× obs — READY]** HN Algolia 403 in cloud: WebSearch-first is the correct default for ALL news sources in cloud environment. Add cloud_run_note to news_pulse_monitor CLAUDE.md: "WebFetch blocked on HN Algolia, status.claude.com, anthropic/news in cloud env — WebSearch is primary."
+- **[2× obs]** Official anthropics/ org fast-path: run-2 had cwc-* repos, run-3 had 0. Pattern appears event-driven (conference windows). Still relevant to encode since run-2 confirmed the need. Awaiting ≥3× for CLAUDE.md edit.
+
+### Suggested Global-File Proposals
+
+- **[1× obs — NEW]** "Minecraft-MCP false-positive" pattern should be documented in a shared cross-agent note since any agent doing MCP-keyword searches could hit this. Low priority, but worth noting if MCP ecosystem monitoring expands to other orchestras.
+
+### What Next-Run Should Do Differently
+
+- Watch for anthropics/ org repos in trending (event-driven) — second time no official repos; run-2 had 2. Pattern: look for upcoming Anthropic events/conferences for signal.
+- Try per-repo GitHub API call for 1-2 top TIER-2 candidates early in the run (before hitting rate limit) to get actual contributor counts.
+- Aider/Continue/Cline dormant: **3rd observation needed.** run-1 (dormant), run-2 (dormant), run-3 (not explicitly checked today). Will verify next run → if confirmed → propose retirement in news_monitor CLAUDE.md.
+- Consider checking Aider/Continue/Cline Atom feeds in run-4 specifically to confirm/deny 3rd dormancy observation.
+
+### Cross-Orchestra Observations
+
+- **Cline SDK open-sourced:** Cline's agent runtime SDK (@cline/sdk) provides Anthropic/OpenAI/Google/Bedrock provider layer. If any other Orchestra needs multi-provider LLM routing, this SDK is now a viable open-source option. Pattern: the agent harness layer is commoditizing — worth noting for future orchestra builds.
+- **Composable AI coding stack pattern:** Developers using 2.3 tools on average. The "one tool wins" assumption for 07_Morning_Brief_Orchestra's competitive tracking may need updating — the real story is tool composition, not single-tool dominance.
+

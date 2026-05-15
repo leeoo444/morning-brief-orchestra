@@ -1,0 +1,101 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code GitHub Releases",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.142",
+    "title": "Claude Code v2.1.142 — Opus 4.7 fast mode, plugin skills, claude agents flags, MCP timeout fixes",
+    "summary": "v2.1.142 (2026-05-14): New claude agents flags, Opus 4.7 fast mode support, plugin skills, MCP timeout fixes, background session fixes. v2.1.141 (2026-05-13): Terminal sequences for hooks, HTTPS plugin cloning, workspace ID support, 50+ bug fixes. v2.1.140 (2026-05-12): Agent sub-agent type matching improvements.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "anthropic", "opus-4-7", "mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Blog",
+    "source_url": "https://www.anthropic.com/news",
+    "item_url": "https://www.anthropic.com/news/gates-foundation-partnership",
+    "title": "Anthropic forms $200 million partnership with the Gates Foundation",
+    "summary": "Anthropic and Gates Foundation partner on $200M 4-year initiative covering global health (vaccines, HPV, polio), education (K-12 tutoring, sub-Saharan Africa literacy), and economic mobility (smallholder farming AI). Central to Anthropic's mission to extend AI benefits beyond market incentives.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "gates-foundation", "global-health", "education"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Anthropic Blog",
+    "source_url": "https://www.anthropic.com/news",
+    "item_url": "https://www.anthropic.com/news/pwc-partnership",
+    "title": "PwC deploys Claude enterprise-wide for client technology and deal execution",
+    "summary": "PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients. Announced May 14, 2026. Represents major enterprise consulting-sector adoption.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "enterprise", "pwc", "deployment"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Cline Blog",
+    "source_url": "https://cline.bot/blog",
+    "item_url": "https://cline.bot/blog/introducing-cline-sdk-the-upgraded-agent-runtime",
+    "title": "Cline releases open-source @cline/sdk agent runtime — rebuilds entire harness, beats Claude Code on tbench claim",
+    "summary": "Cline open-sourced @cline/sdk: layered TypeScript agent runtime with @cline/shared, @cline/llms (Anthropic/OpenAI/Google/Bedrock), @cline/agents (stateless loop), @cline/core (stateful orchestration). Native agent teams, CRON jobs, MCP connectors. X post claims SDK beats Claude Code on tbench benchmark.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["cline", "sdk", "agent-runtime", "open-source", "mcp"],
+    "engagement": {"likes": null, "reposts": null, "comments": null}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "OpenAI Codex Releases",
+    "source_url": "https://github.com/openai/codex/releases",
+    "item_url": "https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.21",
+    "title": "Codex CLI rust-v0.131.0-alpha.19 and alpha.21 — persisted /goal workflows, Vim mode, plugin management",
+    "summary": "Two Codex CLI alpha releases on May 15, 2026: alpha.19 (05:12 UTC) and alpha.21 (18:48 UTC). Features: persisted /goal workflows, Vim mode for terminal editing, redesigned resume/fork picker, expanded plugin management with remote sync, /hooks browser. Also: Codex available in ChatGPT mobile app preview.",
+    "published_at": "2026-05-15T18:48:00Z",
+    "tags_or_keywords": ["codex", "openai", "release", "coding-ai"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "AWS",
+    "source_url": "https://aws.amazon.com/about-aws/whats-new/",
+    "item_url": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-mcp-server/",
+    "title": "AWS MCP Server is now generally available — IAM-based guardrails, CloudTrail logging",
+    "summary": "AWS announced GA of the AWS MCP Server on May 6. Managed server giving AI coding agents secure, auditable AWS API access via MCP. Features: call any AWS API through single tool, sandboxed Python execution against AWS services, IAM guardrails, CloudWatch metrics, CloudTrail logging. No additional charge.",
+    "published_at": "2026-05-06T00:00:00Z",
+    "tags_or_keywords": ["mcp", "aws", "model-context-protocol", "anthropic", "claude-code"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "CNBC",
+    "source_url": "https://www.cnbc.com",
+    "item_url": "https://www.cnbc.com/2026/05/11/openai-eu-cyber-model-anthropic-mythos-gpt.html",
+    "title": "Anthropic still holding out on Claude Mythos — OpenAI shares EU cyber model while Mythos stays in preview",
+    "summary": "OpenAI giving EU access to new cyber model but Anthropic still holding out on Mythos (its advanced cybersecurity/red-team model previewed at red.anthropic.com). Mythos remains research preview only as regulatory negotiations continue.",
+    "published_at": "2026-05-11T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "claude", "mythos", "eu", "regulation"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "The New Stack",
+    "source_url": "https://thenewstack.io",
+    "item_url": "https://thenewstack.io/ai-coding-tool-stack/",
+    "title": "Cursor, Claude Code, and Codex forming composable AI coding stack — not merging but layering",
+    "summary": "Analysis: Rather than a single tool winning, Cursor+Claude Code+Codex are forming a composable stack with orchestration, execution, and review layers. Developers use 2.3 AI coding tools on average. DeepSeek TUI emerging as fourth competitive option with 1M-token context.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "cursor", "codex", "ai-coding"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Hacker News",
+    "source_url": "https://news.ycombinator.com",
+    "item_url": "https://news.ycombinator.com/item?id=47936579",
+    "title": "Ask HN: Is it just me or is Claude Code getting worse?",
+    "summary": "Active HN thread with community reporting quality regressions and usage limit reductions since Claude 4.6 release. Mixed responses: some users see regressions, Anthropic posted update. Anthropic acknowledged quality reports and shared investigations.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "hackernews", "quality", "community"],
+    "engagement": {}
+  }
+]
