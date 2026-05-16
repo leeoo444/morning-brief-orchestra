@@ -88,6 +88,7 @@ Return JSON-object inline to CEO (no file-write). CEO aggregates per-repo result
     - Owner's personal site (heuristic: domain matches owner-name pattern)
     - Owner-authored tweets/posts (heuristic: author-handle == owner-name OR owner cross-post pattern)
     - Owner's Substack/Medium/LinkedIn posts (Tier-Labels in URL+author)
+    - **Sibling-repo crowd-out (3× confirmed — formalized 2026-05-17):** When query for `repo-B` returns results about `owner/repo-A` (different repo, same owner), these are NOT community data for `repo-B`. Mitigation: ALWAYS use full `"owner/repo-name"` exact form in queries (already required), and explicitly verify each result mentions the target repo-name in the snippet.
 11. **Apply upgrade decision rule** (binding):
     - UPGRADE TIER-2 → TIER-1 SAFE **ONLY IF ALL THREE**:
       - ≥2 distinct community-domains (different sites — NOT 2 results from same subreddit)

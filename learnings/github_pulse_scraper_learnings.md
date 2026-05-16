@@ -156,3 +156,51 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-17 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** 728 total matching repos available; 100 fetched.
+- **Keyword-match Yield:** 6 matches (6% signal). Slight drop from run-2 (10 matches) — no `anthropics/` org repos in trending today.
+- **kerlos/pordee:** NOT seen this run — named-exclusion applied correctly. Pattern resolved.
+- **New SEO-spam cluster (1× new):** BharathKumarSuresh/claude-design-system-hooks (420⭐, no license, 2d) and mikesheehan54/Claude-Code-Design-AI (379⭐, MIT, 3d) have nearly identical 20-topic sets: `claude-design-free`, `claude-design-installer`, `claude-cowork-free`, `claude-code-marketplace`, etc. Coordinated spam inflating star counts. TIER-3 SKIP correctly applied.
+- **False-negative (1× new):** yetone/native-feel-skill ⭐1219 (MIT, TypeScript, 3d old) — "Agent Skill for designing cross-platform desktop apps that feel native." Not caught because name/description/topics contain no `claude-` prefix keywords. `agent-skill` (bare, without `claude-`) is an official Claude Code ecosystem concept but not in keyword list.
+- **False-positive (1× new):** SzeDaSa/Tomodachi-Share-Mii — Nintendo Tomodachi Life game matched `zed` keyword as substring (likely "personalized" or "visualized" in description). Zero relevance to Zed IDE. TIER-3 SKIP applied.
+
+### Edge-Cases Encountered
+
+- **GitHub unauthenticated core API at 0/60 after bulk search (3× confirmed cloud pattern):** Same as run-2. Zero per-repo metadata calls possible. Bulk search fields (stars, pushed_at, open_issues, topics, license) used for full classification. This is a stable cloud-run infrastructure constraint.
+- **No `anthropics/` org repos in trending today:** Fast-path rule not triggered. Still at 1× actual occurrence (run-2 only).
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`SzeDaSa/Tomodachi-Share-Mii`** ⭐281 — Nintendo game community hub. Matched `zed` keyword as substring in description (not Zed IDE). TIER-3 SKIP.
+- **`BharathKumarSuresh/claude-design-system-hooks`** ⭐420 — SEO-spam topic cluster + no license. TIER-3 SKIP.
+- **`2508965-ship-it/harmonist-orchestral`** ⭐420 — No license + suspicious numeric-prefix username + SEO-style description. TIER-3 SKIP.
+- **`mikesheehan54/Claude-Code-Design-AI`** ⭐379 — Identical SEO topic cluster to BharathKumarSuresh above. TIER-3 SKIP.
+
+### Tool-Call Issues
+
+- GitHub API unauthenticated: 0/60 core rate limit. Same constraint as run-2. WebFetch fallback not needed — bulk search JSON contained all required fields.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Add `kerlos/pordee` to named-exclusion list in exclusion-list section. Already applied ad-hoc in run-3 filter. Formalize in CLAUDE.md.
+- **[1× obs]** Add bare `agent-skill` and `agent-skills` (without `claude-` prefix) to Required-Keywords list — misses official Claude Code Agent Skill repos like yetone/native-feel-skill. Hold for 3×.
+- **[1× obs]** `zed` keyword needs word-boundary enforcement: `\bzed\b` or `zed-editor` only. Today's Tomodachi false-positive. Hold for 3×.
+- **[1× obs]** Coordinated-spam-cluster signal: if ≥5 topics from `{*-free, *-installer, *-download, *-alternative, *-cowork-free, *-marketplace}` → TIER-3 SKIP override. Hold for 3×.
+
+### What Next-Run Should Do Differently
+
+- Formal `kerlos/pordee` exclusion is already in CLAUDE.md now (CEO triggered self-edit). No change needed in behavior.
+- Watch for 2nd occurrence of `agent-skill` false-negative pattern → at 3× add to keyword list.
+- Watch for 2nd occurrence of coordinated-spam-cluster → at 3× add topic-cluster detection rule.
+- Watch for 2nd occurrence of `zed` substring false-positive → at 3× restrict to word-boundary.
+- GitHub API unauthenticated constraint confirmed stable — no workaround needed, bulk search fields are sufficient.
+
+### Meta-Learning for Future Self
+
+- **Spam-repo star-inflation:** SEO/spam repos in the Claude Code topic space can accumulate hundreds of stars quickly (likely through coordinated networks). Star count alone is not a trust signal for TIER-2 assessment. The heuristic's multi-factor requirement (license + age + contributors) provides defense, but coordinated-topic-cluster pattern is a new detection signal.

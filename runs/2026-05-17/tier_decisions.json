@@ -1,0 +1,120 @@
+[
+  {
+    "repo": "nexu-io/html-anything",
+    "url": "https://github.com/nexu-io/html-anything",
+    "stars": 2425,
+    "age_days": 5,
+    "last_commit_days": 0,
+    "license": "Apache-2.0",
+    "contributors_estimated": "multi (Organization)",
+    "open_issues": 26,
+    "closed_issues": 5,
+    "closed_issues_ratio": 0.161,
+    "tier": "TIER-2",
+    "reason": "age=5d < 30d threshold; all other signals positive (stars>=100, Apache-2.0, org-backed)",
+    "community_validated": false,
+    "community_reasoning": "0 distinct non-owner community domains found across 3 WebSearch queries",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "claude-code",
+      "claude-skills",
+      "claude-skill",
+      "agent-skills"
+    ]
+  },
+  {
+    "repo": "DenisSergeevitch/agents-best-practices",
+    "url": "https://github.com/DenisSergeevitch/agents-best-practices",
+    "stars": 568,
+    "age_days": 1,
+    "last_commit_days": 1,
+    "license": "MIT",
+    "contributors_estimated": "1 (User, rate-limited)",
+    "open_issues": 4,
+    "closed_issues": 0,
+    "closed_issues_ratio": 0.0,
+    "tier": "TIER-2",
+    "reason": "age=1d < 30d threshold; MIT license, 568 stars day-1; contributor count unavailable (API rate-limited)",
+    "community_validated": false,
+    "community_reasoning": "0 distinct non-owner community domains found across 3 WebSearch queries",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "claude-code",
+      "anthropic",
+      "mcp",
+      "agent-skill"
+    ]
+  },
+  {
+    "repo": "BharathKumarSuresh/claude-design-system-hooks",
+    "url": "https://github.com/BharathKumarSuresh/claude-design-system-hooks",
+    "stars": 420,
+    "age_days": 2,
+    "last_commit_days": 2,
+    "license": null,
+    "contributors_estimated": "1 (User)",
+    "open_issues": 0,
+    "closed_issues": 0,
+    "closed_issues_ratio": 0.0,
+    "tier": "TIER-3",
+    "reason": "SKIP: no license + single author + age=2d (<14d); SEO-spam topic cluster (20 topics all claude-design-*-free-installer pattern)",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "claude-code"
+    ]
+  },
+  {
+    "repo": "2508965-ship-it/harmonist-orchestral",
+    "url": "https://github.com/2508965-ship-it/harmonist-orchestral",
+    "stars": 420,
+    "age_days": 2,
+    "last_commit_days": 2,
+    "license": null,
+    "contributors_estimated": "1 (User, suspicious numeric-prefix username)",
+    "open_issues": 0,
+    "closed_issues": 0,
+    "closed_issues_ratio": 0.0,
+    "tier": "TIER-3",
+    "reason": "SKIP: no license + single author + age=2d (<14d); suspicious numeric-prefix username pattern",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "claude-code"
+    ]
+  },
+  {
+    "repo": "mikesheehan54/Claude-Code-Design-AI",
+    "url": "https://github.com/mikesheehan54/Claude-Code-Design-AI",
+    "stars": 379,
+    "age_days": 3,
+    "last_commit_days": 3,
+    "license": "MIT",
+    "contributors_estimated": "1 (User)",
+    "open_issues": 0,
+    "closed_issues": 0,
+    "closed_issues_ratio": 0.0,
+    "tier": "TIER-3",
+    "reason": "SKIP: identical SEO-spam topic cluster as BharathKumarSuresh/claude-design-system-hooks; coordinated spam pattern",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "claude-code"
+    ]
+  },
+  {
+    "repo": "SzeDaSa/Tomodachi-Share-Mii",
+    "url": "https://github.com/SzeDaSa/Tomodachi-Share-Mii",
+    "stars": 281,
+    "age_days": 3,
+    "last_commit_days": 3,
+    "license": "MIT",
+    "contributors_estimated": "1 (User)",
+    "open_issues": 0,
+    "closed_issues": 0,
+    "closed_issues_ratio": 0.0,
+    "tier": "TIER-3",
+    "reason": "SKIP: false-positive; Nintendo Tomodachi Life game community hub; 'zed' substring matched in description (not Zed IDE); clearly not Claude-Code-ecosystem",
+    "final_status": "FILTERED_TO_AUDIT",
+    "matched_keywords": [
+      "zed"
+    ]
+  }
+]

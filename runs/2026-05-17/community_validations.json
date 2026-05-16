@@ -1,0 +1,36 @@
+[
+  {
+    "repo": "nexu-io/html-anything",
+    "queries_run": [
+      "\"nexu-io/html-anything\" reddit",
+      "\"html-anything\" claude code review reddit hackernews",
+      "\"nexu-io/html-anything\" works OR useful OR recommend"
+    ],
+    "distinct_domains_found": 0,
+    "sentiment_summary": {
+      "positive": 0,
+      "neutral": 0,
+      "negative": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "Zero results across all three queries found any snippet mentioning nexu-io/html-anything specifically. No qualifying community domain produced any signal.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "DenisSergeevitch/agents-best-practices",
+    "queries_run": [
+      "\"DenisSergeevitch/agents-best-practices\" reddit hackernews",
+      "\"agents-best-practices\" claude code review works",
+      "\"DenisSergeevitch\" agent skill claude"
+    ],
+    "distinct_domains_found": 0,
+    "sentiment_summary": {
+      "positive": 0,
+      "neutral": 0,
+      "negative": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "Zero results across all three queries returned any snippet mentioning DenisSergeevitch or their repo. No qualifying community domain produced any signal.",
+    "promotion_blurb_for_brief": null
+  }
+]

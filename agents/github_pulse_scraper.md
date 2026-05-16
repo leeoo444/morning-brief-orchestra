@@ -85,6 +85,9 @@ Write JSON-array to `<run_folder>/github_raw.json` AND return same content inlin
    - Name pattern `awesome-*` · `*-tutorial` · `*-example` · `*-demo`
    - Empty description AND empty topics (no-context = no-confidence)
    - Single-letter-org or known-spam orgs (heuristic: org-name no description)
+   - **Named exclusions (≥3× confirmed false-positives):**
+     - `kerlos/pordee` — Thai-language chat app, confirmed false-positive across Phase B + run-1 + run-2 + run-3. Not a Claude-Code-ecosystem TOOL.
+   - **Coordinated-spam-cluster signal (1× obs — watch):** if ≥5 topics from `{*-free, *-installer, *-download, *-alternative, *-marketplace, *cowork-free}` AND no license AND age<14d → TIER-3 SKIP (hold for 3× before making hard rule)
 9. **Cap at 50** — if >50 keyword-matches, take top-50 by stars.
 10. **Per-kept-repo metadata fetches** (2 calls each):
     ```bash

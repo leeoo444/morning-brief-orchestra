@@ -392,3 +392,48 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-17 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 2 (nexu-io/html-anything ⭐2425, DenisSergeevitch/agents-best-practices ⭐568)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 2
+- Query-count: 3 WebSearch queries per repo (Tavily not available in cloud run)
+- Pattern confirmed ×3 run: all repos age<14d (5d and 1d) → zero independent community testimonials. Default-deny correctly engaged.
+
+## 2026-05-17 repo=nexu-io/html-anything
+
+### Search-Results
+- Queries-run: 3 — `"nexu-io/html-anything" reddit`, `"html-anything" claude code review reddit hackernews`, `"nexu-io/html-anything" works OR useful OR recommend`
+- Distinct non-owner domains: 0 — all results were about nexu-io's other project (open-design) or generic Claude Code content
+- Total-results-classified: 0 relevant
+
+### Sentiment Distribution
+- positive: 0 · neutral: 0 · negative: 0 · no-data: all (no results about this specific repo)
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: Zero results across all three queries returned any snippet mentioning nexu-io/html-anything specifically. 5 days old — too new for community indexing. Nexu-io's other project (open-design) dominates search results. Default-deny.
+
+### New Edge-Case Observed
+- **Related-project-crowd-out (1× new):** nexu-io appears to have another project (open-design) that dominates search results when querying for `nexu-io`. Similar to sibling-repo-confound pattern (2× confirmed, alchaincyf/huashu-md-html + alvinunreal/openpets↔claude-pets). Now 3× confirmed. **Ready to formalize in CLAUDE.md: full `"owner/repo-name"` exact form in ALL queries to prevent cross-contamination.**
+
+## 2026-05-17 repo=DenisSergeevitch/agents-best-practices
+
+### Search-Results
+- Queries-run: 3 — `"DenisSergeevitch/agents-best-practices" reddit hackernews`, `"agents-best-practices" claude code review works`, `"DenisSergeevitch" agent skill claude`
+- Distinct non-owner domains: 0 — all results were generic agent best-practices / Claude Code content with no attribution to this specific repo or author
+- Total-results-classified: 0 relevant
+
+### Sentiment Distribution
+- positive: 0 · neutral: 0 · negative: 0 · no-data: all
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: Only 1 day old. Zero community indexing possible. All queries returned generic content. Default-deny.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Sibling-repo-confound / related-project-crowd-out: Use full `"owner/repo-name"` exact form in ALL queries without exception. Pattern: openpets↔claude-pets (run-2), huashu-md-html↔huashu-design (run-2), nexu-io/html-anything↔nexu-io/open-design (run-3). **3× confirmed. Formally recommend CLAUDE.md update.**

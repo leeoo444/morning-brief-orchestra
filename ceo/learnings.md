@@ -195,3 +195,70 @@
 ### Cross-Orchestra Observations
 
 - **Pattern:** Cloud run environment has different tool availability vs. local run (no scrapling, WebFetch blocked on some domains, GitHub unauthenticated). If Cloud-Daily-Run becomes the primary trigger, the sub-agent briefings should document cloud-run fallback paths explicitly. Consider a `cloud_run: true` flag in CEO prompt that triggers cloud-optimized mode.
+
+---
+
+## 2026-05-17 (run-3, cloud daily run)
+
+### Cross-Sub-Agent Patterns
+
+- **GitHub unauthenticated rate-limit (3× confirmed: run-1 partial, run-2 full, run-3 full):** Unauthenticated core API hits 0/60 after the bulk search call on every cloud run. Per-repo metadata (contributors, closed-issues) consistently unavailable. Bulk search fields (stars, pushed_at, open_issues, topics, license) are sufficient for classification at cloud scale. This is now a stable infrastructure constraint, not a transient issue.
+- **WebSearch PRIMARY for news in cloud (2× confirmed: run-2 + run-3):** WebFetch 403 on Anthropic /news, HN Algolia, status.claude.com again. WebSearch fully recovered all major news items (10+ unique events). Pattern stable.
+- **SEO-spam coordinated repo cluster (1× observed, new pattern):** BharathKumarSuresh/claude-design-system-hooks and mikesheehan54/Claude-Code-Design-AI have nearly identical topic sets (20 topics: `claude-design-free`, `claude-design-installer`, `claude-cowork-free`, etc.). Both had 0 issues, no license (one exception: MIT on one). Coordinated spam inflating star counts. TIER-3 SKIP correctly applied. Watch for recurrence.
+- **Aider/Continue dormant (3× confirmed — READY for retirement in news_monitor):** Aider still Feb 2026, Continue still March 2026 across all 3 runs. Cline NOT dormant (v3.0.4 shipped May 16). Self-Edit applies: CEO should edit `agents/news_pulse_monitor.md` to retire Aider and Continue from daily monitoring.
+
+### Trust-Tier Distribution
+
+- TIER-1 SAFE direct: 0
+- TIER-1 via official-org fast-path: 0 (no `anthropics/` org repos in trending today)
+- TIER-2 NEEDS-REVIEW: 2 (nexu-io/html-anything ⭐2425, DenisSergeevitch/agents-best-practices ⭐568) — 0 upgraded (both age<14d, community validation returned 0 distinct non-owner domains)
+- TIER-3 SKIP: 4 (2× coordinated-SEO-spam, 1× no-license-suspicious-username, 1× false-positive Nintendo game)
+
+### Cross-Source Dedup Stats
+
+- Codex alpha.21 + alpha.22 consolidated: 1 entry (2:1 dedup)
+- All other 9 news events unique across sources
+- Raw items: 11 · After dedup: 10
+
+### Heuristic-Performance Observations
+
+- **Age-≥-30d threshold binding (3× confirmed across all runs):** All keyword-matched repos today age<14d. Pattern fully established: trending-7d-window ⟹ always TIER-2-or-worse without community-validation.
+- **`zed` substring false-positive (1× new):** SzeDaSa/Tomodachi-Share-Mii matched `zed` as substring (likely in description: "personalized" or similar). Nintendo game with no relevance to Zed IDE. Suggests `zed` keyword needs word-boundary enforcement. Hold for 3× before CLAUDE.md edit.
+- **`agent-skill` false-negative (1× new):** yetone/native-feel-skill ⭐1219 (MIT, 3d, Organization context) — an Agent Skill for native desktop app design — not caught because name/description/topics contain no `claude-` prefix keywords. The bare `agent-skill` and `agent-skills` keywords (without `claude-` prefix) are in the official Claude Code Agent Skills taxonomy but not in the github_scraper keyword list. 1× obs, hold for 3×.
+- **Coordinated-spam-topic-cluster pattern (1× new):** Two repos with near-identical 20-topic SEO sets (free, installer, marketplace, cowork-free). Even when one has MIT license, the coordinated pattern is a strong SKIP signal. Current heuristic doesn't explicitly catch this — today caught by qualitative judgment. Consider adding: if topics contain ≥5 of {`*-free`, `*-installer`, `*-download`, `*-alternative`, `cowork-free`} → TIER-3 SKIP. 1× obs, hold for 3×.
+
+### Self-Reflection (CEO behavior)
+
+- ✓ Stayed within hard-rules: no auto-clone, TIER-1-only in brief output, dedup applied, no file deletion
+- ✓ Correctly applied kerlos/pordee named-exclusion (3× confirmed in prior runs, applied ad-hoc in filter)
+- ✓ No content-volume bias: Brief honestly shows 0 TIER-1 for 3rd consecutive run; no heuristic relaxation
+- ✓ yetone/native-feel-skill false-negative logged in learnings but NOT retroactively added to brief (would require relaxing keyword filter without 3× confirmation)
+- ✓ Spam cluster (BharathKumarSuresh + mikesheehan54) classified as TIER-3 SKIP based on coordinated-topic pattern + no license — transparent reasoning, not ad-hoc
+- ⚠️ GitHub API rate-limit at 0/60 immediately after first search is worse than run-2 (which got ~15 per-repo calls). Per-repo metadata zero today. Accepted constraint given cloud-unauthenticated baseline.
+
+### Suggested Local-CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Retire Aider + Continue from news_monitor daily source list (both Feb/March 2026 last active). CEO should edit `agents/news_pulse_monitor.md`. Cline is NOT retiring (active).
+- **[3× obs — READY]** `kerlos/pordee` named exclusion: already applied ad-hoc. Formalize in `agents/github_pulse_scraper.md` exclusion-list.
+- **[1× obs]** Add `agent-skill` and `agent-skills` (bare, without `claude-` prefix) to github_pulse_scraper Required-Keywords (case: yetone/native-feel-skill missed). Hold for 3×.
+- **[1× obs]** `zed` keyword needs word-boundary enforcement (`\bzed\b` or `zed-editor` only) — today's Tomodachi false-positive. Hold for 3×.
+- **[1× obs]** Coordinated-spam-topic-cluster detection: if ≥5 topics from `{*-free, *-installer, *-download, *-alternative, cowork-free}` → TIER-3 SKIP signal. Hold for 3×.
+- **[2× obs]** `anthropics/` org fast-path: Only occurred in run-2 (cwc repos). Not present today. Still at 1× actual occurrence. Hold.
+
+### Suggested Global-File Proposals
+
+- **[2× obs — READY for Proposal-Doc]** Cloud-run WebFetch blocked on key sources (Anthropic /news, HN Algolia, status.claude.com): confirmed run-2 + run-3. Proposal: add cloud-run runbook note to `~/.claude/CLAUDE.md` or a cloud-specific override doc. CEO should write Proposal-Doc at `proposals/2026-05-17_cloud-run-webfetch-blocked.md`.
+
+### What Next-Run Should Do Differently
+
+- Apply formal `kerlos/pordee` exclusion in `agents/github_pulse_scraper.md` (3× confirmed, already applied ad-hoc today) ← CEO Self-Edit triggered
+- Apply Aider + Continue retirement in `agents/news_pulse_monitor.md` (3× confirmed) ← CEO Self-Edit triggered
+- Watch for 2nd occurrence of yetone-style `agent-skill` false-negative → at 3× add bare `agent-skill` to keyword list
+- Watch for 2nd occurrence of `zed` substring false-positive → at 3× add word-boundary
+- Watch for coordinated-spam-topic-cluster recurrence → at 3× add detection rule
+- GitHub API: same unauthenticated constraint expected. Budget bulk search as primary, skip per-repo calls entirely.
+
+### Cross-Orchestra Observations
+
+- **Major Anthropic enterprise signals this week:** Salesforce $300M token commitment, Gates Foundation $200M partnership, PwC 100K+ workforce deployment, 12 legal plugins, ~$950B valuation. If Trading-Orchestra or Strategy-Orchestra tracks enterprise AI spend, these are high-signal data points.
+- **Anthropic 2028 AGI paper:** Policy-level signal worth tracking in any Orchestra monitoring macro AI trends. Recommendation: if a Strategy-Orchestra exists, flag this paper.

@@ -238,3 +238,55 @@ None significant — relevance-filter works (HN already filtered by query keywor
 1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
 2. Check scrapling tool availability at run start — document if absent
 3. Aider/Continue/Cline: 3rd confirmation → propose retirement
+
+---
+
+## 2026-05-17 (run-3, cloud daily run)
+
+### Findings
+
+**Sources attempted and results:**
+- Claude Code Releases Atom → SUCCESS via WebFetch: v2.1.143 (May 15) — 1 entry within 48h window
+- Cline Releases Atom → SUCCESS: CLI v3.0.4 published **2026-05-16T19:23:43Z** (active today!)
+- OpenAI Codex Releases Atom → SUCCESS: rust-v0.131.0-alpha.22 (May 16 00:21Z) + alpha.21 (May 15) — both in 24h window; consolidated to 1 entry
+- Aider Releases Atom → SUCCESS (stale): still Feb 2026 — no new activity. **3rd confirmation of dormancy.**
+- Continue Releases Atom → SUCCESS (stale): still March 2026 — no new activity. **3rd confirmation of dormancy.**
+- Anthropic News → 403 Forbidden via WebFetch; WebSearch fully recovered: Gates Foundation $200M, Salesforce $300M, PwC expansion, legal plugins, AGI 2028 paper, valuation
+- HN Algolia → 403 Forbidden (confirmed 3rd cloud run)
+- Reddit → Not attempted (scrapling unavailable in cloud context)
+- Cursor Changelog → WebSearch: Cursor 3.3 (May 7) confirmed
+- SurePath AI MCP governance → WebSearch: PR Newswire May 16
+
+**Notable releases captured:**
+- Claude Code v2.1.143 (May 15): plugin dependencies, context cost visibility, worktree config
+- Cline CLI v3.0.4 (May 16): TUI color fixes, plugin bundling fix
+- OpenAI Codex alpha.22 (May 16): daily alpha shipping continues
+- Salesforce $300M Anthropic token commitment (May 16)
+- Anthropic 12 legal plugins (May 16)
+- Anthropic 2028 AGI leadership paper (May 15)
+- Anthropic ~$950B valuation round (May 15)
+- Gates Foundation $200M partnership (May 14)
+- PwC + Claude Code expansion (May 14)
+- SurePath AI MCP policy controls (May 16)
+- Cursor 3.3 (May 7) — outside 24h but Tier-1
+
+**Total items kept in `news_raw.json`:** 11 (1 Claude Code release, 1 Cline, 1 Codex consolidated, 8 web/business news)
+
+### Edge-Cases Encountered
+
+1. **WebFetch 403 on multiple Tier-0 sources (3× confirmed: run-1 + run-2 + run-3):** Anthropic /news, status.claude.com/history.atom, HN Algolia all blocked. WebSearch is reliable and comprehensive substitute for all three runs. Pattern: STABLE. Cloud run should default WebSearch-FIRST, skip WebFetch on these sources.
+2. **Aider/Continue dormancy confirmed 3× (run-1 + run-2 + run-3):** 3rd confirmation reached. Retirement READY per ≥3× rule. CEO self-edit triggered on `agents/news_pulse_monitor.md`.
+3. **Cline NOT dormant:** v3.0.4 shipped May 16. Remove from "dormancy watch" list.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Retire Aider from daily monitoring: last release Feb 2026. Drop `https://github.com/Aider-AI/aider/releases.atom` from Tier-1 sources OR mark as weekly-only.
+- **[3× obs — READY]** Retire Continue from daily monitoring: last release March 2026. Drop `https://github.com/continuedev/continue/releases.atom` from Tier-1 sources OR mark as weekly-only.
+- **[2× obs — hold 1 more]** Cloud environment WebFetch blocked on Anthropic /news, HN Algolia, status.claude.com — consider removing these from primary list for cloud runs, replacing with WebSearch queries.
+
+### What Next-Run Should Do Differently
+
+1. Cloud: skip WebFetch on Anthropic /news, HN Algolia, status.claude.com — go straight to WebSearch
+2. Aider + Continue are RETIRED from daily monitoring per CEO self-edit of CLAUDE.md
+3. Cline remains active — v3.0.4 May 16 confirms continued active development
+4. OpenAI Codex alpha cadence is daily — consolidate alpha.x + alpha.y from same day into 1 entry
