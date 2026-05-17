@@ -195,3 +195,67 @@
 ### Cross-Orchestra Observations
 
 - **Pattern:** Cloud run environment has different tool availability vs. local run (no scrapling, WebFetch blocked on some domains, GitHub unauthenticated). If Cloud-Daily-Run becomes the primary trigger, the sub-agent briefings should document cloud-run fallback paths explicitly. Consider a `cloud_run: true` flag in CEO prompt that triggers cloud-optimized mode.
+
+---
+
+## 2026-05-18 (run-3, cloud daily run)
+
+### Cross-Sub-Agent Patterns
+
+- **WebSearch-primary confirmed ×2 (run-2 + run-3):** WebFetch 403 on Anthropic /news, status.claude.com, HN Algolia all persistent in cloud environment. WebSearch recovered all high-signal news (7 items) without a single miss on major Anthropic announcements. Pattern is stable — cloud-run sub-agents should default WebSearch-first with WebFetch as supplemental.
+- **Spam-cluster new pattern:** Two repos in the same trending window (BharathKumarSuresh/claude-design-system-hooks + mikesheehan54/Claude-Code-Design-AI) shared an identical spam-topic set and were pushed within 10 minutes of creation. First observation of coordinated spam-ring in Claude-ecosystem trending window. Worth monitoring for recurrence.
+- **Agent Skills keyword gap:** github_pulse_scraper's keyword filter missed yetone/native-feel-skill (1273⭐) because its description uses "Agent Skill" not "claude-code"/"anthropic"/"mcp". The Agent Skills ecosystem is growing and needs an explicit keyword addition.
+
+### Trust-Tier Distribution
+
+- TIER-1 SAFE direct heuristic: 0 (age_days<30 constraint binding for all 7 candidates)
+- TIER-1 SAFE via official-org fast-path: 0 (no anthropics/ org repos in trending window this run)
+- TIER-2 NEEDS-REVIEW: 3 (yetone/native-feel-skill ⭐1273, DenisSergeevitch/agents-best-practices ⭐707, WantongC/journal-adapt-writing-skill ⭐313)
+- TIER-2 community-upgraded: 0 (all 3 default-denied: 0 third-party domains each)
+- TIER-3 SKIP: 4 (2 spam-cluster, 1 numeric-username, 1 out-of-scope)
+
+### Cross-Source Dedup Stats
+
+- Claude Code releases deduped: 4 releases (v2.1.140–2.1.143) → 2 consolidated entries (v2.1.143 batch + v2.1.141 batch)
+- News-only events: 5 unique (Agent SDK credits, weekly limits, HN small-biz, Zed 1.1.5, Cursor Bugbot billing)
+- GitHub-only events: 0 (all filtered to audit)
+
+### Heuristic-Performance Observations
+
+- **Age-≥-30d threshold binding again (3rd straight run):** All keyword-matched repos <7 days old. Trending-7d window and 30d-maturity are mutually exclusive by design. Working as intended.
+- **Spam cluster detection needed:** Current heuristic (no-license + age<14d + single-author) catches individual spam repos. Coordinated topic-cluster networks (same ≥5 download/free/install topics, same-day creation) are a NEW evasion pattern that bypasses individual classification. CEO should add shared-topic-cluster check.
+- **Agent Skills ecosystem growth:** Agent Skills repos now have their own star momentum (1273⭐ in 3d, 707⭐ in 2d for two new repos). The ecosystem is maturing. Keyword filter needs "agent-skill"/"agent-skills" addition to catch them.
+
+### Self-Reflection (CEO behavior)
+
+- ✓ Stayed within hard-rules: no auto-clone, TIER-1-only output, cross-source dedup applied, no file deletion
+- ✓ Correctly applied kerlos/pordee exclusion in keyword filter (3× confirmed, pre-applied)
+- ✓ Spam cluster identified and triple-TIER-3'd correctly based on observable signals (topic overlap, no license, zero development activity)
+- ✓ Community validation run for all 3 TIER-2 repos; all correctly denied; no bias toward "making Brief look fuller"
+- ✓ Brief correctly shows 0 TIER-1 and 0 community-upgrades honestly
+- ⚠️ Bias-Watch: None drifted this run. Did not relax heuristic despite 3 high-star Agent Skills repos in TIER-2.
+
+### Suggested Local-CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** HN Algolia API unreachable in cloud: run-1 partial→run-2 403→run-3 403. Replace cloud-run Tier-2 HN source with `WebSearch site:news.ycombinator.com "claude code"`.
+- **[3× obs — READY]** Aider/Continue/Cline dormant: all 3 confirmed absent across 3 runs. Propose retirement from daily news-monitor cadence to weekly at most.
+- **[2× obs]** `anthropics/` org fast-path: run-2 (2 repos confirmed) + run-3 (0 repos = baseline). Hold for 3× pattern observation. Not yet ready to encode permanently as it appears event-driven (conference releases).
+- **[1× obs]** Add "agent-skill"/"agent-skills" as required-keyword to github_pulse_scraper — missed yetone/native-feel-skill (1273⭐). Needs 1 more confirmation.
+- **[1× obs]** Spam-cluster detection: when ≥2 repos share ≥5 identical "download/free/install/installer/alternative" topics → auto-TIER-3 cluster. Needs 1 more confirmation.
+- **[1× obs]** News-window: extend from strict 24h to days_since_last_run. Avoids "quiet day" gaps.
+
+### Suggested Global-File Proposals
+
+- **[1× obs — NEW]** Cloud-run sub-agent tool availability: scrapling unavailable, WebFetch 403 on several key domains (3× confirmed). This is a persistent cloud-run constraint worth documenting in a global note or cloud-run runbook. Still only 1 proposal-doc candidate (obs 2026-05-12); needs ≥2× to write Proposal-Doc.
+
+### What Next-Run Should Do Differently
+
+- Apply "agent-skill" keyword addition to github scraper (≥1× confirmed needed, check if ≥3×)
+- Apply HN Algolia retirement + WebSearch substitution in news monitor (3× confirmed → edit sub-agent CLAUDE.md)
+- Apply Aider/Continue/Cline retirement from daily polling (3× confirmed → edit news_monitor CLAUDE.md)
+- Check spam-cluster pattern for recurrence
+- Watch for 2nd occurrence of `mcp` false-positive on out-of-scope repos (algorithmic trading today was 1st)
+
+### Cross-Orchestra Observations
+
+- **Agent Skills ecosystem momentum:** 3 Agent Skills repos in a single trending window with 1273/707/313⭐ each gained in 2-4 days. This ecosystem is accelerating. The `anthropics/skills` official repo has skills for claude-api, skill-creator, docx/pdf/pptx/xlsx. External ecosystem building on top. May warrant a new brief section "New Agent Skills" distinct from "New Trust-Vetted GitHub Repos".

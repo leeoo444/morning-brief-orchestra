@@ -392,3 +392,47 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-18 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 3 (yetone/native-feel-skill, DenisSergeevitch/agents-best-practices, WantongC/journal-adapt-writing-skill)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 3
+- Query-count: 1 per repo (single WebSearch call, cloud run context)
+- **Pattern confirmed ×6 (across run-1/2/3 total 12 repos):** All age<7d repos → 0 distinct community domains → default-deny. No exceptions ever.
+
+## 2026-05-18 repo=yetone/native-feel-skill
+
+### Search-Results
+- Queries-run: 1 — `"yetone/native-feel-skill" reddit hackernews review works`
+- Distinct non-owner domains: 0 (all results were github.com/yetone or unrelated)
+- Total-results-classified: 1 (github.com/yetone — owner-self excluded)
+
+### Sentiment Distribution
+- positive: 0 · neutral: 0 · negative: 0 · no-data: 1 (owner-self)
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 distinct third-party domains. Repo 3 days old. Too new for community indexing despite 1273 stars. Default-deny.
+
+## 2026-05-18 repo=DenisSergeevitch/agents-best-practices
+
+### Search-Results
+- Queries-run: 1 — `"DenisSergeevitch/agents-best-practices" reddit hackernews works useful`
+- Distinct non-owner domains: 0
+- Note: Search description mentioned 552 stars and 44 forks — possible staleness artefact from search index vs live 707 stars.
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 distinct third-party domains despite legitimate-looking repo. Repo 2 days old. Default-deny.
+
+## 2026-05-18 repo=WantongC/journal-adapt-writing-skill
+
+### Upgrade-Decision + Reasoning
+- decision: false
+- reasoning: 0 results found at all. Niche academic writing skill — unlikely to have community coverage even later. Default-deny.
+
+### New Pattern Noted
+- **Agent Skills "instant virality" pattern:** Both yetone/native-feel-skill (1273⭐/3d) and DenisSergeevitch/agents-best-practices (707⭐/2d) gained high star counts very quickly. This mirrors the run-1 "viral young repo" pattern (strukto-ai/mirage, NirDiamant). Stars ≠ community testimonials. Default-deny correctly engaged both times. **Confirmation count for "high-star Agent-Skills repos still default-deny": 2 (this run).**

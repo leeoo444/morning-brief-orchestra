@@ -1,0 +1,44 @@
+[
+  {
+    "repo": "yetone/native-feel-skill",
+    "tier": "TIER-2",
+    "reason": "stars=1273 ≥100 ✓; age_days=3 <30 ✗; last_commit_days=2 ≤30 ✓; license=MIT ✓; contributors=null (API rate-limit); closed_issues_ratio=0.0 (no issues). Age gate is binding constraint — trending window and 30d-maturity requirement are mutually exclusive by design.",
+    "fast_path": null
+  },
+  {
+    "repo": "DenisSergeevitch/agents-best-practices",
+    "tier": "TIER-2",
+    "reason": "stars=707 ≥100 ✓; age_days=2 <30 ✗; last_commit_days=2 ≤30 ✓; license=MIT ✓; contributors=null; closed_issues_ratio=0.0. Age gate binding.",
+    "fast_path": null
+  },
+  {
+    "repo": "WantongC/journal-adapt-writing-skill",
+    "tier": "TIER-2",
+    "reason": "stars=313 ≥100 ✓; age_days=4 <30 ✗; last_commit_days=2 ≤30 ✓; license=MIT ✓; contributors=null; closed_issues_ratio=0.0. Age gate binding.",
+    "fast_path": null
+  },
+  {
+    "repo": "BharathKumarSuresh/claude-design-system-hooks",
+    "tier": "TIER-3",
+    "reason": "no license + likely single author + age_days=3 <14d → TIER-3 SKIP. Additional spam indicators: 'Free Install' in description, topics include download/free/install/installer pattern — SEO keyword-stuffing cluster.",
+    "fast_path": null
+  },
+  {
+    "repo": "2508965-ship-it/harmonist-orchestral",
+    "tier": "TIER-3",
+    "reason": "no license + numeric-only username (strong spam signal) + age_days=3 <14d → TIER-3 SKIP. Last-pushed timestamp within seconds of created_at = zero development activity.",
+    "fast_path": null
+  },
+  {
+    "repo": "mikesheehan54/Claude-Code-Design-AI",
+    "tier": "TIER-3",
+    "reason": "age_days=4 <14d + pushed_at within 10 min of created_at = no real development. Topics share exact spam cluster with BharathKumarSuresh/claude-design-system-hooks: claude-cowork-free, claude-design-download, claude-design-free, claude-design-install, claude-design-installer, claude-design-alternative — same topic network → likely coordinated spam ring.",
+    "fast_path": null
+  },
+  {
+    "repo": "PlaceNL2026/best-of-algorithmic-trading",
+    "tier": "TIER-3",
+    "reason": "Out of scope: algorithmic trading curated list. Only matched keyword 'mcp' in topics but content is entirely trading/crypto-finance. Not Claude-Code-ecosystem. TIER-3 SKIP.",
+    "fast_path": null
+  }
+]

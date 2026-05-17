@@ -74,9 +74,9 @@ Return JSON-object inline to CEO (no file-write). CEO aggregates per-repo result
 3. **Note time-budget:** max 30 seconds per repo. If exceeded → emit partial with `time_exceeded: true, upgrade_decision: false`.
 4. **Run query 1:** `WebSearch "<owner>/<name>" reddit`
 5. **Early-stop check:** if query 1 yields ≥3 distinct-domain results → skip to Step 9 (signal strong enough)
-6. **Run query 2:** `WebSearch "<owner>/<name>" hackernews`
-7. **If still <3 distinct domains, run query 3** (refined per learnings 2026-05-10): `mcp__tavily__tavily_search "<owner>/<name>" review` — owner-prefix prevents product-name collisions
-8. **If still <3 distinct domains, run query 4** (most-productive per learnings): `mcp__tavily__tavily_search "<owner>/<name>" works`
+6. **Run query 2** (most-productive per learnings 2026-05-10, 4× confirmed): `mcp__tavily__tavily_search "<owner>/<name>" works` — consistently surfaces most distinct third-party domains; promoted from Q4-position
+7. **If still <3 distinct domains AND age_days ≥14, run query 3**: `WebSearch "<owner>/<name>" hackernews` — skip for age_days<14 (4× confirmed: HN never indexes repos under 2 weeks old; wastes time-budget)
+8. **If still <3 distinct domains, run query 4** (collision-safe per learnings 2026-05-10, 4× confirmed): `mcp__tavily__tavily_search "<owner>/<name>" review` — owner-prefix prevents product-name collisions
 9. **Per-result sentiment classification** (deterministic keyword-match, case-insensitive):
    - **POSITIVE** if snippet/title contains: `works well` · `I tried this` · `useful` · `recommend` · `love this` · `great tool` · `I'm using this`
    - **NEGATIVE** if snippet/title contains: `broken` · `doesn't work` · `scam` · `malicious` · `phishing` · `be careful` · `abandoned` · `buggy` · `outdated`
@@ -88,6 +88,7 @@ Return JSON-object inline to CEO (no file-write). CEO aggregates per-repo result
     - Owner's personal site (heuristic: domain matches owner-name pattern)
     - Owner-authored tweets/posts (heuristic: author-handle == owner-name OR owner cross-post pattern)
     - Owner's Substack/Medium/LinkedIn posts (Tier-Labels in URL+author)
+    - **Aggregator-domains** (3× confirmed, auto-index all repos without quality-testing): `glama.ai` · `uneed.best` · `aidose.app` · `githubtree.mgks.dev` · `smithery.ai` · `mcp.so` · `agentcrunch.ai` · `awesome-*` lists. Classify as NEUTRAL but do NOT count toward distinct-domain threshold. Warum: these are mechanical repo-catalogues, not community testimonials.
 11. **Apply upgrade decision rule** (binding):
     - UPGRADE TIER-2 → TIER-1 SAFE **ONLY IF ALL THREE**:
       - ≥2 distinct community-domains (different sites — NOT 2 results from same subreddit)

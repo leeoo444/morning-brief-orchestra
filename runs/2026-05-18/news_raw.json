@@ -1,0 +1,79 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases (GitHub Atom)",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.143",
+    "title": "Claude Code v2.1.143 (May 15) — plugin dependency enforcement, projected context cost in marketplace, worktree.bgIsolation setting, Opus 4.7 Fast Mode default (v2.1.142)",
+    "summary": "v2.1.143: plugin dependency enforcement, projected context cost to /plugin marketplace browse pane, worktree.bgIsolation:none setting. v2.1.142: Fast mode now uses Opus 4.7 by default, new claude agents flags (--add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort), plugins with root-level SKILL.md now surfaced as a skill.",
+    "published_at": "2026-05-15T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "plugin", "mcp", "agent"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases (GitHub Atom)",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.141",
+    "title": "Claude Code v2.1.141 (May 13) — terminalSequence hook field, ANTHROPIC_WORKSPACE_ID, claude agents --cwd, Rewind Summarize",
+    "summary": "v2.1.141: added terminalSequence field to hook JSON output for desktop notifications, ANTHROPIC_WORKSPACE_ID env var for workload identity federation, claude agents --cwd for scoping session list, Rewind menu 'Summarize up to here' option. v2.1.140: improved Agent tool subagent_type matching (case/separator-insensitive), updated agent color palette.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "release", "hook", "agent", "mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "VentureBeat",
+    "source_url": "https://venturebeat.com",
+    "item_url": "https://venturebeat.com/technology/anthropic-reinstates-openclaw-and-third-party-agent-usage-on-claude-subscriptions-with-a-catch",
+    "title": "Agent SDK Credits: Anthropic reinstates OpenClaw + third-party agents — draws from separate credit pool (effective June 15)",
+    "summary": "Anthropic reversed April ban on third-party agents (OpenClaw, etc.) by introducing 'Agent SDK credits' — a separate monthly pool per plan ($20 Pro / $100 Max 5x / $400 Max 20x). Starting June 15, OpenClaw draws from this pool, not interactive quota. Addresses capacity issues from unoptimized agents bypassing prompt caching.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["anthropic", "agent-sdk", "openclaw", "billing", "claude-code"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Multiple (pasqualepillitteri.it, apidog.com, latent.space)",
+    "source_url": "https://pasqualepillitteri.it/en/news/2494/claude-code-weekly-limits-50-percent-anti-codex-anthropic-2026",
+    "item_url": "https://pasqualepillitteri.it/en/news/2494/claude-code-weekly-limits-50-percent-anti-codex-anthropic-2026",
+    "title": "Claude Code weekly limits +50% through July 13, 2026 — competitive response to Codex",
+    "summary": "Anthropic raised Claude Code weekly limits by 50% through July 13 for Pro/Max/Team/Enterprise users. Third consecutive rate-limit improvement in 5 weeks (doubled 5-hour limits May 6 + removed peak hours + now weekly cap up). Explicit competitive move against OpenAI Codex.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "limits", "anthropic", "codex", "competitive"],
+    "engagement": {}
+  },
+  {
+    "source_type": "hn",
+    "source_name": "Hacker News",
+    "source_url": "https://news.ycombinator.com",
+    "item_url": "https://news.ycombinator.com/item?id=48130950",
+    "title": "Claude for Small Business — HN discussion (1 day ago)",
+    "summary": "HackerNews community discussing onboarding non-software-engineer teammates to Claude Code, which has enhanced their ability to automate tasks. Active thread on Claude Code usability for non-technical users.",
+    "published_at": "2026-05-17T00:00:00Z",
+    "tags_or_keywords": ["claude-code", "anthropic"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Zed Blog / GitHub Releases",
+    "source_url": "https://zed.dev/releases/stable",
+    "item_url": "https://zed.dev/releases/stable/1.1.5",
+    "title": "Zed 1.1.5 — fixed agent edits failing to apply, mouse cursor hide fix",
+    "summary": "Zed stable release 1.1.5 fixes agent edits failing to apply in some cases, mouse cursor incorrectly hiding when Unsaved edits prompt appeared or when clicking panel buttons with search bars.",
+    "published_at": "2026-05-17T00:00:00Z",
+    "tags_or_keywords": ["zed", "agent", "coding-ai"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Cursor Changelog",
+    "source_url": "https://www.cursor.com/changelog",
+    "item_url": "https://releasebot.io/updates/cursor",
+    "title": "Cursor Bugbot switches to usage-based billing for Teams/Individual, opt-in before June 8",
+    "summary": "Cursor switched Bugbot from seat-based to usage-based billing for Teams and Individual plans, removing seat fees and adding configurable effort levels for deeper PR reviews. Existing customers can opt in early; change takes effect at next renewal after June 8, 2026.",
+    "published_at": "2026-05-16T00:00:00Z",
+    "tags_or_keywords": ["cursor", "bugbot", "billing", "coding-ai"],
+    "engagement": {}
+  }
+]

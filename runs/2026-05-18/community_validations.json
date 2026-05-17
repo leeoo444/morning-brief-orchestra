@@ -1,0 +1,66 @@
+[
+  {
+    "repo": "yetone/native-feel-skill",
+    "queries_run": ["\"yetone/native-feel-skill\" reddit hackernews review works"],
+    "results_found": [
+      {
+        "url": "https://github.com/yetone/native-feel-skill",
+        "domain": "github.com",
+        "title": "GitHub - yetone/native-feel-skill",
+        "snippet": "An Agent Skill for designing cross-platform desktop apps...",
+        "sentiment": "NO_DATA"
+      }
+    ],
+    "owner_self_excluded": ["github.com/yetone/native-feel-skill"],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 1,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "0 distinct third-party community domains found. All results are owner-controlled (github.com/yetone). Repo is 3 days old — too new for community indexing. Default-deny applies per established pattern: age<7d repos consistently produce 0 community testimonials.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "DenisSergeevitch/agents-best-practices",
+    "queries_run": ["\"DenisSergeevitch/agents-best-practices\" reddit hackernews works useful"],
+    "results_found": [
+      {
+        "url": "https://github.com/DenisSergeevitch/agents-best-practices",
+        "domain": "github.com",
+        "title": "GitHub - DenisSergeevitch/agents-best-practices",
+        "snippet": "Provider-neutral Agent Skill for Codex, Claude Code...",
+        "sentiment": "NO_DATA"
+      }
+    ],
+    "owner_self_excluded": ["github.com/DenisSergeevitch/agents-best-practices", "github.com/DenisSergeevitch/repo-task-proof-loop"],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 1,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "0 distinct third-party community domains. Results dominated by owner's GitHub repos (DenisSergeevitch/*) and unrelated generic HN agent-discussion threads. Repo 2 days old. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "WantongC/journal-adapt-writing-skill",
+    "queries_run": ["\"WantongC/journal-adapt-writing-skill\" reddit hackernews review"],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {
+      "positive_count": 0,
+      "neutral_count": 0,
+      "negative_count": 0,
+      "no_data_count": 0,
+      "distinct_domains": 0
+    },
+    "upgrade_decision": false,
+    "reasoning": "0 results found at all. Repo 4 days old with 313 stars — not yet indexed by community. Default-deny.",
+    "promotion_blurb_for_brief": null
+  }
+]

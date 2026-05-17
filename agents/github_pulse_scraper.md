@@ -85,6 +85,9 @@ Write JSON-array to `<run_folder>/github_raw.json` AND return same content inlin
    - Name pattern `awesome-*` · `*-tutorial` · `*-example` · `*-demo`
    - Empty description AND empty topics (no-context = no-confidence)
    - Single-letter-org or known-spam orgs (heuristic: org-name no description)
+   - **Named exclusions** (recurrent false-positives, ≥3× confirmed across runs):
+     - `kerlos/pordee` — Thai-language chat app, keyword-matches `claude-code` but is Claude-Code-USER not Claude-Code-TOOL. Confirmed false-positive across Phase B (2026-05-10) + run-1 (2026-05-10) + run-2 (2026-05-12). Warum: non-English-UI chat apps matching single `claude-code` keyword are not Claude-Code-ecosystem tools.
+   - **Spam-cluster exclusion** (new 2026-05-18): if repo has ≥3 topics from set {`*-download`, `*-free`, `*-install`, `*-installer`, `*-alternative`, `*-cowork-free`} → TIER-3 SKIP (coordinated SEO topic-stuffing pattern). Also: numeric-only org username (e.g. `2508965-ship-it`) is strong spam signal → TIER-3 SKIP.
 9. **Cap at 50** — if >50 keyword-matches, take top-50 by stars.
 10. **Per-kept-repo metadata fetches** (2 calls each):
     ```bash

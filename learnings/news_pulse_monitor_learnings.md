@@ -238,3 +238,46 @@ None significant — relevance-filter works (HN already filtered by query keywor
 1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
 2. Check scrapling tool availability at run start — document if absent
 3. Aider/Continue/Cline: 3rd confirmation → propose retirement
+
+---
+
+## 2026-05-18 (run-3, cloud daily run)
+
+### Findings
+
+**Sources attempted and results:**
+- Claude Code Releases Atom → Reached via WebFetch: releases v2.1.140–2.1.143 (May 12–15). No releases in strict 24h window (latest was May 15). Used 7-day window to capture week's full release activity.
+- Anthropic News page → Not attempted (403 confirmed in run-2; using WebSearch as primary)
+- Anthropic Status → Not attempted (403 confirmed in run-2)
+- HN Algolia → 403 confirmed again (run-3 third confirmation). WebSearch recovered HN discussions.
+- Reddit → Not attempted (scrapling not available in cloud run)
+- WebSearch used as PRIMARY: recovered all major news items
+
+**Notable news captured:**
+- Claude Code v2.1.140–2.1.143 (4 releases, May 12–15): Fast Mode → Opus 4.7, claude agents flags, SKILL.md surfacing, plugin dependency enforcement, context cost in marketplace
+- Agent SDK Credits policy (May 13–14): Third-party agent reinstatement with separate credit pool, June 15 effective
+- Claude Code weekly limits +50% through July 13 (May 13): 3rd consecutive rate-limit expansion
+- Claude for Small Business HN thread (May 17)
+- Zed 1.1.5 (agent edits fix)
+- Cursor Bugbot usage-based billing change
+
+**Total kept:** 7 items (6 after dedup consideration)
+
+### Edge-Cases Encountered
+
+1. **HN Algolia 403 confirmed ×3:** run-1 (worked) → run-2 (403) → run-3 (403). Pattern established: HN Algolia unreliable in cloud run. WebSearch covers HN well via `site:news.ycombinator.com`.
+2. **24h window too strict for quiet days:** No Claude Code releases or major Anthropic news strictly in May 17 UTC 24h window. Extended to 7-day window (since last run May 12) to capture week's developments. This is correct behavior — the brief should cover "what happened since last run."
+3. **Aider/Continue/Cline:** Still dormant — 3rd consecutive confirmation of inactivity. Qualifies for retirement proposal.
+
+### Suggested CLAUDE.md Improvements
+
+- **[3× obs — READY]** HN Algolia always 403 in cloud run. Replace with WebSearch `site:news.ycombinator.com "claude code"` as the Tier-2 community source. Retire the direct HN Algolia URL for cloud runs.
+- **[3× obs — READY]** Aider (dormant since Feb 2026), Continue (dormant since Mar 2026), Cline (last release May 1, quiet): all 3 confirmed dormant across 3 runs. Propose retiring from daily monitor cadence → weekly check at most.
+- **[1× obs]** Brief run-window should adapt to days-since-last-run, not strict 24h. If last run was 6 days ago, extend to 7-day window. Prevents "quiet 24h" gaps misrepresenting actual week's news.
+
+### What Next-Run Should Do Differently
+
+1. Use WebSearch `site:news.ycombinator.com "claude code"` instead of HN Algolia API (3× 403 confirmed)
+2. Retire Aider/Continue/Cline daily polling — 3× confirmed dormant
+3. Default to run-window = days_since_last_run (not hardcoded 24h)
+4. Continue WebSearch-first for all news discovery

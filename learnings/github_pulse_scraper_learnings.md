@@ -156,3 +156,39 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-18 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** 613 total repos matching (>20 stars, created since 2026-05-11), 100 fetched.
+- **Keyword-match Yield:** 7 repos (5 from filter + 2 added post-filter for agent-skills: yetone/native-feel-skill + WantongC/journal-adapt-writing-skill)
+- **No official anthropics/ org repos in trending window:** curl org:anthropics created:>2026-05-11 returned []. First run without an official Anthropic org repo. (Observation: cwc-* repos from run-2 were event-driven; not a steady-state pattern.)
+- **Spam cluster detected ×2:** BharathKumarSuresh/claude-design-system-hooks + mikesheehan54/Claude-Code-Design-AI share IDENTICAL topic set including claude-cowork-free, claude-design-download, claude-design-free, claude-design-install, claude-design-installer. Both repo authors pushed within 10-15 minutes of creation = near-zero development activity. **First confirmation of coordinated spam-cluster pattern.**
+- **kerlos/pordee:** Absent from this run's bulk results. Exclusion not needed this run, but exclusion-rule correctly in place.
+
+### Edge-Cases Encountered
+
+- **Agent Skills repos not caught by keyword filter:** yetone/native-feel-skill (description = "Agent Skill for..." but no 'claude', 'anthropic', 'mcp' keyword) and WantongC/journal-adapt-writing-skill (matched via `claude` topic but not description keyword). Post-filter addition required. Suggests adding "agent-skill" OR "agent-skills" as required-keyword.
+- **GitHub API rate-limit confirmed again (3rd run):** Unauthenticated per-repo metadata returns null for contributors/closed-issues. Cloud runs consistently hit this wall. Bulk search fields sufficient for classification.
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`PlaceNL2026/best-of-algorithmic-trading`** ⭐214 — only has `mcp` topic but content is algorithmic trading. 1st occurrence of `mcp` false-positive on trading repos.
+- **BharathKumarSuresh/claude-design-system-hooks + mikesheehan54/Claude-Code-Design-AI** — spam cluster (coordinated SEO topic-stuffing). **1st confirmed spam-cluster pattern across 2 repos in same network.**
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[1× obs — NEW PATTERN]** Spam-cluster detection: when ≥2 repos in same trending window share ≥5 identical topics from a "download/free/install/installer/alternative" set → flag entire cluster as TIER-3 SPAM, don't validate individually.
+- **[1× obs]** Add "agent-skill" OR "agent-skills" as explicit required-keyword to catch yetone/native-feel-skill class — Agent Skills repos often don't mention "claude" in description but are clearly Claude-Code-ecosystem.
+- **[2× obs]** Official `anthropics/` org fast-path: run-2 (2 repos) + observation this run (absent but noteworthy). Not 3× yet — pattern is "occurs when Anthropic runs events". Hold.
+- **[1× obs]** `mcp` topic matched algorithmic trading list. Consider requiring "mcp" keyword to co-occur with "claude" OR "anthropic" OR "model-context-protocol" in description/name, not just topics.
+
+### What Next-Run Should Do Differently
+
+- Add "agent-skill" OR "agent-skills" as a required-keyword in the filter to catch Agent Skills ecosystem repos that don't use 'claude/anthropic/mcp' in description.
+- Watch for spam-cluster pattern recurrence (coordinated topic stuffing + zero dev activity within same day) — 1× observed today.
+- Watch `codex` keyword for 2nd false-positive if OpenAI Codex repos reappear.
+- GitHub unauthenticated API: confirmed pattern (run-2, run-3). Accept null for contributors/closed_issues in cloud runs; use only bulk fields.
