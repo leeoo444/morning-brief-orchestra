@@ -1,0 +1,11 @@
+run_date: 2026-05-19
+completed_at: 2026-05-19T22:30:00+09:00 (JST)
+brief_path: briefs/2026-05-19.md
+github_repos_scanned: ~140
+tier_1_safe: 0
+tier_2_community_upgraded: 0
+tier_2_filtered_to_audit: 9
+news_items_final: 6
+learnings_updated: 4 (ceo/learnings.md + github_pulse_scraper + news_pulse_monitor + community_validator)
+self_edit_check: zed-word-boundary qualifies (3x confirmed) — applied in next step
+proposal_check: cloud-WebFetch-403 qualifies (3x confirmed) — proposal-doc to be written

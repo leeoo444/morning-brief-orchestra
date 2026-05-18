@@ -1,0 +1,36 @@
+{
+  "run_date": "2026-05-19",
+  "total_scanned": 140,
+  "genuine_keyword_matches": 9,
+  "false_positives_filtered": {
+    "count": 11,
+    "examples": [
+      {"repo": "gi-dellav/zerostack", "reason": "false-positive: 'zed' substring in 'optimized', not Zed IDE"},
+      {"repo": "cdanielc293/Jenny-Mod-All-Versions", "reason": "false-positive: 'mcp' = Minecraft Custom Protocol, not MCP"},
+      {"repo": "Doorman11991/smallcode", "reason": "false-positive: 'zed' substring in 'optimized'"},
+      {"repo": "SzeDaSa/Tomodachi-Share-Mii", "reason": "false-positive: 'zed' substring, Nintendo game tool"},
+      {"repo": "BharathKumarSuresh/claude-design-system-hooks", "reason": "TIER-3: no license + 'Free Install' spam pattern + 0 forks"},
+      {"repo": "2508965-ship-it/harmonist-orchestral", "reason": "TIER-3: no license + 0 forks + numeric-prefix username pattern"},
+      {"repo": "mikesheehan54/Claude-Code-Design-AI", "reason": "TIER-3: 0 forks + same suspicious pattern cluster as above"},
+      {"repo": "AbhishekK130804/Claude-Mythos-AI-Anthropic-App", "reason": "TIER-3: 'free download' spam language"},
+      {"repo": "haidang1810/md2html", "reason": "not Claude-Code-ecosystem tool"},
+      {"repo": "keerthanapranesh/Claude-Code-Swarm-Toolkit", "reason": "TIER-3: 'ZeroClaw Master 2026' + 'Ultimate' spam pattern"},
+      {"repo": "kerlos/pordee", "reason": "named-exclusion: Thai chat-app, 3× confirmed false-positive"}
+    ]
+  },
+  "tier_1_safe": [],
+  "tier_1_official_org": [],
+  "tier_2_needs_review": [
+    {"repo": "DenisSergeevitch/agents-best-practices", "stars": 812, "age_days": 3, "reason": "age_days=3 < 30"},
+    {"repo": "smithersai/claude-p", "stars": 288, "age_days": 5, "reason": "age_days=5 < 30; license=null"},
+    {"repo": "Callous-0923/agent-study", "stars": 265, "age_days": 4, "reason": "age_days=4 < 30"},
+    {"repo": "Siigari/claude-heartbeat", "stars": 162, "age_days": 6, "reason": "age_days=6 < 30; license=null"},
+    {"repo": "luoling8192/technical-writing", "stars": 141, "age_days": 5, "reason": "age_days=5 < 30; license=null; non-EN"},
+    {"repo": "AIchovy/vibe-observer", "stars": 93, "age_days": 4, "reason": "age_days=4 < 30; license=null"},
+    {"repo": "johunsang/semble_rs", "stars": 91, "age_days": 5, "reason": "age_days=5 < 30; license=null"},
+    {"repo": "wanghuan9/skill-manager", "stars": 89, "age_days": 6, "reason": "age_days=6 < 30; license=null"},
+    {"repo": "EliasOulkadi/shokunin", "stars": 78, "age_days": 6, "reason": "age_days=6 < 30"}
+  ],
+  "tier_3_skip": ["BharathKumarSuresh/claude-design-system-hooks","2508965-ship-it/harmonist-orchestral","mikesheehan54/Claude-Code-Design-AI","AbhishekK130804/Claude-Mythos-AI-Anthropic-App","keerthanapranesh/Claude-Code-Swarm-Toolkit"],
+  "note": "GitHub API rate-limited (unauthenticated cloud run). Per-repo contributor + closed-issues counts unavailable. Bulk search fields used for classification. Pattern: all trending repos age < 8 days → age_days < 30 threshold is binding constraint for all."
+}

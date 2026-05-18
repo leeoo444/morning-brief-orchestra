@@ -392,3 +392,31 @@ last_curated: 2026-05-10
 
 ### Cross-run Note
 - mirage + NirDiamant_Agent_Memory: reused 2026-05-10 validations (48h stale). Pattern: repos validated within last 7 days can safely skip re-validation in next run — no new community data will have emerged for age<14d repos.
+
+---
+
+## 2026-05-19 (CEO-batch summary — run-3, cloud daily run)
+
+- Total TIER-2 repos validated: 5 (DenisSergeevitch/agents-best-practices, smithersai/claude-p, Siigari/claude-heartbeat, EliasOulkadi/shokunin, wanghuan9/skill-manager)
+- Upgraded to TIER-1: 0
+- Stayed TIER-2: 5
+- Query-count: 1-2 WebSearch per repo (Tavily unavailable in cloud context)
+- **Pattern confirmed ×5:** All 5 repos age 3–6 days → zero POSITIVE independent community testimonials. Default-deny correctly applied all 5.
+
+### New Edge-Cases Observed
+
+1. **wanghuan9/skill-manager appeared in anthropics/skills GitHub issue:** Issue #204 in the official `anthropics/skills` repo listed this skill manager as a community contribution. This is encouraging for legitimacy but is a submission/listing, NOT a community testimonial ("works well", "I tried", etc.). NEUTRAL per upgrade rule. **New pattern: official-Anthropic-org-issue as listing ≠ community-testimonial.** Confirmation count: 1. Hold for ≥3×.
+
+2. **Siigari/claude-heartbeat listed in awesome-claude-code:** Found in `hesreallyhim/awesome-claude-code` issue list and composio.dev toolkits. Both are aggregator/curated-list entries (NEUTRAL). Same aggregator-domain pattern from run-1 (glama.ai, uneed.best). Confirmation for aggregator-≠-community: **now ≥4×**. Aggregator-auto-exclusion rule is well-confirmed.
+
+3. **DenisSergeevitch/agents-best-practices ⭐812 in 3 days:** Very high star velocity for an agent skills collection. No community reviews found yet — but `npx skills add DenisSergeevitch/agents-best-practices -g` install pattern suggests this is getting traction. Worth re-validating at +14 days (May 26) when testimonials may emerge.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[1× obs]** Official anthropics/skills GitHub issue listing ≠ community testimonial. If this recurs (repo submitted to anthropics/skills gets listed there), classification should remain NEUTRAL. Confirmation: 1. Hold.
+- **[≥4× obs — READY]** Aggregator-domain auto-exclusion: glama.ai, composio.dev, smithery.ai, uneed.best, githubtree, agentcrunch, awesome-claude-code curated lists — all NEUTRAL-only. These should be auto-excluded from POSITIVE counting (same as owner-self). Confirmation count: 4+.
+
+### What Next-Run Should Do Differently
+
+1. Consider adding a "re-validate watchlist" for repos validated at age<7d with high star velocity (>200★ in 3d) — they merit a 14-day re-check when testimonials can emerge.
+2. Aggregator-auto-exclusion: apply in counting (confirmed ×4+). These should be excluded from distinct-domain count the same way owner-self is excluded.

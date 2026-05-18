@@ -77,7 +77,7 @@ Write JSON-array to `<run_folder>/github_raw.json` AND return same content inlin
    - `claude-code` · `claude-skills` · `claude-skill` · `claude-agent` · `claude-agents`
    - `mcp-server` · `mcp` · `model-context-protocol` · `anthropic`
    - `claude-plugin` · `claude-plugins` · `claude-cli` · `claude-desktop`
-   - Coding-AI-Tool names (track separately, included if recently-active): `cursor-rules` · `cline` · `aider-chat` · `continue-dev` · `cody` · `codex-cli` · `zed`
+   - Coding-AI-Tool names (track separately, included if recently-active): `cursor-rules` · `cline` · `aider-chat` · `continue-dev` · `cody` · `codex-cli` · `\bzed\b` (**word-boundary required** — substring "zed" in "optimized"/"standardized" produced 3 false-positives in run-3 2026-05-19)
    - **Optional context-keywords** (boost score if also present, NOT required): `agent` · `llm` · `ai-coding` · `coding-assistant` · `ai-agent` · `autonomous`
 8. **Apply exclusion-list** — drop:
    - Forks (`fork: true`)
@@ -85,6 +85,9 @@ Write JSON-array to `<run_folder>/github_raw.json` AND return same content inlin
    - Name pattern `awesome-*` · `*-tutorial` · `*-example` · `*-demo`
    - Empty description AND empty topics (no-context = no-confidence)
    - Single-letter-org or known-spam orgs (heuristic: org-name no description)
+   - **Named exclusions:** `kerlos/pordee` (Thai chat-app, 3× confirmed false-positive 2026-05-10/12/19)
+   - **Topic exclusions for `mcp` keyword:** repos with topics containing `minecraft`, `mcmod`, `jennymod`, `mcpack`, `forge-mod` (Minecraft ecosystem uses "mcp" as Minecraft Custom Protocol — 1× obs run-3 2026-05-19)
+   - **Spam-language filter:** repos with description containing "Free Install" + "Bundle 2026" + forks=0 AND stars>100 → flag for manual review (1× obs run-3; not yet auto-TIER-3, monitoring)
 9. **Cap at 50** — if >50 keyword-matches, take top-50 by stars.
 10. **Per-kept-repo metadata fetches** (2 calls each):
     ```bash

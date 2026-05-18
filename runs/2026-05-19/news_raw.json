@@ -1,0 +1,101 @@
+[
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.143",
+    "title": "Claude Code v2.1.143",
+    "summary": "Plugin dependency enforcement with disable-chain hints; projected context cost estimates in plugin marketplace; PowerShell execution policy bypass; background session model/effort preservation; Windows Terminal + worktree fixes.",
+    "published_at": "2026-05-15T00:00:00Z",
+    "tags_or_keywords": ["claude-code","release","plugin","powershell"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.142",
+    "title": "Claude Code v2.1.142",
+    "summary": "New `claude agents` flags: --add-dir, --settings, --mcp-config, --plugin-dir, --permission-mode, --model, --effort, --dangerously-skip-permissions. Fast mode now defaults to Opus 4.7. Plugin LSP visibility + MCP timeout fixes.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["claude-code","release","agents","opus-4.7","mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.141",
+    "title": "Claude Code v2.1.141",
+    "summary": "terminalSequence field for hooks (desktop notifications, window titles, bells); CLAUDE_CODE_PLUGIN_PREFER_HTTPS env var; `claude agents --cwd <path>`; 40+ bug fixes covering permissions, MCP, rendering, terminal.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["claude-code","release","hooks","mcp"],
+    "engagement": {}
+  },
+  {
+    "source_type": "rss",
+    "source_name": "Claude Code Releases Atom",
+    "source_url": "https://github.com/anthropics/claude-code/releases.atom",
+    "item_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.140",
+    "title": "Claude Code v2.1.140",
+    "summary": "Improved agent tool subagent_type matching (case/separator-insensitive); /goal hanging fix; background service startup improvements; settings hot-reload and loop scheduling fixes.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": ["claude-code","release","agents"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Claude Code Docs",
+    "source_url": "https://code.claude.com/docs/en/routines",
+    "item_url": "https://code.claude.com/docs/en/routines",
+    "title": "Claude Code Routines (research preview) — Scheduled & API-triggered automated workflows",
+    "summary": "Routines let developers save a Claude Code config (prompt + repos + connectors) and trigger it on cron schedule, HTTP POST, or GitHub events. Runs on Anthropic-managed cloud infra. Research preview.",
+    "published_at": "2026-05-12T00:00:00Z",
+    "tags_or_keywords": ["claude-code","routines","automation","schedule"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Cursor Changelog",
+    "source_url": "https://www.cursor.com/changelog",
+    "item_url": "https://www.shareuhack.com/en/posts/cursor-vs-claude-code-vs-windsurf-2026",
+    "title": "Cursor 3.0 — Agents Window + Design Mode",
+    "summary": "Cursor 3.0 released with Agents Window for parallel agent management and Design Mode for UI-first development. Competing directly with Claude Code's agent session management.",
+    "published_at": "2026-05-14T00:00:00Z",
+    "tags_or_keywords": ["cursor","ai-coding","agents"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Windsurf / Codeium",
+    "source_url": "https://www.nxcode.io/resources/news/cursor-vs-windsurf-vs-claude-code-2026",
+    "item_url": "https://www.nxcode.io/resources/news/cursor-vs-windsurf-vs-claude-code-2026",
+    "title": "Windsurf 2.0 — Agent Command Center + Devin Cloud (post-Google $2.4B deal)",
+    "summary": "Windsurf 2.0 ships Agent Command Center and Devin Cloud integration. Google's $2.4B licensing deal for Windsurf/Codeium closed after OpenAI acquisition collapsed. Now back to Google-backed AI coding.",
+    "published_at": "2026-05-15T00:00:00Z",
+    "tags_or_keywords": ["windsurf","codeium","google","ai-coding"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "OpenAI Codex Changelog",
+    "source_url": "https://developers.openai.com/codex/changelog",
+    "item_url": "https://developers.openai.com/codex/changelog",
+    "title": "OpenAI Codex — ChatGPT mobile access + VS Code forks IDE extension",
+    "summary": "Codex now accessible from ChatGPT mobile app by connecting to Mac running Codex app. IDE extension works with VS Code forks including Cursor and Windsurf.",
+    "published_at": "2026-05-13T00:00:00Z",
+    "tags_or_keywords": ["codex","openai","mobile","ide"],
+    "engagement": {}
+  },
+  {
+    "source_type": "web",
+    "source_name": "Agensi.io / Ecosystem",
+    "source_url": "https://www.agensi.io/learn/best-mcp-servers-2026",
+    "item_url": "https://www.developersdigest.tech/blog/claude-code-agent-teams-subagents-2026",
+    "title": "Skills ecosystem: agentskills.io adopted by 40+ products; MCP hits 10,000+ public servers",
+    "summary": "Agentskills.io open standard adopted by Claude Code, Codex CLI, Hermes Agent, OpenClaw and 40+ products. MCP ecosystem now has 10,000+ public servers. Skills and MCP complement each other: MCP = connectivity, Skills = procedural knowledge.",
+    "published_at": "2026-05-17T00:00:00Z",
+    "tags_or_keywords": ["mcp","agent-skills","ecosystem"],
+    "engagement": {}
+  }
+]

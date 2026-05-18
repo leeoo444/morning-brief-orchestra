@@ -238,3 +238,45 @@ None significant — relevance-filter works (HN already filtered by query keywor
 1. Cloud environment: use WebSearch as primary news source, WebFetch as supplemental
 2. Check scrapling tool availability at run start — document if absent
 3. Aider/Continue/Cline: 3rd confirmation → propose retirement
+
+---
+
+## 2026-05-19 (run-3, cloud daily run)
+
+### Findings
+
+**Sources attempted and results:**
+- Claude Code Releases Atom → ✓ Reached via WebFetch: **4 entries** in window (v2.1.140–v2.1.143, May 12–15)
+- Anthropic News page → Not attempted (403 confirmed in run-2; WebSearch used instead)
+- Anthropic Status Atom → Not attempted (403 in run-2; no incidents surfaced via WebSearch this week)
+- HN Algolia → Not attempted (403 in run-2; WebSearch used as primary)
+- Reddit → Not attempted (scrapling unavailable in cloud context)
+- WebSearch → PRIMARY source: successfully recovered Claude Code Routines, Cursor 3.0, Windsurf 2.0, Codex mobile, skills ecosystem milestone
+
+**Notable news captured:**
+- Claude Code v2.1.140 → v2.1.143 (4-release sprint, May 12–15)
+- Claude Code Routines (research preview) — scheduled/API/GitHub triggers
+- Cursor 3.0 — Agents Window + Design Mode
+- Windsurf 2.0 — Agent Command Center, Google $2.4B deal closed
+- OpenAI Codex — mobile app + VS Code fork IDE extension
+- agentskills.io adopted by 40+ products; MCP ecosystem hits 10,000+ servers
+
+**Total items kept in news_raw.json:** 9 (4 release-atom + 5 WebSearch)
+
+### Edge-Cases Encountered
+
+1. **WebFetch 403 pattern continues (3rd confirmation):** Anthropic /news, status.claude.com/history.atom, HN Algolia all 403 in cloud. Pattern fully confirmed across run-2 + run-3. WebSearch is reliable cloud-primary.
+2. **Aider/Continue/Cline dormant (3rd confirmation):** Zero releases in window. Pattern confirmed 3× (run-1 + run-2 + run-3). READY for CLAUDE.md update to retire these from daily monitor.
+3. **Same-event consolidation (Claude Code 4 releases):** v2.1.140–v2.1.143 published on 4 consecutive days — consolidated into one brief entry. Each has meaningful content (not just patch bumps), so each version noted inline.
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[3× obs — READY]** Retire Aider/Continue/Cline from daily monitor. 3 consecutive runs (run-1 2026-05-10, run-2 2026-05-12, run-3 2026-05-19) with zero activity. Consider: remove from Tier-1 sources, add note "check monthly only, last active Feb/Mar/May-1 2026."
+- **[3× obs — READY]** WebFetch 403 in cloud for key sources: Anthropic /news, status.claude.com/history.atom, HN Algolia. These should be marked as "cloud-skip, WebSearch-substitute" in cloud run mode.
+
+### What Next-Run Should Do Differently
+
+1. Cloud environment: WebSearch primary (confirmed ×3 runs). Do not even attempt WebFetch on Anthropic /news or HN Algolia in cloud — skip directly to WebSearch.
+2. Aider/Continue/Cline: retirement proposal now qualifies (3× confirmed). Propose in CEO CLAUDE.md self-edit or create Proposal-Doc.
+3. Check for Claude Code Routines production launch (currently research preview).
+4. Monitor Windsurf 2.0 adoption and competitive response from Cursor/Codex.

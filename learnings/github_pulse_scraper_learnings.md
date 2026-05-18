@@ -2,7 +2,7 @@
 type: agent_learnings_ace
 agent: github_pulse_scraper
 schema_version: 1.0
-last_curated: 2026-05-12
+last_curated: 2026-05-19
 ---
 
 # Insights (ACE-structured — read top-3 active by helpful_count DESC at Process Step 2)
@@ -156,3 +156,44 @@ last_curated: 2026-05-12
 ### Meta-Learning for Future Self
 
 - **Official org fast-path needed:** When `anthropics/` org repos appear in trending, they should not need to wait 30 days to become TIER-1. These are official Anthropic-published materials. CEO should apply org-trust rule.
+
+---
+
+## 2026-05-19 (run-3, cloud daily run)
+
+### Findings
+
+- **Trending Search Volume:** GitHub unauthenticated bulk search returned 731 total repos (stars>20, created>2026-05-11), 100 fetched.
+- **Targeted claude-code search:** 40 additional repos matched via `claude-code` topic keyword search.
+- **Genuine Claude-Code-ecosystem keyword-matches:** 9 (after filtering false-positives).
+- **Notable finds:** DenisSergeevitch/agents-best-practices ⭐812 (provider-neutral Agent Skill, very high stars for 3-day-old repo); EliasOulkadi/shokunin ⭐78 (62 skills collection); Siigari/claude-heartbeat ⭐162 (heartbeat hook pattern).
+- **No anthropics/ org repos in trending window** (org search returned 0 results — no new official Anthropic repos this week).
+
+### Edge-Cases Encountered
+
+- **`zed` keyword false-positive (confirmed pattern):** "zed" as substring of "optimized" matched gi-dellav/zerostack, Doorman11991/smallcode, SzeDaSa/Tomodachi-Share-Mii. All three are NOT Zed IDE related. This is the `zed` keyword substring-collision pattern — **3 false-positives in one run.** Needs keyword-filter fix: require `zed` to appear as standalone word in name/description, NOT as substring of "optimized".
+- **Minecraft `mcp` false-positive:** cdanielc293/Jenny-Mod-All-Versions matched `mcp` keyword — but it's a Minecraft mod where `mcp` = Minecraft Custom Protocol. **New false-positive class (1st obs).**
+- **GitHub API rate-limit:** Unauthenticated per-repo metadata (contributors, closed-issues) still unavailable. Bulk search fields used. Consistent with run-2 learning.
+
+### False-Positives (keyword-matched but irrelevant)
+
+- **`zed` in `optimized`** — 3 repos (zerostack, smallcode, Tomodachi-Share-Mii). Pattern now **3× confirmed across runs** (previously observed as 1× in other contexts, now 3 in same run). READY for keyword filter fix.
+- **`mcp` in Minecraft tooling** — cdanielc293/Jenny-Mod-All-Versions ⭐568. First observation of Minecraft false-positive class.
+- **Spam pattern cluster** — BharathKumarSuresh, 2508965-ship-it, mikesheehan54, AbhishekK130804, keerthanapranesh — all show 0 forks + high stars + "Free Install" / "Ultimate Bundle" / "ZeroClaw Master" language. These are SEO spam repos inflating stars. **First clear observation of this spam pattern at scale.**
+
+### Suggested CLAUDE.md Improvements (apply after 3× confirmation)
+
+- **[≥3× obs — READY]** `zed` keyword must require word-boundary match: `\bzed\b` in name/description/topics — NOT substring match. Catches "optimized", "standardized", etc. as false-positives. Observed 3× in this single run alone.
+- **[1× obs]** `mcp` keyword in Minecraft context: repos with topics containing `minecraft`, `mcmod`, `jennymod`, `mcpack` should be excluded. Add Minecraft-topic exclusion to exclusion-list.
+- **[1× obs]** Spam pattern detection: repos with stars > 200, forks = 0, description containing "Free Install" / "Ultimate" / "Bundle 2026" + no license → auto-TIER-3. Currently caught by no-license+single-author+age<14d rule, but the spam-language pattern could be explicit.
+
+### What Next-Run Should Do Differently
+
+- Apply `\bzed\b` word-boundary fix to keyword filter (3× confirmed this run).
+- Add Minecraft topic exclusion for `mcp` false-positive class.
+- Watch for anthropics/ org repos (0 found this run; run-2 had 2 — pattern unclear).
+- Continue bulk search approach for cloud runs (per-repo metadata still unavailable).
+
+### Meta-Learning for Future Self
+
+- **`zed` keyword is the new `kerlos/pordee`:** It's the most persistent false-positive source this run. The fix (word-boundary) is simple and should be applied to `cursor-rules`, `cline`, `aider-chat`, `continue-dev`, `cody`, `codex-cli`, `zed` all — they can all substring-match into common English words.

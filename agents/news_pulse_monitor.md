@@ -66,13 +66,13 @@ Per-source-error format: `{"source_name": "...", "error": "...", "items": []}` (
    - Anthropic Status Atom: `WebFetch https://status.claude.com/history.atom` (NOT status.anthropic.com — 302→canonical)
    - @AnthropicAI X via nitter: `mcp__scrapling__stealthy_fetch https://nitter.net/AnthropicAI`
 6. **Tier-1 fetch (Coding-AI competitors):**
-   - Cline: `WebFetch https://github.com/cline/cline/releases.atom`
-   - Aider: `WebFetch https://github.com/Aider-AI/aider/releases.atom`
-   - Continue: `WebFetch https://github.com/continuedev/continue/releases.atom`
+   - ~~Cline: `WebFetch https://github.com/cline/cline/releases.atom`~~ **RETIRED 2026-05-19** — 3 consecutive runs (run-1/2/3) zero activity since May 2026-05-01 release. Check quarterly only.
+   - ~~Aider: `WebFetch https://github.com/Aider-AI/aider/releases.atom`~~ **RETIRED 2026-05-19** — dormant since Feb 2026, 3× confirmed. Check quarterly only.
+   - ~~Continue: `WebFetch https://github.com/continuedev/continue/releases.atom`~~ **RETIRED 2026-05-19** — dormant since March 2026, 3× confirmed. Check quarterly only.
    - Cody (Sourcegraph): `WebFetch https://sourcegraph.com/blog/rss.xml`
    - Codex CLI: `WebFetch https://github.com/openai/codex/releases.atom`
    - Zed: `WebFetch https://zed.dev/blog/feed.xml`
-   - Cursor changelog: `mcp__scrapling__stealthy_fetch https://www.cursor.com/changelog` (Cloudflare-protected)
+   - Cursor changelog: `mcp__scrapling__stealthy_fetch https://www.cursor.com/changelog` (Cloudflare-protected; fallback: WebSearch "Cursor changelog YYYY-MM" in cloud)
 7. **Tier-2 fetch (Community):**
    - HN Algolia "claude code": `WebFetch https://hn.algolia.com/api/v1/search_by_date?query=claude+code&tags=story&numericFilters=created_at_i>{ts_24h_ago}` — use **search_by_date** not search (search ignores time-filter)
    - HN Algolia "MCP": same endpoint with query=MCP — apply word-boundary `\bMCP\b` post-filter (avoid "map" / "mcpu" false-positives)

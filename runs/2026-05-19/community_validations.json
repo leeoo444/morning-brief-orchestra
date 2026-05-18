@@ -1,0 +1,64 @@
+[
+  {
+    "repo": "DenisSergeevitch/agents-best-practices",
+    "queries_run": ["\"DenisSergeevitch/agents-best-practices\" reddit hackernews review", "\"DenisSergeevitch/agents-best-practices\" works useful tried recommend"],
+    "results_found": [
+      {"url": "https://github.com/DenisSergeevitch/agents-best-practices", "domain": "github.com", "title": "GitHub page", "snippet": "Provider-neutral Agent Skill for Codex, Claude Code, and agentic harness design", "sentiment": "NO_DATA"},
+      {"url": "https://www.augmentcode.com/blog/how-to-write-good-agents-dot-md-files", "domain": "augmentcode.com", "title": "A good AGENTS.md is a model upgrade", "snippet": "General article about AGENTS.md best practices — does not specifically review this repo", "sentiment": "NO_DATA"}
+    ],
+    "owner_self_excluded": ["github.com/DenisSergeevitch/agents-best-practices"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 2, "distinct_domains": 0},
+    "upgrade_decision": false,
+    "reasoning": "0 distinct third-party community domains with repo-specific mentions. Only GitHub owner page + generic best-practices article (no repo mention). Repo is 3 days old — too new for independent user testimonials. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "Siigari/claude-heartbeat",
+    "queries_run": ["\"Siigari/claude-heartbeat\" OR \"claude-heartbeat\" claude code hook review"],
+    "results_found": [
+      {"url": "https://composio.dev/toolkits/heartbeat/framework/claude-code", "domain": "composio.dev", "title": "Heartbeat MCP Integration with Claude Code", "snippet": "Composio toolkit listing for heartbeat — aggregator listing", "sentiment": "NEUTRAL"},
+      {"url": "https://github.com/hesreallyhim/awesome-claude-code/issues/993", "domain": "github.com", "title": "TinMan - Heartbeat for Claude Code awesome-claude-code issue", "snippet": "Listed in awesome-claude-code curated list — meta-aggregator listing", "sentiment": "NEUTRAL"}
+    ],
+    "owner_self_excluded": ["github.com/Siigari/claude-heartbeat"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 2, "negative_count": 0, "no_data_count": 0, "distinct_domains": 2},
+    "upgrade_decision": false,
+    "reasoning": "2 distinct non-owner domains found (composio.dev, github.com/awesome-claude-code) but both are NEUTRAL aggregator/curated-list entries — 0 POSITIVE keyword matches (no 'works well', 'I tried', 'useful', 'recommend', 'love', 'great tool', 'I'm using'). Per upgrade rule: needs ≥2 distinct POSITIVE domains. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "EliasOulkadi/shokunin",
+    "queries_run": ["\"EliasOulkadi/shokunin\" 62 agent skills claude code review"],
+    "results_found": [
+      {"url": "https://github.com/EliasOulkadi/shokunin", "domain": "github.com", "title": "GitHub repo", "snippet": "62 AI agent skills for OpenCode, Claude Code, Cursor, Windsurf", "sentiment": "NO_DATA"},
+      {"url": "https://github.com/VoltAgent/awesome-agent-skills", "domain": "github.com", "title": "awesome-agent-skills curated list", "snippet": "1000+ agent skills collection — aggregator listing", "sentiment": "NEUTRAL"}
+    ],
+    "owner_self_excluded": ["github.com/EliasOulkadi/shokunin"],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 1, "negative_count": 0, "no_data_count": 1, "distinct_domains": 1},
+    "upgrade_decision": false,
+    "reasoning": "Only 1 distinct non-owner domain (github.com/awesome-agent-skills — aggregator listing). Fails ≥2-distinct-domains gate. 0 POSITIVE keyword matches. Repo is 6 days old. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "smithersai/claude-p",
+    "queries_run": ["smithersai/claude-p OR \"claude -p\" tool review reddit 2026"],
+    "results_found": [],
+    "owner_self_excluded": [],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 0, "negative_count": 0, "no_data_count": 0, "distinct_domains": 0},
+    "upgrade_decision": false,
+    "reasoning": "0 search results found. Zero community presence indexed yet. Repo is 5 days old. Default-deny.",
+    "promotion_blurb_for_brief": null
+  },
+  {
+    "repo": "wanghuan9/skill-manager",
+    "queries_run": ["wanghuan9/skill-manager SkillDock claude mcp manager review"],
+    "results_found": [
+      {"url": "https://smithery.ai/skills/shredbx/claude-skill-manager", "domain": "smithery.ai", "title": "claude-skill-manager Smithery listing", "snippet": "Smithery marketplace listing — aggregator", "sentiment": "NEUTRAL"},
+      {"url": "https://github.com/anthropics/skills/issues/204", "domain": "github.com", "title": "skill-manager: 31,767+ skills discovery, issue #204 anthropics/skills", "snippet": "Listed in official Anthropic skills repo as community contribution — curated listing", "sentiment": "NEUTRAL"}
+    ],
+    "owner_self_excluded": [],
+    "sentiment_summary": {"positive_count": 0, "neutral_count": 2, "negative_count": 0, "no_data_count": 0, "distinct_domains": 2},
+    "upgrade_decision": false,
+    "reasoning": "2 distinct non-owner domains (smithery.ai aggregator + github.com/anthropics/skills issue = listing). Both NEUTRAL — no POSITIVE keyword-matches. Listing in anthropics/skills issue is encouraging but is curation/submission, not user testimonial. Default-deny.",
+    "promotion_blurb_for_brief": null
+  }
+]
